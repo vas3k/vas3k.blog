@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load text_filters %}
+{% load posts %}
+{% load paginator %}
+
+{% block title %}
+    {{ post_type_config.name }} — {{ settings.TITLE }}
+{% endblock %}
+
+{% block meta %}
+    <meta property="og:title" content="{{ post_type_config.name }} — {{ settings.TITLE }}" />
+    <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ post_type_config.name }} — {{ settings.TITLE }}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="cards-group cards-group-1x">
+        {% for post in posts %}
+            {% include "posts/cards/aspect.html" %}
+        {% endfor %}
+    </div>
+
+    {% paginator posts %}
+</div>
+{% endblock %}
+

@@ -1,0 +1,31 @@
+{% extends "posts/lists/layout.html" %}
+{% load static %}
+{% load text_filters %}
+{% load posts %}
+{% load paginator %}
+
+{% block body %}
+<div class="container">
+    {% for post_card_type, posts in post_blocks %}
+        {% if post_card_type == "posts/cards/vertical.html" %}
+            <div class="cards-group cards-group-3x">
+                {% for post in posts %}
+                    {% include "posts/cards/vertical.html" %}
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="cards-group cards-group-1x">
+                {% for post in posts %}
+                    {% include "posts/cards/horizontal.html" %}
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="clearfix50"></div>
+    {% endfor %}
+
+    <div class="container">
+        {% paginator posts %}
+    </div>
+</div>
+{% endblock %}
+

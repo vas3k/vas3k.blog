@@ -1,0 +1,24 @@
+{% load text_filters %}
+{% load comments %}
+
+<div class="comments">
+    {% if post.is_commentable or comments|length > 0 %}
+        <span class="header-2 comments-title">Комментарии 👇</span>
+    {% endif %}
+
+    <div class="comments-list" id="comments-list">
+        {% for comment in comments|without_inline_comments %}
+            {% include "comments/comment.html" %}
+        {% endfor %}
+    </div>
+</div>
+
+{% if post.is_commentable %}
+    {% if request.user.is_authenticated %}
+        {% include "comments/comment-form.html" %}
+    {% else %}
+        <div class="comments-form-login">
+            <a href="{% url "login" %}" class="button button-big">Войдите, чтобы написать комментарий</a>
+        </div>
+    {% endif %}
+{% endif %}

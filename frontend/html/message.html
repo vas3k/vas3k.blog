@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="container block message">
+        <div class="block-icon">✅</div>
+
+        {% if title %}
+            <div class="block-title">{{ title }}</div>
+        {% endif %}
+
+        <div class="block-description">
+            {{ message | safe }}
+        </div>
+    </div>
+{% endblock %}

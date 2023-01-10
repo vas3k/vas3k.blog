@@ -1,0 +1,18 @@
+<div class="inline-comments-form">
+    <form
+        hx-post="{% url "create_comment" %}"
+        hx-swap="outerHTML"
+        action="{% url "create_comment" %}"
+        method="post"
+        id="comments-form-{{ block }}"
+        accept-charset="utf-8"
+    >
+        {% csrf_token %}
+        <input type="hidden" name="post_slug" value="{{ post.slug }}">
+        <input type="hidden" name="block" value="{{ block }}">
+        <div class="inline-comments-form-inputs">
+            <textarea rows="2" name="text" class="inline-comments-form-textarea" id="inline-comment-text-{{ block }}" placeholder="Откомментировать прямо здесь..."  minlength="3" maxlength="10000" required></textarea>
+            <input type="submit" class="button inline-comments-form-submit" value="↵">
+        </div>
+    </form>
+</div>

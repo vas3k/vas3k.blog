@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load text_filters %}
+{% load posts %}
+{% load comments %}
+
+{% block title %}
+    {{ post.title }}{% if post.subtitle %} — {{ post.subtitle }}{% endif %} — {{ post_type_config.name }} {{ block.super }}
+{% endblock %}
+
+{% block body_class %}
+    {% if "body_class" in post.data %}{{ post.data.body_class }}{% endif %}
+{% endblock %}
+
+{% block body_styles %}
+    {% if "background_color" in post.data %}background-color: {{ post.data.background_color }};{% endif %}
+    {% if "color" in post.data %}color: {{ post.data.color }};{% endif %}
+{% endblock %}
+
+{% block meta %}
+    <meta name="robots" content="index, follow">
+    <meta property="author" content="{{ settings.AUTHOR }}">
+    <meta property="article:publisher" content="{{ request.scheme }}://{{ request.get_host }}">
+    <meta property="article:author" content="{{ request.scheme }}://{{ request.get_host }}">
+    <meta property="article:published_time" content="{{ post.published_at|date:'Y-m-d H:i:s' }}">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{ post.og_title }}" />
+    <meta property="og:description" content="{{ post.og_description }}" />
+    <meta property="og:image" content="{{ post.og_image }}" />
+    <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ post.og_title }}">
+    <meta name="twitter:description" content="{{ post.og_description }}">
+    <meta name="twitter:image" content="{{ post.og_image }}">
+    <meta name="twitter:image:src" content="{{ post.og_image }}">
+    <meta name="twitter:creator" content="{{ settings.AUTHOR }}">
+{% endblock %}
+
+{% block body %}
+<section class="content h-entry">
+    {% block headline %}
+        <div class="container container-width-full">
+            {% include "posts/full/headlines/headline-cover.html" %}
+        </div>
+    {% endblock %}
+
+    {% block post %}
+        <div class="container container-width-full h-entry">
+            <div class="post e-content">
+                {% show_post post %}
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block post_footer %}
+        <div class="container container-width-max">
+            {% include "common/post_footer.html" %}
+        </div>
+    {% endblock %}
+
+    {% block comments %}
+        <div class="container">
+            {% include "comments/comment-list.html" %}
+        </div>
+    {% endblock %}
+
+    {% block post_related %}
+        <div class="container container-width-full">
+            {% include "common/post_related.html" %}
+        </div>
+    {% endblock %}
+</section>
+{% endblock %}

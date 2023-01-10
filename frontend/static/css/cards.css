@@ -1,0 +1,177 @@
+.card {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    min-width: 300px;
+    min-height: 200px;
+    aspect-ratio: 3 / 2;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    -webkit-transition: all 0.1s linear;
+    box-shadow: 10px 10px 30px #CCC;
+    transition: all 0.5s;
+    transform: translateZ(0);
+    border-radius: 30px;
+}
+
+    .card:hover {
+        transform: scale(1.02);
+        transition: all 0.2s;
+    }
+
+    .card-stretch-img {
+        visibility: hidden;
+        width: 100%;
+        min-height: 270px;
+    }
+
+    .card-info {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        color: var(--opposite-text-color);
+        z-index: 20;
+        padding: 0 20px 40px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .card-views {
+        color: var(--opposite-text-color);
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 12px;
+    }
+
+    .card-icon-lock {
+        color: var(--opposite-text-color);
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 26px;
+    }
+
+        .card:hover .card-views,
+        .card:hover .card-icon-lock {
+            color: var(--text-color);
+        }
+
+    .card-title {
+        font-size: 200%;
+        display: inline;
+        margin-top: 10px;
+        font-weight: 500;
+        line-height: 1.3em;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        background-color: var(--block-bg-color);
+        color: var(--text-color);
+        padding: 5px 10px;
+        box-sizing: border-box;
+        transition: all 0.5s;
+    }
+
+        .card:hover .card-title {
+            background-color: #333;
+            color: var(--opposite-text-color);
+            transition: all 0.3s;
+        }
+
+    .card-subtitle {
+        font-size: 130%;
+        display: inline;
+        margin-top: 10px;
+        font-weight: 400;
+        clear: both;
+        padding: 3px 10px;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        background-color: var(--block-bg-color);
+        color: var(--text-color);
+        line-height: 1.3em;
+        transition: all 0.5s;
+    }
+
+        .card:hover .card-subtitle {
+            background-color: #333;
+            color: var(--opposite-text-color);
+            transition: all 0.3s;
+        }
+
+    .card-vertical {
+        aspect-ratio: 2 / 3;
+        min-height: 400px;
+    }
+
+        .card-vertical .card-info {
+            background-color: var(--block-bg-color);
+            color: var(--text-color);
+            padding: 20px;
+            text-align: left;
+        }
+
+            .card-vertical:hover .card-info {
+                background-color: #333;
+                color: var(--opposite-text-color);
+                transition: all 0.3s;
+            }
+
+            .card-vertical .card-title {
+                font-size: 160%;
+            }
+
+            .card-vertical .card-subtitle {
+                font-size: 115%;
+            }
+
+            .card-vertical .card-title,
+            .card-vertical .card-subtitle {
+                background-color: transparent;
+            }
+
+            .card-vertical:hover .card-title,
+            .card-vertical:hover .card-subtitle {
+                background-color: transparent;
+            }
+
+.cards-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+    .cards-group-1x {
+        gap: 50px;
+        width: 100%;
+        font-size: 180%;
+    }
+
+        @media only screen and (max-width : 570px) {
+            .cards-group-1x {
+                font-size: 120%;
+            }
+        }
+
+    .cards-group-2x .card {
+        width: calc(50% - 30px);
+    }
+
+    .cards-group-3x .card {
+        width: calc(33% - 30px);
+    }
+
+    .cards-group-4x .card {
+        width: calc(24% - 30px)
+    }
+
+    .cards-group-projects .card {
+        background-size: contain;
+        background-position: 50% 10px;
+    }

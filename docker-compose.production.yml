@@ -1,0 +1,35 @@
+version: "3"
+services:
+  club_app:
+    image: ghcr.io/vas3k/blog:${GITHUB_SHA:-latest}
+    command: make docker-run-production
+    container_name: blog_app
+    environment:
+      - PYTHONUNBUFFERED=1
+      - DEBUG=false
+      - POSTGRES_DB=vas3k_blog
+      - POSTGRES_USER=vas3k
+      - POSTGRES_PASSWORD=vas3k
+      - POSTGRES_HOST=postgres
+      - EMAIL_HOST
+      - EMAIL_PORT
+    env_file:
+      - .env
+    restart: always
+    depends_on:
+      - postgres
+    ports:
+      - "127.0.0.1:8814:8814"
+
+  postgres:
+    image: postgres:15
+    container_name: blog_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: vas3k
+      POSTGRES_PASSWORD: vas3k
+      POSTGRES_DB: vas3k_blog
+    volumes:
+      - /home/vas3k/pgdata:/var/lib/postgresql/data:rw
+    ports:
+      - "127.0.0.1:54334:5432"

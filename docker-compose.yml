@@ -1,0 +1,35 @@
+version: "3.7"
+
+services:
+  club_app:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    command: make docker-run-dev
+    container_name: blog_app
+    environment:
+      - DEBUG=true
+      - PYTHONUNBUFFERED=1
+      - POSTGRES_DB=vas3k_blog
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_HOST=postgres
+    env_file:
+      - .env
+    restart: always
+    volumes:
+      - .:/app:delegated # enable hot code reload in debug mode
+    depends_on:
+      - postgres
+    ports:
+      - "8000:8000"
+
+  postgres:
+    image: postgres:15
+    container_name: blog_postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=vas3k_blog
+    ports:
+      - "5432:5432"

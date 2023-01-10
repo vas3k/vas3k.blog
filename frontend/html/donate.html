@@ -1,0 +1,172 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load text_filters %}
+
+{% block title %}
+    Донат — {{ settings.TITLE }}
+{% endblock %}
+
+{% block meta %}
+    <meta property="og:title" content="Донат — {{ settings.TITLE }}">
+    <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/donate/">
+    <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/images/favicon_128.png">
+    <meta property="og:description" content="">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Донат — {{ settings.TITLE }}">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/images/favicon_128.png">
+    <meta name="twitter:image:src" content="{{ request.scheme }}://{{ request.get_host }}/static/images/favicon_128.png">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="block donate">
+        <div class="block-title">
+            👍 Поддержать автора
+        </div>
+
+        <div class="block-description">
+            Независимые авторы в интернете — вымирающая редкость.
+            Они существуют только благодаря людям, которые их поддерживают.
+            Если вам нравится то, что я делаю, занести мне донат — это лучший способ сказать «спасибо».
+        </div>
+
+        <div class="donate-selector">
+            <div class="donate-selector-item" onclick="return showDonateTab(event, '#donate-amount-1');">300<br><small>руб</small></div>
+            <div class="donate-selector-item donate-selector-item-active" onclick="return showDonateTab(event, '#donate-amount-2');">512<br><small>руб</small></div>
+            <div class="donate-selector-item" onclick="return showDonateTab(event, '#donate-amount-3');">1499<br><small>руб</small></div>
+            <div class="donate-selector-item" onclick="return showDonateTab(event, '#donate-amount-4');">2500<br><small>руб</small></div>
+            <div class="donate-selector-item" style="line-height: 40px;" onclick="return showDonateTab(event, '#donate-amount-5');"><small>Любая сумма</small></div>
+        </div>
+
+        <div class="donate-amount" id="donate-amount-1">
+            <img src="{% static "images/donate/server.jpg" %}">
+            <strong>На сервер</strong><br>
+            Мы используем только качественное и высокопроизводительное оборудование!
+        </div>
+
+        <div class="donate-amount donate-amount-active" id="donate-amount-2">
+            <img src="{% static "images/donate/beers.jpg" %}">
+            <strong>512 рублей на пиво</strong><br>
+            Клинические исследования доказали: пиво эффективнее всего генерирует идеи для нового поста в блоге. Не знаю почему так.
+        </div>
+
+        <div class="donate-amount" id="donate-amount-3">
+            <img src="{% static "images/donate/mindset.jpg" %}">
+            <strong>За охуительные идеи</strong><br>
+            Мы всё реже говорим людям, что разделяем их идеи. Потому мы и одиноки.
+            Теперь можно сообщить об этом без слов.
+        </div>
+
+        <div class="donate-amount" id="donate-amount-4">
+            <img src="{% static "images/donate/oleg.jpg" %}">
+            <strong>Олег Юрьевич</strong><br>
+            Да не, никто столько не заносит. Это донат только для сильных и смелых миллионеров по жизни.
+        </div>
+
+        <div class="donate-amount" id="donate-amount-5">
+            <img src="{% static "images/donate/other.jpg" %}">
+            <strong>Побрацки</strong><br>
+            Да все и так поняли, что эти переключатели ни на что не влияют и лишь хитрая психологическая манипуляция.
+        </div>
+    </div>
+
+
+    <div class="block donate-service">
+        <div class="donate-service-description">
+            <strong>На карту Тиньков (карты РФ)</strong><br>
+            Если вы из России, перевод на карту будет проще всего. По клику откроется удобное окошко.
+
+            <br><br>
+
+            <small>
+                Либо по номеру карты: 5536913972058263
+            </small>
+        </div>
+        <div class="donate-service-button">
+            <a href="https://www.tinkoff.ru/rm/zubarev.vasiliy1/KlQ9b64480" class="button" target="_blank">
+                💳 Донатить
+            </a>
+        </div>
+    </div>
+
+    <div class="block donate-service">
+        <div class="donate-service-description">
+            <strong>Через Stripe (карты не РФ)</strong><br>
+
+            Позволяет напрямую задонатить мне в Евро с любых зарубежных карт. Поддерживает Google и Apple Pay.
+
+        </div>
+        <div class="donate-service-button">
+            <a href="https://donate.stripe.com/5kA8xA9RGdZscQUeUU" class="button" target="_blank">
+                💶 Донатить
+            </a>
+        </div>
+    </div>
+
+    <div class="block donate-service">
+        <div class="donate-service-description">
+            <strong>PayPal</strong><br>
+            Вариант для живущих заграницей и просто у кого там завалялась мелочь на аккаунте.
+        </div>
+        <div class="donate-service-button">
+            <a href="https://paypal.me/vas3kcom" class="button" target="_blank">
+                💰 PayPal.me
+            </a>
+        </div>
+    </div>
+
+    <div class="block donate-service">
+        <div class="donate-service-description">
+            <strong>На Патреоне</strong><br>
+            Там можно заносить автоматически и получить ранний доступ и прочие плюшки.
+        </div>
+        <div class="donate-service-button">
+            <a href="https://www.patreon.com/vas3k" class="button" target="_blank">❤️ Стать Патроном</a>
+        </div>
+    </div>
+
+    <div class="block donate-service donate-service-column">
+        <div class="donate-service-description">
+            <strong>Криптой</strong>
+        </div>
+
+        <div class="donate-service-selector">
+            <div class="donate-service-selector-item">
+                <span>Биткоин</span>
+                <img src="{% static "images/btc.png" %}" alt="Bitcoin QR code">
+                <small>bc1qu5m46dq4zdmyye738pqe0wjcxtgmdq20qatm6k</small>
+            </div>
+            <div class="donate-service-selector-item">
+                <span>Эфир или USDC/USDT</span>
+                <img src="{% static "images/eth.png" %}" alt="ETH/ERC20 QR code">
+                <small>0x35c0ef9C40568b25520d25235280e73a9bcb0d77</small>
+            </div>
+            <div class="donate-service-selector-item">
+                <span>Polkadot</span>
+                <a href="https://sub.id/13gCScunZLdXDkYKuaDi8QcsTT5nEEgxpiyYLTSHc6iCNW3b" target="_blank">
+                    <img src="{% static "images/dot.png" %}" alt="DOT QR code">
+                </a>
+                <small>13gCScunZLdXDkYKuaDi8QcsTT5nEEgxpiyYLTSHc6iCNW3b</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showDonateTab(event, tabId) {
+        document.querySelectorAll(".donate-selector-item").forEach(item => {
+            item.classList.remove("donate-selector-item-active");
+        });
+        event.target.classList.add("donate-selector-item-active");
+
+        document.querySelectorAll(".donate-amount").forEach(item => {
+            item.classList.remove("donate-amount-active");
+        });
+
+        let tab = document.querySelector(tabId);
+        tab.classList.add("donate-amount-active");
+    }
+</script>
+{% endblock %}

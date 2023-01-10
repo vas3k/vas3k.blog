@@ -1,0 +1,27 @@
+<form hx-post="{% url "create_comment" %}"
+      hx-swap="outerHTML"
+      action="{% url "create_comment" %}"
+      method="post"
+      class="comments-form"
+      id="comments-form"
+      accept-charset="utf-8"
+>
+    {% csrf_token %}
+    <input type="hidden" name="post_slug" value="{{ post.slug }}">
+
+    <div class="comments-form-inputs">
+        <div class="comments-form-user">
+            <span class="avatar comments-form-avatar" style="background-image: url('{{ request.user.get_avatar }}')"></span>
+        </div>
+
+        <textarea cols="30" rows="10" name="text" class="comments-form-textarea" id="comment-text" tabindex="2" minlength="3" required></textarea>
+    </div>
+
+    <div class="comments-form-footer">
+        <span>
+            Можно использовать <a href="https://doka.guide/tools/markdown/" target="_blank">Markdown</a>
+        </span>
+
+        <input type="submit" tabindex="3" class="button comments-form-submit" value="Отправить">
+    </div>
+</form>

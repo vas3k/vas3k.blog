@@ -1,0 +1,26 @@
+{% extends "posts/full/layout.html" %}
+
+{% block body %}
+    <div class="container">
+        <div class="members-only">
+            <div class="members-only-story">
+                <div class="members-only-story-cover"></div>
+                {% include "posts/cards/vertical.html" %}
+            </div>
+
+            <div class="members-only-info">
+                <h2>🎩 Пост только для своих</h2>
+
+                <p>
+                    К сожалению, некоторые темы приходится обсуждать вдали от большого интернета. Эта — одна из них.
+                </p>
+
+                <p>
+                    Пост доступен только тем, кто заносит мне донаты. Такая схема отлично позволяет отсеивать проходимцев.
+                </p>
+
+                <a href="{% url "login" %}" class="button members-only-button">Войти</a><br>
+            </div>
+        </div>
+    </div>
+{% endblock %}

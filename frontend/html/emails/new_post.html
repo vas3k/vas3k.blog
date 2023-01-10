@@ -1,0 +1,60 @@
+{% extends "emails/layout.html" %}
+{% load text_filters %}
+{% load posts %}
+
+{% block preview %}
+    {{ post.title }}{% if post.subtitle %}. {{ post.subtitle }}{% endif %}
+{% endblock %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+
+{%  block subtitle %}
+    Новый пост на Вастрике
+{% endblock %}
+
+{% block body %}
+    <p>
+        Привет, Олимпийский!
+    </p>
+
+    <p>
+        Это Вастрик. У меня в блоге сегодня вышел новый пост и я, как и обещал, присылаю вам его одними из первых.
+    </p>
+
+    <a href="https://vas3k.blog/{{ post.type }}/{{ post.slug }}/">
+        <img src="{% if post.preview_image %}{{ post.preview_image }}{% else %}{{ post.image }}{% endif %}" alt="{{ post.title }}">
+    </a>
+
+    {% if post.preview_text %}
+        <p>
+            {{ post.preview_text | markdown | safe }}
+        </p>
+    {% endif %}
+
+    <p>
+        <a href="https://vas3k.blog/{{ post.type }}/{{ post.slug }}/" class="button button-big">
+            👉 Читать пост
+        </a>
+    </p>
+
+    <br><br><br><br><br>
+
+    <hr>
+
+    <p>
+        Я стараюсь слать письма только тем, кто их хочет и читает.
+        Поэтому вот вам большая кнопка, чтобы вы любой момент могли отписаться от моих писем и удалить свой e-mail из базы.
+    </p>
+
+    <p>
+        <a href="https://vas3k.blog/unsubscribe/{{ subscriber.secret_hash }}/" class="button">
+            ☠️ Отписаться
+        </a>
+    </p>
+{% endblock %}
+
+{% block footer %}
+    <a href="https://vas3k.blog/unsubscribe/{{ subscriber.secret_hash }}/" style="display: inline-block; float: right;">Отписаться</a>
+{% endblock %}

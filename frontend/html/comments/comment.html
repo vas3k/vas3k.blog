@@ -1,0 +1,42 @@
+{% load comments %}
+{% load humanize %}
+<div class="comment" id="comment-{{ comment.id }}">
+    <div class="comment-head">
+        {% if comment.user %}
+            <a href="{% url "profile" comment.user.id %}" class="avatar comment-avatar" style="background-image: url('{{ comment.get_avatar }}');"></a>
+        {% else %}
+            <span class="avatar comment-avatar" style="background-image: url('{{ comment.get_avatar }}');"></span>
+        {% endif %}
+
+        <span class="comment-author" onclick="return nick('{{ comment.author_name }}', '#comment-text');">
+            {{ comment.author_name }}
+        </span>
+
+        <span class="comment-date">{{ comment.natural_created_at }}</span>
+
+        <a href="#comment-{{ comment.id }}" class="comment-id">#</a>
+
+        <div
+            class="button button-inverted comment-rating {% mark_if_voted comment "status-voted" %}"
+            hx-post="{% url "click_comment" comment.id %}"
+            hx-swap="innerHTML"
+        >{{ comment.upvotes }}</div>
+    </div>
+
+    <div class="comment-body">
+        {% show_comment comment %}
+    </div>
+
+    {% if request.user.is_superuser %}
+        <div class="comment-footer">
+              <button
+                  hx-post="{% url "delete_comment" comment.id %}"
+                  hx-target="#comment-{{ comment.id }}"
+                  hx-swap="innerHTML"
+                  hx-confirm="Удаляем?"
+              >
+                Удалить
+              </button>
+        </div>
+    {% endif %}
+</div>

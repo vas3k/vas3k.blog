@@ -1,0 +1,49 @@
+{% load static %}
+
+<div class="header h-card" hx-boost="true">
+    <a href="{% url "index" %}" class="header-logo u-url">
+        <img src="{% static "images/logo.png" %}" alt="" class="header-logo-image u-photo">
+        <span class="header-logo-title p-name">Вастрик</span>
+    </a>
+
+    <div class="header-menu">
+        <a href="{% url "list_posts" "all" %}" class="button button-inverted header-menu-item">
+            <span>✏️</span>
+            <span>️Посты</span>
+        </a>
+
+        <a href="{% url "list_posts" "world" %}" class="button button-inverted header-menu-item">
+            <span>🌍</span>
+            <span>Путешествия</span>
+        </a>
+
+        <a href="{% url "subscribe" %}" class="button button-inverted header-menu-item">
+            <span>✅</span>
+            <span>Подписаться</span>
+        </a>
+
+        <a href="{% url "donate" %}" class="button button-inverted header-menu-item">
+            <span>👍</span>
+            <span>Донат</span>
+        </a>
+
+        <div class="button button-inverted header-menu-item header-menu-round" onclick="return toggleHeaderSearch(event, '#header-search');">
+            🔍
+        </div>
+
+        <a href="{% url "profile" %}" class="button button-inverted avatar header-menu-item header-menu-round" {% if request.user.is_authenticated %}style="background-image: url('{{ request.user.avatar }}');" {% endif %}>
+            {% if not request.user.is_authenticated or not request.user.avatar %}👤{% endif %}
+        </a>
+    </div>
+</div>
+
+<div class="header-search header-search-hidden" id="header-search">
+    <div class="header-search-form">
+        <form action="https://www.google.ru/search?q=site%3Avas3k.ru+">
+            <input type="hidden" name="domains" value="vas3k.ru">
+            <input type="hidden" name="sitesearch" value="vas3k.ru">
+            <input type="text" name="q" placeholder="Искать по сайту..." class="header-search-form-input">
+            <button type="submit" class="header-search-form-submit">🔍</button>
+        </form>
+    </div>
+</div>

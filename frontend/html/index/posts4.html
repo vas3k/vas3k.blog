@@ -1,0 +1,23 @@
+<section class="container container-width-max">
+    {% if block.title %}
+        <div class="header-1">
+            {% if block.url %}
+                <a href="{{ block.url }}">{{ block.title }}</a>
+            {% else %}
+                {{ block.title }}
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% if block.subtitle %}
+        <div class="header-2">
+            {{ block.subtitle }}
+        </div>
+    {% endif %}
+
+    <div class="cards-group cards-group-4x">
+        {% for post in block.posts %}
+            {% include "posts/cards/vertical.html" %}
+        {% endfor %}
+    </div>
+</section>

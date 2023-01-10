@@ -1,0 +1,18 @@
+{% load text_filters %}
+{% load posts %}
+<a href="{{ post.get_absolute_url }}" class="card card-post card-horizontal h-entry" style="background-image: url('{{ post.main_image }}');">
+    <img src="{{ post.main_image }}" alt="" class="card-stretch-img u-photo">
+    {% if post.is_members_only %}
+        <span class="card-icon-lock">
+            {% if me %}<i class="fas fa-lock-open"></i>{% else %}<i class="fas fa-lock"></i>{% endif %}
+        </span>
+    {% endif %}
+    <span class="card-views"><i class="fas fa-eye"></i>&nbsp;{{ post.view_count|cool_number }}</span>
+    <span class="card-info">
+        <span class="card-title p-name" {% if post.data.headline_title_size %}style="font-size: {{ post.data.headline_title_size }};"{% endif %}>{{ post.title }}</span>
+        {% if post.subtitle %}
+            <span class="clearfix10"></span>
+            <span class="card-subtitle p-summary">{{ post.subtitle }}</span>
+        {% endif %}
+    </span>
+</a>

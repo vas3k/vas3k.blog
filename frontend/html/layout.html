@@ -1,0 +1,69 @@
+{% load static %}<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>{% block title %}{{ settings.TITLE | safe }}{% endblock %}</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="{{ settings.DESCRIPTION }}">
+        <meta name="keywords" content="{{ settings.KEYWORDS }}">
+        <meta name="author" content="{{ settings.AUTHOR }}">
+        <meta name="yandex-verification" content="5f66353ad89fbe6f">
+        <meta name="google-site-verification" content="B8zgWa65q_o7zEV-YAA3rmgq4AlT-l37W-2nNbDE6pc">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        {% block meta %}
+            <meta property="og:title" content="{{ settings.TITLE }}">
+            <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}">
+            <meta property="og:type" content="website">
+            <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/{% static "images/favicon_128.png" %}">
+            <meta property="og:description" content="{{ settings.DESCRIPTION }}">
+
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:title" content="{{ settings.TITLE }}">
+            <meta name="twitter:description" content="{{ settings.DESCRIPTION }}">
+            <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/{% static "images/favicon_128.png" %}">
+            <meta name="twitter:image:src" content="{{ request.scheme }}://{{ request.get_host }}/{% static "images/favicon_128.png" %}">
+        {% endblock %}
+        {% include "common/rss.html" %}
+        {% include "common/favicon.html" %}
+        {% include "common/styles.html" %}
+        {% include "common/scripts.html" %}
+        {% block css %}{% endblock %}
+    </head>
+    <body class="{% block body_class %}{% endblock %}" style="{% block body_styles %}{% endblock %}">
+        {% block menu %}
+            {% include "common/header.html" %}
+        {% endblock %}
+
+        {% block body %}{% endblock %}
+
+        {% block footer %}
+            <footer class="footer">
+                {% block footer_contacts %}
+                    <div class="contacts">
+                        <div>Для связи &rarr;</div>
+                        <a href="mailto:me@vas3k.ru" class="contacts-item" target="_blank" rel="me">
+                            <i class="fas fa-envelope"></i>
+                            <span>me@vas3k.ru</span>
+                        </a>
+                        <a href="https://t.me/to_vas3k_bot" class="contacts-item" target="_blank" rel="me">
+                            <i class="fab fa-telegram"></i>
+                            <span>Телеграм-бот</span>
+                        </a>
+                        <a href="https://twitter.com/vas3k" class="contacts-item" target="_blank" rel="me">
+                            <i class="fab fa-twitter-square"></i>
+                            <span>Твиттер</span>
+                        </a>
+                    </div>
+                {% endblock %}
+
+                <div class="footer-disclaimer">
+                    Вы можете использовать цитаты из статей, картинки и скриншоты в своих блогах и презентациях, если поставите ссылку на оригинальный пост.
+                    Присылайте ссылки на них мне в личку, мне будет приятно посмотреть как моё странное творчество идет в народ.
+                    В коммерческих целях ничего использовать нельзя.
+                </div>
+            </footer>
+        {% endblock %}
+
+        {% block js %}{% endblock %}
+    </body>
+</html>

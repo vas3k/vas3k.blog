@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load text_filters %}
+{% load posts %}
+
+{% block title %}
+    {{ user.username }} — {{ block.super }}
+{% endblock %}
+
+{% block menu %}
+    {% include "common/header.html" %}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="block profile">
+        <div class="block-description-center">
+            {% if request.user.is_superuser %}
+                <a href="/godmode/" class="button button-blue">Админка</a>
+            {% endif %}
+
+            <a href="{% url "logout" %}" class="button button-red">Выйти</a>
+        </div>
+
+        <div class="block-title">👤 Настройки профиля</div>
+
+        <form action="{% url "profile" %}" method="post" class="profile-edit-form">
+            {% csrf_token %}
+            <div class="profile-edit-form-username">
+                <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+                <span>{{ form.username }}</span>
+            </div>
+            <div class="profile-edit-form-avatars">
+                <label for="{{ form.avatar.id_for_label }}">{{ form.avatar.label }}</label>
+                <div class="profile-edit-form-avatars-list">
+                    {% for avatar_field in form.avatar %}
+                        <div class="profile-edit-form-avatars-list-item">
+                            <label for="{{ avatar_field.id_for_label }}">
+                                <img src="{{ avatar_field.choice_label }}" alt="{{ avatar_field.choice_label }}" class="avatar">
+                            </label>
+                            <span>{{ avatar_field.tag }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                {% if form.errors %}
+                    <div class="profile-edit-form-errors">
+                        {{ form.errors }}
+                    </div>
+                {% endif %}
+            </div>
+
+            <button type="submit" class="button">Сохранить</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer_contacts %}{% endblock %}

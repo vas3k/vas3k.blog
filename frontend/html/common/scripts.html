@@ -1,0 +1,14 @@
+{% load static %}
+
+<script src="{% static "js/vendor/highlight.pack.js" %}" async></script>
+<script src="{% static "js/vendor/tweemoji.min.js" %}"></script>
+<script src="{% static "js/vendor/lightense.min.js" %}"></script>
+<script src="{% static "js/vendor/htmx.min.js" %}"></script>
+<script src="{% static "js/main.js" %}?v={{ settings.STYLES_HASH }}"></script>
+<script src="{% static "js/comments.js" %}?v={{ settings.STYLES_HASH }}"></script>
+
+<script>
+    window.addEventListener("htmx:configRequest", (event) => {
+        event.detail.headers["X-CSRFToken"] = "{{ csrf_token }}";
+    })
+</script>

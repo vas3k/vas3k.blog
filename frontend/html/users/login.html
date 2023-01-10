@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Вход — {{ block.super }}
+{% endblock %}
+
+{% block body %}
+<div class="container block">
+    <div class="block-title">Входить здесь 👤</div>
+
+    <div class="block-description">
+        Раньше комментарии были открыты для всех, но со временем в них стало много идиотизма и спама,
+        поэтому теперь комментарии могут писать только мои патроны.
+    </div>
+
+    <div class="block-description">
+        <a href="{% url "login_patreon" %}?goto={{ request.scheme }}://{{ request.get_host }}{{ story.get_absolute_url }}" class="button">
+            Войти через Патреон
+        </a>
+
+        <a href="{% url "login_club" %}?goto={{ request.scheme }}://{{ request.get_host }}{{ story.get_absolute_url }}" class="button">
+            Войти через Вастрик.Клуб
+        </a>
+    </div>
+
+    <div class="block-description">
+        Однако, в тестовом режиме у нас есть еще и авторизация через телеграм, с ограничением 1 комментарий в сутки.
+    </div>
+
+    <div class="block-description">
+        <script async src="https://telegram.org/js/telegram-widget.js?21" data-telegram-login="vas3k_bot" data-size="large" data-auth-url="http://127.0.0.1:8000/auth/telegram_callback/" data-request-access="write"></script>
+    </div>
+</div>
+{% endblock %}
+

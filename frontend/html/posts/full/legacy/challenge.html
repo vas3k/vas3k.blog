@@ -1,0 +1,335 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load text_filters %}
+{% load posts %}
+{% load comments %}
+
+{% block title %}
+    {{ post.title }} — {{ block.super }}
+{% endblock %}
+
+{% block meta %}
+    <meta property="og:title" content="{{ post.title | striptags }}" />
+    <meta property="og:description" content="{% if post.subtitle %}{{ post.subtitle }}{% else %}{% endif %}" />
+    <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}" />
+    <meta property="og:image" content="{{ post.image }}" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ post.title | striptags }}">
+    <meta name="twitter:description" content="{% if post.subtitle %}{{ post.subtitle }}{% else %}{% endif %}">
+    <meta name="twitter:image" content="{{ post.image }}">
+    <meta name="twitter:image:src" content="{{ post.image }}">
+{% endblock %}
+
+{% block body_styles %}
+    {% if post.data and "background_color" in post.data %}background-color: {{ post.data.background_color }};{% endif %}
+    {% if post.data and "color" in post.data %}color: {{ post.data.color }};{% endif %}
+{% endblock %}
+
+{% block css %}
+<style>
+    .challenge-screen {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        min-height: 600px;
+        text-align: center;
+        font-size: 20px;
+        padding-top: 50px;
+        box-sizing: border-box;
+        margin-bottom: 150px;
+    }
+
+        .challenge-screen h1 {
+            display: block;
+            width: 100%;
+            max-width: 800px;
+            font-size: 42px;
+            margin: 50px auto 60px;
+            clear: both;
+        }
+
+        .challenge-screen h2 {
+            display: block;
+            width: 100%;
+            max-width: 800px;
+            font-size: 28px;
+            margin: 20px auto 40px;
+            clear: both;
+        }
+
+        .challenge-screen a {
+            color: #000;
+        }
+
+        .challenge-screen img {
+            display: block;
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto 20px;
+            clear: both;
+        }
+
+        .challenge-screen p {
+            display: block;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            clear: both;
+        }
+
+        .challenge-form {
+            display: block;
+            margin: 80px auto 0;
+            width: 100%;
+            max-width: 320px;
+        }
+
+            .challenge-form button {
+                background-color: #333;
+                color: #FFF;
+                border-radius: 5px;
+                border: none;
+                outline: none;
+                -webkit-appearance: none;
+                padding: 10px 20px;
+                font-size: 22px;
+            }
+
+            .challenge-form input {
+                display: inline-block;
+                width: 100%;
+                margin-bottom: 20px;
+                font-size: 22px;
+                text-align: center;
+                padding: 10px;
+                outline: none;
+                border: solid 2px #000;
+                box-sizing: border-box;
+            }
+
+                .challenge-form input.correct {
+                    border: solid 3px #3D9970;
+                }
+
+                .challenge-form input.incorrect {
+                    border: solid 3px #FF4136;
+                }
+
+            .challenge-form span {
+                display: inline-block;
+                border-bottom: dashed 1px #000;
+                font-size: 16px;
+                cursor: pointer;
+                margin-left: 20px;
+                margin-top: 30px;
+            }
+
+    .challenge-result {
+        display: inline-block;
+        border: none !important;
+        margin: 0 0 30px !important;
+        font-size: 22px !important;
+    }
+
+        .challenge-result.correct {
+            color: #3D9970;
+        }
+
+        .challenge-result.incorrect {
+            color: #FF4136;
+        }
+
+    .challenge-question {
+        display: none;
+    }
+
+    .challenge-results {
+        display: none;
+    }
+
+        .challenge-results h1 {
+            margin-bottom: 20px;
+        }
+
+        .challenge-results big {
+            font-size: 200%;
+        }
+
+        .challenge-result-text {
+            font-size: 150%;
+            text-align: center;
+            margin-bottom: 100px;
+        }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="container container_width_full">
+    <div class="content challenge">
+        <div class="challenge-screen challenge-main">
+            <h1>{{ post.title }}</h1>
+
+            <p>{{ post.text | nl2br | safe }}</p>
+
+            <div class="challenge-form">
+                <button onclick="start_challenge()" style="background-color: rgb(234, 11, 41); font-size: 32px; padding: 15px 40px;">Начать</button>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- ДА, ТЫ ТОЖЕ УМЕЕШЬ РАСШИФРОВАТЬ MD5. ПОЖАЛУЙСТА, НЕ ПИШИ МНЕ ОБ ЭТОМ, ЛУЧШЕ ПОХВАСТАЙСЯ МАМЕ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {% show_post post %}
+
+        <div class="challenge-screen challenge-results">
+            <h1>Результат<br>
+                <big><span id="my-result">0</span> из <span id="total-questions">10</span></big>
+            </h1>
+
+            <div id="my-result-text" class="challenge-result-text"></div>
+
+            <a href="https://twitter.com/intent/tweet?text=Очень%20крутой%20челленж%20у%20@vas3k:%20https%3A%2F%2Fvas3k.ru{{ request.get_full_path | urlencode }}" class="post-footer__button" style="border-color: #1da1f2; color: #1da1f2;">
+                <i class="fa fa-twitter"></i>&nbsp;Твитнуть
+            </a>
+
+            <a href="https://vk.com/share.php?url=https%3A%2F%2Fvas3k.ru{{ request.get_full_path | urlencode }}" class="post-footer__button" style="border-color: #45668e; color: #45668e;">
+                <i class="fa fa-vk"></i>&nbsp;Поделиться
+            </a>
+
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fvas3k.ru{{ request.get_full_path | urlencode }}" class="post-footer__button" style="border-color: #3b5998; color: #3b5998;">
+                <i class="fa fa-facebook"></i>&nbsp;Пошарить
+            </a>
+
+            <a href="mailto:?subject=Челленж%20vas3k.ru&body=https%3A%2F%2Fvas3k.ru{{ request.get_full_path | urlencode }}" class="post-footer__button" style="border-color: #0088cc; color: #0088cc;">
+                <i class="fa fa-envelope"></i>&nbsp;На почту
+            </a>
+
+            <div class="challenge-form">
+                <span onclick="location.reload();">начать заново</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.7.0/js/md5.js"></script>
+<script type="application/javascript">
+    var total_questions = 10;
+    var current_question = 0;
+    var answered_questions = [];
+
+    $(function() {
+        total_questions = $(".challenge-question").length;
+        $("#total-questions").html(total_questions || 10);
+        $(".challenge-form button").on("click", check_answer);
+        $(".challenge-form span").on("click", next_question);
+        $(".challenge-form input").on("keyup", function(e) {
+            if (e.keyCode == 13 || e.which == 13 || e.keyCode == 10 || e.which == 10) {
+               $(this).parent().find("button").click();
+            };
+        });
+    });
+
+    function start_challenge() {
+        $(".challenge-main").fadeOut();
+        $("#challenge-question-1").fadeIn();
+        $('html,body').scrollTop(0);
+        current_question = 1;
+        goal("ru.vas3k.challenge.start");
+    }
+
+    function check_answer() {
+        if (!$(this).data("answer")) return;
+        var $input = $(this).parent().find("input");
+        var correct_answer_hash_array = String($(this).data("answer")).split(",");
+        var answer_hash = md5(String($input.val()).toLowerCase().replace(/\s/g, ""));
+
+        $input.hide();
+        $input.fadeIn("fast");
+
+        $(".challenge-result").remove();
+        if (correct_answer_hash_array.indexOf(answer_hash) >= 0) {
+            $input.removeClass("incorrect").addClass("correct");
+            $input.before("<span class='challenge-result correct'>Еее, правильно!</span>");
+            if (answered_questions.indexOf(current_question) < 0) {
+                answered_questions.push(current_question);
+            }
+            setTimeout(function() {
+                next_question();
+            }, 600);
+            goal("ru.vas3k.challenge." + current_question + ".ok");
+        } else {
+            $input.removeClass("correct").addClass("incorrect");
+            $input.before("<span class='challenge-result incorrect'>Неа :(</span>");
+            goal("ru.vas3k.challenge." + current_question + ".fail");
+        }
+    }
+
+    function next_question() {
+        var following_question = current_question + 1;
+        if ($("#challenge-question-" + following_question).length) {
+            $("#challenge-question-" + current_question).fadeOut();
+            $("#challenge-question-" + following_question).fadeIn();
+            current_question = following_question;
+        } else {
+            return finish_challenge();
+        }
+        $('html,body').scrollTop(0);
+    }
+
+    function finish_challenge() {
+        $(".challenge-question:visible").fadeOut();
+        $("#my-result").html(answered_questions.length);
+        var percent = answered_questions.length / total_questions * 100;
+        if (percent >= 99) {
+            $("#my-result-text").html("Ты чертов гений!");
+        } else if (percent >= 70) {
+            $("#my-result-text").html("Офигенно. Кроме того, что ты потратил несколько часов жизни на очередную фигню в интернете");
+        } else if (percent >= 40) {
+            $("#my-result-text").html("Нормально. Заходи еще как-нибудь.");
+        } else {
+            $("#my-result-text").html("Ну, такооооое... Самому-то не стыдно?");
+        }
+        $(".challenge-results").fadeIn();
+        goal("ru.vas3k.challenge.results");
+    }
+</script>
+{% endblock %}

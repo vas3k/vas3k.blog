@@ -1,0 +1,31 @@
+{% load comments %}
+<div class="inline-comment" id="block-{{ block }}-{{ comment.id }}" data-timestamp="{{ comment.created_at.timestamp | floatformat:"0" }}">
+    <div class="inline-comment-upvotes">
+        <div
+            class="button button-inverted inline-comment-rating {% mark_if_voted comment "status-voted" %}"
+            hx-post="{% url "click_comment" comment.id %}"
+            hx-swap="innerHTML"
+        >{{ comment.upvotes }}</div>
+    </div>
+
+    <div class="inline-comments-author" onclick="return nick('{{ comment.author_name }}', '#inline-comment-text-{{ block }}');">
+        {{ comment.author_name }}
+    </div>
+
+    <div class="inline-comments-body">
+        {% show_comment comment %}
+    </div>
+
+    {% if request.user.is_superuser %}
+        <div class="inline-comments-footer">
+          <button
+              hx-post="{% url "delete_comment" comment.id %}"
+              hx-target="#block-{{ block }}-{{ comment.id }}"
+              hx-swap="innerHTML"
+              hx-confirm="Удаляем?"
+          >
+            Удалить
+          </button>
+        </div>
+    {% endif %}
+</div>

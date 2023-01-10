@@ -1,0 +1,2 @@
+class PatreonException(Exception):
+    pass

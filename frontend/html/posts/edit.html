@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container block">
+    <form action="." method="post" class="form">
+        {% csrf_token %}
+
+        {% if form.errors %}
+            <div>{{ form.errors }}</div>
+        {% endif %}
+
+        <div class="form-row form-row-row">
+            <label for="{{ form.title.id_for_label }}">{{ form.title.label }}</label>
+            {{ form.title }}
+        </div>
+
+        <div class="form-row form-row-row">
+            <label for="{{ form.subtitle.id_for_label }}">{{ form.subtitle.label }}</label>
+            {{ form.subtitle }}
+        </div>
+
+        <div class="form-row form-row-row">
+            <label for="{{ form.image.id_for_label }}">{{ form.image.label }}</label>
+            {{ form.image }}
+        </div>
+
+        <div class="form-row">
+            {{ form.text }}
+        </div>
+
+        <div class="form-row form-row-right">
+            <button type="submit" class="button button-red">Сохранить</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block js %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <script>
+        var simplemde = new SimpleMDE({
+            element: document.getElementById("post-editor"),
+            spellChecker: false,
+            autosave: {
+                enabled: false,
+            },
+            blockStyles: {
+                bold: "**",
+                italic: "_"
+            },
+            lineWrapping: true,
+        });
+    </script>
+{% endblock %}

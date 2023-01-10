@@ -1,0 +1,497 @@
+{% load text_filters %}
+{% load posts %}{% if post.html %}{{ post.html|safe }}{% else %}<!doctype html><html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:og="http://opengraph.org/schema/">
+<head>
+<!--[if gte mso 9]>
+<xml>
+    <o:OfficeDocumentSettings>
+    <o:AllowPNG/>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width" initial-scale="1.0" user-scalable="yes"/>
+<meta property="author" content="Вастрик">
+<meta property="article:author" content="{{ request.scheme }}://{{ request.get_host }}">
+<meta property="article:published_time" content="{{ post.created_at|date:'Y-m-d H:i:s' }}">
+<meta property="og:title" content="Вастрик.Инсайд #{{ post.slug }}"/>
+<meta property="og:description" content="{{ post.title }}"/>
+<meta property="og:image" content="{{ post.image }}" />
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/inside/{{ post.slug }}/" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="referrer" content="origin"/>
+
+<title>Вастрик.Инсайд #{{ post.slug }}: {{ post.title }}</title>
+
+<!--[if !mso]><!-->
+<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet" type="text/css">
+<!--<![endif]-->
+
+<style type="text/css">
+    .body, .body-container {
+        font-family: "PT Sans", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        background: #FFFFFF;
+        min-width: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100%;
+        border-collapse: collapse;
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+    }
+
+    table, td, a, li {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+    }
+
+    table {
+        mso-table-lspace:0pt;
+        mso-table-rspace:0pt;
+        border-spacing: 0;
+        border-collapse: collapse;
+    }
+
+    table td {
+        border-collapse: collapse;
+    }
+
+    a, li, blockquote {
+        mso-line-height-rule: exactly;
+    }
+
+    a, li, td, table, blockquote {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 42px;
+        mso-line-height-rule: exactly;
+        line-height: 50px;
+        font-weight: bold;
+        padding: 30px 0;
+        margin-top: 0;
+    }
+
+    h2 {
+        font-size: 35px;
+        padding: 150px 0 10px 0;
+        margin-bottom: 0;
+        mso-line-height-rule: exactly;
+        line-height: 38px;
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 28px;
+        line-height: 35px;
+        font-weight: normal;
+        padding: 30px 0 10px 0;
+        mso-line-height-rule: exactly;
+        margin: 0;
+
+    }
+
+    h1 a, h2 a {
+        color: #000;
+        text-decoration: none;
+    }
+
+    h1 strong, h2 strong {
+        font-size: 80px;
+    }
+
+    h1 small, h2 small {
+        font-size: 80%;
+        line-height: 1.7em;
+        color: #666;
+    }
+
+    p {
+        margin: 0 0 15px 0;
+    }
+
+    img, a img {
+        display: inline-block;
+        border: 0;
+        outline: none;
+        text-decoration: none;
+        max-width: 640px;
+        height: auto;
+        -ms-interpolation-mode: bicubic;
+    }
+
+    a {
+        text-decoration: underline;
+        color: #3498db;
+        font-weight: 600;
+        line-height: 26px;
+        mso-line-height-rule: exactly;
+    }
+
+    a[x-apple-data-detectors] {
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+        mso-line-height-rule: exactly;
+    }
+
+    ul, ol {
+        padding-left: 35px;
+    }
+
+        li {
+            padding-bottom: 10px;
+        }
+
+    blockquote {
+        display: inline-block;
+        font-size: 28px;
+        text-align: center;
+        margin: 20px 0 20px 0;
+        mso-line-height-rule: exactly;
+        line-height: 36px;
+    }
+
+    .email-container {
+        max-width: 640px !important;
+        border-collapse: collapse;
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    .content-table {
+        background: #FFFFFF;
+        min-width: 640px;
+        width: 640px;
+        font-family: 'PT Sans', Arial, Verdana, sans-serif;
+    }
+
+    .content-container {
+        padding: 15px 25px 5px 25px;
+        font-family: 'PT Sans', Arial, Verdana, sans-serif;
+        color: #000000;
+        font-size: 18px;
+        mso-line-height-rule: exactly;
+        line-height: 27px;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+    }
+
+    .share {
+        font-size: 12px;
+        display: inline-block;
+        padding: 2px 7px;
+        border: solid 2px #555555;
+        border-radius: 15px;
+        color: #555555;
+        text-decoration: none;
+        margin-right: 4px;
+        line-height: 16px;
+    }
+
+    .preheader-table {
+        min-width: 640px;
+        width: 640px;
+    }
+
+        .preheader-text,
+        .postfooter-text {
+            padding: 15px;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            mso-line-height-rule: exactly;
+            line-height: 17px;
+            color: #7F8C8D;
+            text-align: right;
+        }
+
+            .preheader-text a,
+            .postfooter-text a {
+                color: #7F8C8D;
+                font-weight: 400;
+                mso-line-height-rule: exactly;
+            }
+
+    .header-table {
+        background: #FFFFFF;
+        min-width: 640px;
+        width: 640px;
+        font-family: 'PT Sans', sans-serif;
+    }
+
+        .logo-container {
+            padding: 20px 50px 5px 50px;
+            text-align: center;
+        }
+
+        .issue-container {
+            padding: 5px 50px 5px 50px;
+            text-align: center;
+            mso-line-height-rule: exactly;
+            mso-text-raise: -5px;
+        }
+
+            .issue-container span {
+                margin: 0;
+                font-weight: 400;
+                font-size: 30px;
+                text-decoration: none;
+                line-height: 42px;
+                color: #000000;
+            }
+
+    .footer-table a {
+        color: #8299a6;
+    }
+
+    .content-container p a,
+    .content-container ol li a,
+    .content-container ul li a {
+        word-break: break-word;
+    }
+
+    @-moz-document url-prefix() {
+        .content-container p a, ol li a, ul li a {
+            word-break: break-all !important;
+        }
+    }
+
+    .yellow {
+        background-color: #fff3d4;
+        margin: 20px 0;
+    }
+
+    .cite {
+        display: inline-block;
+        border-left: solid 2px #CCC;
+        padding: 5px 0 0 10px;
+        margin: 10px 0 30px 0 !important;
+        color: #999;
+        font-style: italic;
+    }
+
+        .cite p {
+            margin-bottom: 0;
+        }
+
+    .hr {
+        display: inline-block;
+        width: 100%;
+        max-width: 640px;
+        border-top: dashed 2px #BDC3C7;
+        margin: 25px 0 30px 0;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 10px 50px 10px 50px;
+        border-radius: 5px;
+        font-size: 22px;
+        text-align: center;
+        background-color: #3498db;
+        color: #ffffff;
+        text-decoration: none;
+        margin: 15px 0 15px 0;
+    }
+
+        .button-donate {
+            display: inline-block;
+            padding: 10px 50px 10px 50px;
+            border-radius: 5px;
+            font-size: 22px;
+            text-align: center;
+            background-color: #7F8C8D;
+            color: #ffffff;
+            text-decoration: none;
+            margin: 15px 0 15px 0;
+        }
+
+        .button-subscribe {
+            display: inline-block;
+            padding: 10px 50px 10px 50px;
+            border-radius: 5px;
+            font-size: 22px;
+            text-align: center;
+            background-color: #FFFFFF;
+            border: solid 2px #7F8C8D;
+            color: #7F8C8D;
+            text-decoration: none;
+            margin: 15px 0 15px 0;
+        }
+
+    .figcaption {
+        display: block;
+        text-align: center;
+        font-family: 'PT Sans', sans-serif;
+        font-size: 16px;
+        color: #7F8C8D;
+        margin-bottom: 30px;
+        font-weight: normal;
+        text-decoration: none;
+    }
+
+    @media only screen and (max-width: 640px) {
+        .content-table,
+        .preheader-table,
+        .header-table {
+            width: 100% !important;
+            min-width: 200px !important;
+        }
+
+        .content-container {
+            font-size: 17px;
+        }
+
+        .content-container img {
+            height: auto !important;
+            width: 100% !important;
+        }
+
+        .issue-container span {
+            font-size: 22px !important;
+        }
+
+        h1 {
+            font-size: 28px !important;
+            line-height: 35px !important;
+        }
+
+        h2 {
+            font-size: 26px !important;
+            line-height: 32px !important;
+        }
+
+        h3 {
+            font-size: 24px !important;
+            line-height: 30px !important;
+        }
+
+        .button,
+        .button-subscribe,
+        .button-donate {
+            font-size: 18px !important;
+            padding: 7px 40px 7px 40px !important;
+        }
+    }
+</style>
+
+<!--[if mso]>
+<style type="text/css">
+.h1,.h2,.h3,a,p,li,.content-container,.content-container .h1,.content-container .h2,.content-container .h3,.content-container a,.content-container p,.content-container li,.content-container p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.body-container, .content-table, .preheader-table, .header-table {
+    width: 600px;
+}
+</style>
+<![endif]-->
+
+</head>
+
+<body class="body" leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" dir="ltr" bgcolor="#FFFFFF">
+
+<!--[if mso]>
+<center><table><tr><td width="600">
+<![endif]-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" class="body-container">
+    <tr>
+        <td align="center">
+            <table align="center" border="0" class="email-container" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td align="center">
+
+<!-- Content starts here -->
+
+{% if not mini_preview %}
+
+<!-- Pre-header begin -->
+
+<table width="640" align="center" cellspacing="0" cellpadding="0" border="0" class="content-table preheader-table">
+    <tr>
+        <td class="preheader-text">
+            <a href="{{ request.scheme }}://{{ request.get_host }}/inside/archive/">архив</a>&nbsp;::&nbsp;<a href="{{ request.scheme }}://{{ request.get_host }}/inside/{{ post.slug }}/">веб-версия</a>
+        </td>
+    </tr>
+</table>
+
+<!-- Pre-header end -->
+
+<!-- Header begin -->
+
+<table align="center" border="0" bgcolor="#FFFFFF" class="content-table header-table" cellspacing="0" cellpadding="0" width="640">
+    <tr>
+        <td class="logo-container">
+            <center><a href="{{ request.scheme }}://{{ request.get_host }}/inside/"><img border="0" alt="Вастрик" src="https://i.vas3k.ru/full/7cw.png" width="100" height="100" style="width: 100px; height: 100px;"/></a></center>
+        </td>
+    </tr>
+    <tr>
+        <td class="issue-container">
+            <center><span>{% if post_block %}Фрагмент из {% endif %}Вастрик.Инсайд #{{ post.slug }}</span></center>
+            <center>{{ post.created_at|date:"d E Y"|lower }}</center>
+        </td>
+    </tr>
+</table>
+
+<!-- Header end -->
+
+{% endif %}
+
+<!-- Main content begin -->
+
+{% show_email post %}
+
+<!-- Footer -->
+
+<table align="center" border="0" bgcolor="#FFFFFF" class="content-table" cellspacing="0" cellpadding="0" width="640">
+    <tr>
+        <td align="left" class="content-container">
+            <span class="hr" style="margin-top: 100px;"></span>
+
+            <center><a href="{{ request.scheme }}://{{ request.get_host }}/donate/" class="button-donate">Проставить автору пивас</a></center><br>
+
+            <center style="color: #7F8C8D;">
+                Вы <strong>можете</strong> ответить на это письмо, ответ упадёт прямо мне на почту.
+                Комментируйте выпуск и предлагайте темы, о которых было бы интересно услышать в следующих.
+                Или пишите <a href="https://t.me/vas3k" target="_blank" style="color: #7F8C8D;">в телеграм</a>.<br><br>
+
+                Если рассылка попадает в спам или промо, добавьте <a href="mailto:me@vas3k.ru" style="color: #7F8C8D;">me@vas3k.ru</a>
+                в контакты и отметьте одно письмо как «не спам». Обычно помогает.
+            </center><br>
+
+            <center><a href="{{ request.scheme }}://{{ request.get_host }}/inside/subscribe/" class="button-subscribe">Подписаться</a></center>
+        </td>
+    </tr>
+</table>
+
+<!-- Main content end -->
+
+<!-- Content ends here -->
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!--[if mso]>
+</td></tr></table></center>
+<![endif]-->
+
+</body>
+</html>
+{% endif %}
