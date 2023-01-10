@@ -9,13 +9,13 @@ run-dev:  ## Runs dev server locally
 	poetry run python manage.py runserver 0.0.0.0:8000
 
 docker-run-dev:  ## Runs dev server in docker
-	python3 ./utils/wait_for_postgres.py
-	python3 manage.py migrate
-	python3 manage.py runserver 0.0.0.0:8000
+	poetry run python3 ./utils/wait_for_postgres.py
+	poetry run python3 manage.py migrate
+	poetry run python3 manage.py runserver 0.0.0.0:8000
 
 docker-run-production:  ## Runs production server in docker
-	python3 manage.py migrate
-	gunicorn vas3k_blog.asgi:application -w 7 -k uvicorn.workers.UvicornWorker --bind=0.0.0.0:8022 --capture-output --log-level debug --access-logfile - --error-logfile -
+	poetry run python3 manage.py migrate
+	poetry run gunicorn vas3k_blog.asgi:application -w 7 -k uvicorn.workers.UvicornWorker --bind=0.0.0.0:8022 --capture-output --log-level debug --access-logfile - --error-logfile -
 
 help:  ## Display this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
@@ -26,6 +26,7 @@ migrate:  ## Migrate database to the latest version
 	poetry run python3 manage.py migrate
 
 .PHONY: \
-  docker-run-dev \
-  docker-run-production \
-  run-dev
+	docker-run-dev \
+	docker-run-production \
+	run-dev \
+	migrate

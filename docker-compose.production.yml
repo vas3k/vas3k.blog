@@ -21,7 +21,7 @@ services:
     depends_on:
       - postgres
     ports:
-      - "127.0.0.1:8814:8814"
+      - "127.0.0.1:8022:8022"
 
   postgres:
     image: postgres:15

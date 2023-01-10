@@ -19,6 +19,6 @@ WORKDIR /app
 COPY . /app
 
 RUN pip3 install poetry
-RUN poetry install --no-interaction --no-root
+RUN poetry install --no-interaction --no-ansi
 
 CMD ["make", "docker-run-production"]

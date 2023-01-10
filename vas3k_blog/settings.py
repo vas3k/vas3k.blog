@@ -236,7 +236,6 @@ if SENTRY_DSN and not DEBUG:
     # activate sentry on production
     sentry_sdk.init(dsn=SENTRY_DSN, integrations=[
         DjangoIntegration(),
-        RedisIntegration(),
     ])
 
 if DEBUG:
