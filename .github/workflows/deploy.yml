@@ -3,7 +3,7 @@ name: Deploy vas3k.blog
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
