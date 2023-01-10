@@ -1,16 +1,13 @@
 import re
 
-from bs4 import BeautifulSoup
 from django import template
 from django.conf import settings
 from django.template import loader
 from django.utils.safestring import mark_safe
 
+from common.markdown.markdown import markdown_text
+
 register = template.Library()
-
-from common.markdown.markdown import markdown_email, markdown_text
-
-block_placeholder_template = loader.get_template("club/block_placeholder.html")
 clicker_template = loader.get_template("clickers/clicker.html")
 inline_comments_template = loader.get_template("comments/inline-comment-list.html")
 

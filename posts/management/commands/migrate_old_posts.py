@@ -25,8 +25,6 @@ class Command(BaseCommand):
                 if row["type"] == "blog" and row["slug"].isnumeric() and int(row["slug"]) < 70:
                     continue
 
-                self.stdout.write(f"DT: {row['created_at']}")
-
                 row_data = json.loads(row["data"] or "{}") if row["data"] else {}
                 post, _ = Post.objects.update_or_create(
                     slug=parse_slug(row),
@@ -36,9 +34,9 @@ class Command(BaseCommand):
                         url=row_data.get("url") if row_data else None,
                         title=row["title"],
                         subtitle=row["subtitle"],
-                        image=row["image"],
+                        image=parse_image(row),
                         og_title=row["title"],
-                        og_image=row["preview_image"] or row["image"],
+                        og_image=parse_og_image(row),
                         og_description=row["preview_text"],
                         announce_text=row["preview_text"],
                         text=parse_text(row),
@@ -81,7 +79,26 @@ def parse_text(row):
             text = f"[[[\n\n{text}\n\n]]]"
     else:
         text = row["html"]
+
+    if text:
+        text = text.replace("i.vas3k.ru", "i.vas3k.blog")
+        text = text.replace("http://vas3k.ru", "https://vas3k.blog")
+        text = text.replace("https://vas3k.ru", "https://vas3k.blog")
+
     return text
+
+
+def parse_image(row):
+    if row["image"]:
+        return row["image"].replace("i.vas3k.ru", "i.vas3k.blog").replace("http://", "https://")
+    return None
+
+
+def parse_og_image(row):
+    og_image = row["preview_image"] or row["image"]
+    if og_image:
+        return og_image.replace("i.vas3k.ru", "i.vas3k.blog").replace("http://", "https://")
+    return None
 
 
 def parse_word_count(row):
