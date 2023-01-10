@@ -1,0 +1,45 @@
+name: Deploy vas3k.blog
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - run: docker login ghcr.io -u $GITHUB_ACTOR -p ${{ secrets.TOKEN }}
+      - run: docker build -t ghcr.io/$GITHUB_ACTOR/blog:latest -t ghcr.io/$GITHUB_ACTOR/blog:$GITHUB_SHA .
+      - run: docker image push ghcr.io/$GITHUB_ACTOR/blog:$GITHUB_SHA
+      - run: docker image push ghcr.io/$GITHUB_ACTOR/blog:latest
+
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: build
+    env:
+      SSH_KEY_PATH: /tmp/ssh_key
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Make envfile
+        run: export | grep "secret_" | sed "s/declare -x secret_//" > .env
+        env:
+          secret_SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          secret_TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          secret_TELEGRAM_MAIN_CHAT_ID: ${{ secrets.TELEGRAM_MAIN_CHAT_ID }}
+          secret_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+          secret_PATREON_CLIENT_ID: ${{ secrets.PATREON_CLIENT_ID }}
+          secret_PATREON_CLIENT_SECRET: ${{ secrets.PATREON_CLIENT_SECRET }}
+          secret_JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          secret_EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
+          secret_EMAIL_HOST_USER: ${{ secrets.EMAIL_HOST_USER }}
+          secret_EMAIL_HOST_PASSWORD: ${{ secrets.EMAIL_HOST_PASSWORD }}
+      - run: echo "GITHUB_SHA=$GITHUB_SHA" >> .env
+      - run: echo "${{ secrets.PRODUCTION_SSH_KEY }}" > ${{ env.SSH_KEY_PATH }} && chmod 600 ${{ env.SSH_KEY_PATH }}
+      - run: scp -o StrictHostKeyChecking=no -i ${{ env.SSH_KEY_PATH }} .env ${{ secrets.PRODUCTION_SSH_USERNAME }}@${{ secrets.PRODUCTION_SSH_HOST }}:/home/vas3k/vas3k.blog/.env
+      - run: scp -o StrictHostKeyChecking=no -i ${{ env.SSH_KEY_PATH }} docker-compose.production.yml ${{ secrets.PRODUCTION_SSH_USERNAME }}@${{ secrets.PRODUCTION_SSH_HOST }}:/home/vas3k/vas3k.blog/docker-compose.production.yml
+      - run: ssh -i ${{ env.SSH_KEY_PATH }} ${{ secrets.PRODUCTION_SSH_USERNAME }}@${{ secrets.PRODUCTION_SSH_HOST }} "cd /home/vas3k/vas3k.blog && docker login ghcr.io -u $GITHUB_ACTOR -p ${{ secrets.TOKEN }} && docker pull ghcr.io/$GITHUB_ACTOR/blog:$GITHUB_SHA && docker-compose -f docker-compose.production.yml --env-file=.env up -d && docker system prune --all --force"

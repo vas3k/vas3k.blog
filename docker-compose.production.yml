@@ -16,6 +16,8 @@ services:
     env_file:
       - .env
     restart: always
+    volumes:
+      - ./frontend/static:./frontend/static
     depends_on:
       - postgres
     ports:
@@ -30,6 +32,6 @@ services:
       POSTGRES_PASSWORD: vas3k
       POSTGRES_DB: vas3k_blog
     volumes:
-      - /home/vas3k/pgdata:/var/lib/postgresql/data:rw
+      - /home/vas3k/pgdata_vas3k_blog:/var/lib/postgresql/data:rw
     ports:
-      - "127.0.0.1:54334:5432"
+      - "127.0.0.1:54324:5432"
