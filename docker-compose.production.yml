@@ -1,6 +1,6 @@
 version: "3"
 services:
-  club_app:
+  blog_app:
     image: ghcr.io/vas3k/blog:${GITHUB_SHA:-latest}
     command: make docker-run-production
     container_name: blog_app
@@ -17,7 +17,7 @@ services:
       - .env
     restart: always
     volumes:
-      - ./frontend/static:./frontend/static
+      - ./frontend/static:/app/frontend/static
     depends_on:
       - postgres
     ports:
