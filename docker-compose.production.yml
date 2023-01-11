@@ -5,14 +5,22 @@ services:
     command: make docker-run-production
     container_name: blog_app
     environment:
+      - MIGRATE=true
       - PYTHONUNBUFFERED=1
       - DEBUG=false
       - POSTGRES_DB=vas3k_blog
       - POSTGRES_USER=vas3k
       - POSTGRES_PASSWORD=vas3k
       - POSTGRES_HOST=postgres
+      - TELEGRAM_TOKEN  # values below come from .env
+      - TELEGRAM_MAIN_CHAT_ID
+      - SENTRY_DSN
+      - PATREON_CLIENT_ID
+      - PATREON_CLIENT_SECRET
+      - JWT_SECRET
       - EMAIL_HOST
-      - EMAIL_PORT
+      - EMAIL_HOST_USER
+      - EMAIL_HOST_PASSWORD
     env_file:
       - .env
     restart: always

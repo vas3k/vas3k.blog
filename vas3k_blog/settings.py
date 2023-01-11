@@ -124,15 +124,16 @@ DATABASES = {
     }
 }
 
-if DEBUG:
+MIGRATE = os.getenv("MIGRATE") == "true"
+if MIGRATE:
     DATABASES.update({
         "old": {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
-            "NAME": "vas3k",
-            "USER": "vas3k",
-            "PASSWORD": "",
-            "HOST": "127.0.0.1",
-            "PORT": "5432",
+            "NAME": "vas3k_old",
+            "USER": os.getenv("POSTGRES_USER") or "postgres",
+            "PASSWORD": os.getenv("POSTGRES_PASSWORD") or "",
+            "HOST": os.getenv("POSTGRES_HOST") or "localhost",
+            "PORT": os.getenv("POSTGRES_PORT") or 5432,
         }
     })
 
