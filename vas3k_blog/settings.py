@@ -31,6 +31,9 @@ DEBUG = (os.getenv("DEBUG") != "false")
 ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1", "vas3k.blog", "vas3k.ru"]
 INTERNAL_IPS = ["127.0.0.1"]
 
+if os.getenv("PRODUCTION_SSH_HOST"):
+    ALLOWED_HOSTS += [os.getenv("PRODUCTION_SSH_HOST")]
+
 ADMINS = [
     ("vas3k", "me@vas3k.ru"),
 ]
