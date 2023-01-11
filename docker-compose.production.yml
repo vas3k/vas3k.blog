@@ -16,8 +16,6 @@ services:
     env_file:
       - .env
     restart: always
-    volumes:
-      - ./frontend/static:/app/frontend/static
     depends_on:
       - postgres
     ports:
