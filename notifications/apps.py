@@ -6,5 +6,6 @@ class NotificationsConfig(AppConfig):
     name = "notifications"
 
     def ready(self):
+        pass
         # register signals here
-        from notifications.signals.comments import create_comment  # NOQA
+        # from notifications.signals.comments import create_comment  # NOQA

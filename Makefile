@@ -6,7 +6,7 @@
 PROJECT_NAME=vas3k_blog
 
 run-dev:  ## Runs dev server locally
-	poetry run python manage.py runserver 0.0.0.0:8000
+	poetry run python3 manage.py runserver 0.0.0.0:8000
 
 docker-run-dev:  ## Runs dev server in docker
 	poetry run python3 ./utils/wait_for_postgres.py
