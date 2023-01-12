@@ -10,6 +10,7 @@
         <meta name="google-site-verification" content="B8zgWa65q_o7zEV-YAA3rmgq4AlT-l37W-2nNbDE6pc">
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
         <meta name="format-detection" content="telephone=no">
+        <link rel="canonical" href="https://{{ settings.APP_HOST }}{{ request.get_full_path_info }}">
         {% block meta %}
             <meta property="og:title" content="{{ settings.TITLE }}">
             <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}">

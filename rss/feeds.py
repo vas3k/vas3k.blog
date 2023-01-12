@@ -34,6 +34,7 @@ class FullFeed(Feed):
         url = item.get_absolute_url()
 
         result = ""
+
         if item.image:
             result += f"<a href='https://{settings.APP_HOST}{url}'><img src='{item.image}'></a><br><br>"
 
