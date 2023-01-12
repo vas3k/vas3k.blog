@@ -15,7 +15,7 @@ docker-run-dev:  ## Runs dev server in docker
 
 docker-run-production:  ## Runs production server in docker
 	poetry run python3 manage.py migrate
-	poetry run gunicorn vas3k_blog.asgi:application -w 7 -k uvicorn.workers.UvicornWorker --bind=0.0.0.0:8022 --capture-output --log-level debug --access-logfile - --error-logfile -
+	poetry run gunicorn vas3k_blog.asgi:application -w 5 -k uvicorn.workers.UvicornWorker --bind=0.0.0.0:8022 --capture-output --log-level debug --access-logfile - --error-logfile -
 
 help:  ## Display this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
