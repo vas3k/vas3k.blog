@@ -3,8 +3,8 @@
 
 <style>
 {% if post.data.headline_title_size %}
-    .simple-headline-title {
-        font-size: {{ post.data.headline_title_size }} !important;
+    .sample-headline-title-customize {
+        font-size: {{ post.data.headline_title_size }};
     }
 {% endif %}
 </style>
@@ -12,9 +12,11 @@
 <div class="simple-headline">
     <div class="simple-headline-date dt-published">{{ post.published_at | date:"d E Y" | lower }}</div>
 
-    <div class="simple-headline-title the-title p-name">
-        {% if request.user.is_superuser %}<a href="{% url "edit_post" post.type post.slug %}">✏️</a>{% endif %}
-        {{ post.title | safe }}
+    <div class="sample-headline-title-customize">
+        <div class="simple-headline-title the-title p-name">
+            {% if request.user.is_superuser %}<a href="{% url "edit_post" post.type post.slug %}">✏️</a>{% endif %}
+            {{ post.title | safe }}
+        </div>
     </div>
 
     <a rel="author" class="p-author h-card" href="{{ request.scheme }}://{{ request.get_host }}" style="display: none;">{{ settings.AUTHOR }}</a>

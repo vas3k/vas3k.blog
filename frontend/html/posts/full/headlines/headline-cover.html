@@ -11,8 +11,8 @@
 {% endif %}
 
 {% if post.data.headline_title_size %}
-    .headline-info-title {
-        font-size: {{ post.data.headline_title_size }} !important;
+    .headline-info-title-customize {
+        font-size: {{ post.data.headline_title_size }};
     }
 {% endif %}
 </style>
@@ -25,9 +25,11 @@
     {% endif %}
 
     <div class="headline-info">
-        <div class="headline-info-title the-title p-name">
-            {% if request.user.is_superuser %}<a href="{% url "edit_post" post.type post.slug %}">✏️</a>{% endif %}
-            {{ post.title | safe }}
+        <div class="headline-info-title-customize">
+            <div class="headline-info-title the-title p-name">
+                {% if request.user.is_superuser %}<a href="{% url "edit_post" post.type post.slug %}">✏️</a>{% endif %}
+                {{ post.title | safe }}
+            </div>
         </div>
         {% if post.subtitle %}
             <div class="clearfix20"></div>
