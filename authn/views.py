@@ -72,7 +72,8 @@ def club_callback(request):
     if user:
         user.avatar = club_profile["user"]["avatar"]
         user.vas3k_club_slug = payload["user_slug"]
-        user.email = payload["user_email"]
+        if not user.email:
+            user.email = payload["user_email"]
         user.country = club_profile["user"]["country"]
         user.city = club_profile["user"]["city"]
         user.save()
