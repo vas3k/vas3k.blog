@@ -22,7 +22,7 @@ def show_post(context, post):
             if new_html != post.html_cache:
                 # to not flood into history
                 post.html_cache = new_html
-                post.save()
+                post.save(flush_cache=False)
         html = post.html_cache or ""
 
     html = re.sub(r"\[commentable (.+?)\]", lambda match: commentable(context, match.group(1)), html)

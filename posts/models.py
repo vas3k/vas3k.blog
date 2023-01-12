@@ -57,12 +57,16 @@ class Post(models.Model):
     def visible_objects(cls):
         return cls.objects.filter(is_visible=True, published_at__lte=datetime.utcnow()).order_by("-published_at")
 
-    def save(self, *args, **kwargs):
+    def save(self, flush_cache=True, *args, **kwargs):
         if not self.slug:
             self.slug = generate_unique_slug(Post, self.title)
 
         if not self.published_at and self.is_visible:
             self.published_at = datetime.utcnow()
+
+        if flush_cache:
+            self.html_cache = True
+            self.rss_cache = True
 
         self.updated_at = datetime.utcnow()
         return super().save(*args, **kwargs)
