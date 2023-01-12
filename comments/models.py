@@ -36,15 +36,12 @@ class Comment(models.Model):
 
     upvotes = models.IntegerField(default=0, db_index=True)
 
-    is_visible = models.BooleanField(default=True)
     is_deleted = models.BooleanField(default=False)
     is_pinned = models.BooleanField(default=False)
 
-    deleted_by = models.UUIDField(null=True)
-
     class Meta:
         db_table = "comments"
-        ordering = ("-created_at",)
+        ordering = ("created_at",)
 
     def save(self, *args, **kwargs):
         if self.reply_to and self.reply_to.reply_to and self.reply_to.reply_to.reply_to_id:
@@ -73,8 +70,7 @@ class Comment(models.Model):
     @classmethod
     def visible_objects(cls, show_deleted=False):
         comments = cls.objects\
-            .filter(is_visible=True)\
-            .select_related("author", "post", "reply_to")
+            .select_related("author")
 
         if not show_deleted:
             comments = comments.filter(is_deleted=False)
