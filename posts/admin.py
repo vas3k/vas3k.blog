@@ -9,6 +9,7 @@ class PostAdmin(admin.ModelAdmin):
         "published_at", "comment_count", "view_count",
         "is_visible"
     )
+    ordering = ("-created_at",)
 
 
 admin.site.register(Post, PostAdmin)
