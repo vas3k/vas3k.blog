@@ -155,6 +155,7 @@
         width: 100%;
         font-weight: 700;
         font-size: 110%;
+        min-height: 65px;
     }
 
         .inline-comments-header:hover {

@@ -83,7 +83,7 @@
 
     .donate-service-description {
         width: 100%;
-        max-width: 65%;
+        max-width: 60%;
         box-sizing: border-box;
     }
 
@@ -133,6 +133,14 @@
         float: none;
         margin: 0 auto 40px;
         display: block;
+    }
+
+    .donate-service {
+        justify-content: center;
+    }
+
+    .donate-service-description {
+        max-width: 100%;
     }
 }
 
