@@ -9,6 +9,9 @@ from notifications.telegram.bot import bot
 
 @receiver(post_save, sender=Comment)
 def create_comment(sender, instance, created, **kwargs):
+    if not created:
+        return
+
     comment = instance
     post = comment.post
 
