@@ -124,7 +124,7 @@
         }
 
 
-@media only screen and (max-width : 570px) {
+@media (max-width: 570px) {
     .donate {
         font-size: 14px;
     }

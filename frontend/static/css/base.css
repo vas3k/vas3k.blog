@@ -141,6 +141,7 @@ h2 + h3,
     background-size: cover;
     background-color: var(--block-bg-color);
     color: var(--opposite-text-color);
+    aspect-ratio: 1 / 1;
 }
 
 .button {
@@ -340,7 +341,7 @@ h2 + h3,
     display: none !important;
 }
 
-@media only screen and (max-width : 570px) {
+@media (max-width: 570px) {
     .hide-on-iphone {
         display: none !important;
     }
@@ -350,7 +351,7 @@ h2 + h3,
     }
 }
 
-@media only screen and (max-width : 1024px)  {
+@media (max-width: 1024px) {
     .hide-on-ipad {
         display: none;
     }

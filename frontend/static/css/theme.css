@@ -120,17 +120,15 @@ body {
     letter-spacing: 0.01rem;
 }
 
-    @media only screen and (min-device-width : 768px)
-    and (max-device-width : 1024px)
-    and (orientation : portrait) {
+    @media (max-width: 1024px) {
         body {
             font-size: 14px;
         }
     }
 
-    @media only screen and (max-width : 800px) {
+    @media (max-width: 570px) {
         body {
-            font-size: 13px;
+            font-size: 12px;
         }
     }
 

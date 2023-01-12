@@ -10,7 +10,7 @@
     z-index: 5;
     letter-spacing: 0.01rem;
     font-style: normal;
-    font-size: 19px;
+    font-size: 125%;
     line-height: 1.67;
     color: #464848;
     font-family: var(--serif-font);
@@ -247,6 +247,18 @@
     background-color: var(--block-bg-color);
     color: var(--text-color);
 }
+
+    @media (max-width: 1024px) {
+        .block-text {
+            padding: 20px;
+        }
+    }
+
+    @media (max-width: 570px) {
+        .block-text {
+            padding: 15px;
+        }
+    }
 
     .block-text p {
         padding-bottom: 1.2em;

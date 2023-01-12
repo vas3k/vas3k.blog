@@ -153,7 +153,7 @@
         font-size: 180%;
     }
 
-        @media only screen and (max-width : 570px) {
+        @media (max-width: 570px) {
             .cards-group-1x {
                 font-size: 120%;
             }
