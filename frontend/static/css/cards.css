@@ -103,6 +103,12 @@
             transition: all 0.3s;
         }
 
+        @media (max-width: 1024px) {
+            .card-subtitle {
+                font-size: 100%;
+            }
+        }
+
     .card-vertical {
         aspect-ratio: 2 / 3;
         min-height: 400px;
