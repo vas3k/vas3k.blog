@@ -28,8 +28,6 @@ def show_post(context, post):
     html = re.sub(r"\[commentable (.+?)\]", lambda match: commentable(context, match.group(1)), html)
     html = re.sub(r"\[clicker (.+?)\]", lambda match: clicker(context, match.group(1), match.group(1)), html)
 
-    html = replace_host_if_mirror(context.request, html)
-
     return mark_safe(html)
 
     # # remove extra blocks for unauthorized users

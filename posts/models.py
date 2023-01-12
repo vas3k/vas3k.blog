@@ -65,8 +65,8 @@ class Post(models.Model):
             self.published_at = datetime.utcnow()
 
         if flush_cache:
-            self.html_cache = True
-            self.rss_cache = True
+            self.html_cache = None
+            self.rss_cache = None
 
         self.updated_at = datetime.utcnow()
         return super().save(*args, **kwargs)
