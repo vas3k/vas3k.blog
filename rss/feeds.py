@@ -1,5 +1,5 @@
 from django.contrib.syndication.views import Feed
-from django.template.defaultfilters import truncatewords, truncatechars
+from django.template.defaultfilters import truncatechars
 from django.utils.html import strip_tags
 
 from posts.models import Post
@@ -10,13 +10,12 @@ class FullFeed(Feed):
     title = "Вастрик.ру"
     link = "/rss/"
     description = settings.DESCRIPTION
-    hide_members_posts = True
 
     def items(self):
-        items = Post.visible_objects().\
-            filter(is_visible_on_home_page=True).\
-            order_by("-created_at").\
-            select_related()[:30]
+        items = Post.visible_objects()\
+            .filter(is_visible_on_home_page=True)\
+            .order_by("-published_at")\
+            .select_related()[:30]
         return items
 
     def item_title(self, item):
@@ -26,7 +25,7 @@ class FullFeed(Feed):
         return "Вастрик"
 
     def item_copyright(self):
-        return "vas3k.ru"
+        return "vas3k.blog"
 
     def item_pubdate(self, item):
         return item.created_at
@@ -36,12 +35,14 @@ class FullFeed(Feed):
 
         result = ""
         if item.image:
-            result += f"<a href='{url}'><img src='{item.image}'></a><br><br>"
+            result += f"<a href='https://{settings.APP_HOST}{url}'><img src='{item.image}'></a><br><br>"
 
         if item.og_description:
             result += item.og_description
+        elif item.html_cache:
+            result += truncatechars(strip_tags(item.html_cache), 500)
         else:
-            result += truncatechars(strip_tags(item.html_cache or item.text or ""), 400)
+            result += truncatechars(item.text or "", 500)
 
         return result
 
@@ -49,17 +50,15 @@ class FullFeed(Feed):
 class PrivateFeed(FullFeed):
     title = "Вастрик.ру: Секретный фид"
     link = "/rss/private/"
-    hide_members_posts = False
 
 
 class PublicFeed(FullFeed):
     title = "Вастрик.ру: Только публичные посты"
     link = "/rss/public/"
-    hide_members_posts = True
 
     def items(self):
-        items = Post.visible_objects().\
-            filter(is_visible_on_home_page=True, is_members_only=False).\
-            order_by("-created_at").\
-            select_related()[:20]
+        items = Post.visible_objects()\
+            .filter(is_visible_on_home_page=True, is_members_only=False)\
+            .order_by("-created_at")\
+            .select_related()[:20]
         return items

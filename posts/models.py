@@ -26,7 +26,6 @@ class Post(models.Model):
 
     text = models.TextField(null=True, blank=True)
     html_cache = models.TextField(null=True, blank=True)
-    rss_cache = models.TextField(null=True, blank=True)
 
     data = models.JSONField(null=True, blank=True)
 
@@ -66,7 +65,6 @@ class Post(models.Model):
 
         if flush_cache:
             self.html_cache = None
-            self.rss_cache = None
 
         self.updated_at = datetime.utcnow()
         return super().save(*args, **kwargs)
