@@ -1,16 +1,16 @@
 {% load static %}
 
 <div class="header h-card" hx-boost="true">
+    <a href="{% url "index" %}" class="header-logo u-url">
+        <img src="{% static "images/logo.png" %}" alt="" class="header-logo-image u-photo">
+        <span class="header-logo-title p-name">Вастрик</span>
+    </a>
+
     <div class="button button-inverted button-round header-burger show-on-iphone"
          onclick="return document.getElementById('header-menu').classList.toggle('header-menu-visible');"
     >
         ≡
     </div>
-
-    <a href="{% url "index" %}" class="header-logo u-url">
-        <img src="{% static "images/logo.png" %}" alt="" class="header-logo-image u-photo">
-        <span class="header-logo-title p-name">Вастрик</span>
-    </a>
 
     <div class="header-menu hide-on-iphone" id="header-menu">
         <a href="{% url "list_posts" "all" %}" class="button button-inverted header-menu-item">

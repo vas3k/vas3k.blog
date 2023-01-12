@@ -70,6 +70,7 @@ def club_callback(request):
 
     user = User.objects.filter(Q(email=payload["user_email"]) | Q(vas3k_club_slug=payload["user_slug"])).first()
     if user:
+        user.avatar = club_profile["user"]["avatar"]
         user.vas3k_club_slug = payload["user_slug"]
         user.email = payload["user_email"]
         user.country = club_profile["user"]["country"]
@@ -78,6 +79,7 @@ def club_callback(request):
     else:
         user = User.objects.create_user(
             vas3k_club_slug=payload["user_slug"],
+            avatar=club_profile["user"]["avatar"],
             username=club_profile["user"]["full_name"][:20],
             email=payload["user_email"],
         )

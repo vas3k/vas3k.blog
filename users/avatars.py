@@ -28,4 +28,9 @@ AVATARS = [
     "https://i.vas3k.blog/17f84171af49df9c7eca97638ddcbb7e6d91a299dc9b2e2c9213c933749c2647.jpg",
     "https://i.vas3k.blog/f00d93381857b0e5c8d3c933a32d66f3b9e9f3375f5ac17024d384bbc3ac4071.png",
     "https://i.vas3k.blog/7b7562ed1fd20b3d2ea0c5a0d7e9a4e109624954fc23dc29edbbfff230e1cb21.png",
+    "https://i.vas3k.blog/f0bf65029537dd455481f32cb723724073792a33a6033373f308b1dcccf8be4a.png",
+    "https://i.vas3k.blog/c16cda85b9b70a745f23e64f896a5c882f6188d2c4b40311a3c9fe60a190b3c1.jpg",
+    "https://i.vas3k.blog/a83102c1b0bcba1fe95867a8d1c1501aa6efd3e20407e1e26fa61f36f01fdc3f.jpg",
+    "https://i.vas3k.blog/ab79045a0dd1347020bae1a9c10ef865df2591bc96fd4bb0478d573247504dd2.png",
+    "https://i.vas3k.blog/c661577ff07ae416831bd8cce5e277b2566c2fbefc7923fe10f2116907b36989.png",
 ]

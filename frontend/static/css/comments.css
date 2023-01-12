@@ -16,78 +16,81 @@
         padding-top: 50px;
     }
 
-    .comment {
-        padding: 20px;
-        background-color: var(--block-bg-color);
-        border-radius: var(--block-border-radius);
-        border: var(--block-border);
-        box-shadow: var(--block-shadow);
+.comment {
+    padding: 20px;
+    background-color: var(--block-bg-color);
+    border-radius: var(--block-border-radius);
+    border: var(--block-border);
+    box-shadow: var(--block-shadow);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+    .comment:target {
+        background-color: rgba(154, 255, 178, 0.4);
     }
 
-        .comment:target {
-            background-color: rgba(154, 255, 178, 0.4);
-        }
+    .comment-head {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+    }
 
-        .comment-head {
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 15px;
-        }
-
-            .comment-author {
-                cursor: pointer;
-                font-size: 110%;
-                font-weight: 500;
-            }
-
-            .comment-date, .comment-geo, .comment-id {
-                opacity: 0.7;
-            }
-
-            .comment-id {
-                color: var(--text-color);
-            }
-
-            .comment-rating {
-                display: inline-block;
-                padding: 10px;
-                font-size: 120%;
-                font-weight: 700;
-                margin-left: auto;
-            }
-
-                .comment-rating:before {
-                    content: "+";
-                }
-
-            .inline-comment-rating.status-voted,
-            .comment-rating.status-voted {
-                background-color: var(--opposite-block-bg-color);
-                color: var(--opposite-text-color);
-            }
-
-        .comment-body {
-            width: 100%;
-            display: block;
-            line-height: 1.6em;
-            padding: 5px 0 0 55px;
-            box-sizing: border-box;
+        .comment-author {
+            cursor: pointer;
             font-size: 110%;
+            font-weight: 500;
         }
 
-            @media (max-width: 570px) {
-                .comment-body {
-                    padding: 20px 0 0 0;
-                }
+        .comment-date, .comment-geo, .comment-id {
+            opacity: 0.7;
+        }
+
+        .comment-id {
+            color: var(--text-color);
+        }
+
+        .comment-rating {
+            display: inline-block;
+            padding: 10px;
+            font-size: 120%;
+            font-weight: 700;
+            margin-left: auto;
+        }
+
+            .comment-rating:before {
+                content: "+";
             }
 
-        .comment-footer {
-            display: flex;
-            justify-content: flex-end;
-            width: 100%;
+        .inline-comment-rating.status-voted,
+        .comment-rating.status-voted {
+            background-color: var(--opposite-block-bg-color);
+            color: var(--opposite-text-color);
         }
+
+    .comment-body {
+        width: 100%;
+        display: block;
+        line-height: 1.6em;
+        padding: 5px 0 0 55px;
+        box-sizing: border-box;
+        font-size: 110%;
+        text-overflow: ellipsis;
+    }
+
+        @media (max-width: 570px) {
+            .comment-body {
+                padding: 20px 0 0 0;
+            }
+        }
+
+    .comment-footer {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+    }
 
 .comments-form-login {
     padding: 0 0 150px;
@@ -147,14 +150,14 @@
         cursor: pointer;
         display: block;
         position: absolute;
-        padding: 15px 20px;
+        padding: 16px 20px;
         box-sizing: border-box;
         border-radius: var(--block-border-radius);
         top: 0;
         left: 0;
         width: 100%;
         font-weight: 700;
-        font-size: 110%;
+        font-size: 19px; /* static value for adaptive ui */
         min-height: 65px;
     }
 
@@ -180,6 +183,8 @@
 
     .inline-comment {
         display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
         .inline-comment:target {
@@ -213,7 +218,15 @@
 
     .inline-comments-body {
         line-height: 1.7em;
+        text-overflow: ellipsis;
     }
+
+        @media (max-width: 570px) {
+            .inline-comments-body {
+                display: block;
+                clear: both;
+            }
+        }
 
     .inline-comments-footer {
         position: relative;

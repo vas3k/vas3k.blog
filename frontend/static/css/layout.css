@@ -19,7 +19,7 @@
 
     @media (max-width: 570px) {
         .header {
-            justify-content: flex-start;
+            justify-content: space-between;
         }
     }
 
@@ -29,7 +29,7 @@
         align-items: center;
         gap: 10px;
         text-decoration: none;
-        font-size: 160%;
+        font-size: 170%;
         font-weight: 600;
     }
 
@@ -209,7 +209,6 @@
     display: block;
     overflow: hidden;
     width: 100%;
-    min-height: 350px;
 }
 
     .headline-image {
@@ -254,7 +253,7 @@
 
         @media only screen and (max-width : 570px) {
             .headline-info {
-                font-size: 150%;
+                font-size: 160%;
             }
         }
 
