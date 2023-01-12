@@ -40,7 +40,7 @@ class Command(BaseCommand):
                         og_description=row["preview_text"],
                         announce_text=row["preview_text"],
                         text=parse_text(row),
-                        html_cache=row["text_cache"],
+                        html_cache=None,
                         data=row_data,
                         created_at=row["created_at"],
                         published_at=row["created_at"],
