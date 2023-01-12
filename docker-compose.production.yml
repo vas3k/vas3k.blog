@@ -5,7 +5,6 @@ services:
     command: make docker-run-production
     container_name: blog_app
     environment:
-      - MIGRATE=vas3k_old
       - PYTHONUNBUFFERED=1
       - DEBUG=false
       - POSTGRES_DB=vas3k_blog
