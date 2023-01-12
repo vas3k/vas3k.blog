@@ -3,7 +3,6 @@ from uuid import uuid4
 
 from django.db import models
 from django.urls import reverse
-from django.utils.html import strip_tags
 
 from utils.slug import generate_unique_slug
 
@@ -66,8 +65,6 @@ class Post(models.Model):
             self.published_at = datetime.utcnow()
 
         self.updated_at = datetime.utcnow()
-        self.html_cache = None
-        self.rss_cache = None
         return super().save(*args, **kwargs)
 
     def get_absolute_url(self):
