@@ -24,16 +24,16 @@ def markdown(text):
 @register.filter
 def cool_number(value, num_decimals=1):
     """
-    Django template filter to convert regular numbers to a cool format (ie: 2K, 434.4K, 33M...)
+    11500 -> 11.5K, etc
     """
-    int_value = int(value or 0)
-    formatted_number = '{{:.{}f}}'.format(num_decimals)
+    int_value = int(value)
+    formatted_number = "{{:.{}f}}".format(num_decimals)
     if int_value < 1000:
         return str(int_value)
     elif int_value < 1000000:
-        return formatted_number.format(int_value / 1000.0).rstrip('0.') + 'K'
+        return formatted_number.format(int_value / 1000.0).rstrip("0").rstrip(".") + "K"
     else:
-        return formatted_number.format(int_value / 1000000.0).rstrip('0.') + 'M'
+        return formatted_number.format(int_value / 1000000.0).rstrip("0").rstrip(".") + "M"
 
 
 @register.filter
