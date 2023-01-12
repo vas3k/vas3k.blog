@@ -10,7 +10,7 @@
     </div>
 
     <div class="post-subscribe-form">
-        <form action="/subscribe/" method="post">
+        <form action="{% url "subscribe" %}" method="post">
             <label class="post-subscribe-form-label" for="inside_email">Ваш электронный адрес:</label>
             <div class="post-subscribe-form-fields">
                 {% csrf_token %}

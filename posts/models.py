@@ -66,6 +66,8 @@ class Post(models.Model):
             self.published_at = datetime.utcnow()
 
         self.updated_at = datetime.utcnow()
+        self.html_cache = None
+        self.rss_cache = None
         return super().save(*args, **kwargs)
 
     def get_absolute_url(self):
