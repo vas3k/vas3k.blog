@@ -1,6 +1,6 @@
 from django.db.models import F
 from django.http import Http404, JsonResponse, HttpResponseNotAllowed, HttpResponse
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 
 from clickers.models import Clicker
 from comments.models import Comment
@@ -50,6 +50,13 @@ def click_block(request, post_slug, block):
 
     if is_created:
         total_clicks = Clicker.objects.filter(post=post, block=block).count()
-        return HttpResponse(total_clicks)
+    else:
+        total_clicks = "x"
 
-    return HttpResponse("x")
+    return render(request, "clickers/clicker.html", {
+        "post": post,
+        "text": clicker.block or "",
+        "block": clicker.block,
+        "votes": total_clicks,
+        "is_voted": True,
+    })

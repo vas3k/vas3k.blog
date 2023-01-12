@@ -253,6 +253,8 @@ h2 + h3,
     }
 
 .clicker {
+    cursor: pointer;
+    text-decoration: none;
     display: inline-block;
     position: relative;
     padding: 4px 15px 5px 10px;

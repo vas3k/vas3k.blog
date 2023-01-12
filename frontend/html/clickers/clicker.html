@@ -1,10 +1,8 @@
-<div class="clicker {% if is_voted %}status_voted{% endif %} clicker-updater">
-    <form action="/clickers/click/" method="post" accept-charset="utf-8" onsubmit="return ajax_click(event);">
-        <span class="clicker-votes count-updater">{{ votes }}</span>
-        <span class="clicker-text">{{ clicker }}</span>
-        <input type="hidden" name="story_id" value="{{ story.id }}">
-        <input type="hidden" name="block" value="{{ block }}">
-        <input type="hidden" name="author" value="{{ username }}">
-        <input type="submit" class="clicker__button" value="">
-    </form>
-</div>
+<a href="{% url "click_block" post.slug block %}"
+   class="clicker {% if is_voted %}status-voted{% endif %}"
+   hx-post="{% url "click_block" post.slug block %}"
+   hx-swap="outerHTML"
+>
+    <span class="clicker-votes">{{ votes }}</span>
+    <span class="clicker-text">{{ text }}</span>
+</a>

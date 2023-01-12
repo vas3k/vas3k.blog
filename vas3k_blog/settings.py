@@ -124,12 +124,12 @@ DATABASES = {
     }
 }
 
-MIGRATE = os.getenv("MIGRATE") == "true"
+MIGRATE = os.getenv("MIGRATE")
 if MIGRATE:
     DATABASES.update({
         "old": {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
-            "NAME": "vas3k_old",
+            "NAME": os.getenv("MIGRATE"),
             "USER": os.getenv("POSTGRES_USER") or "postgres",
             "PASSWORD": os.getenv("POSTGRES_PASSWORD") or "",
             "HOST": os.getenv("POSTGRES_HOST") or "localhost",
@@ -229,10 +229,7 @@ AUTHOR = "@vas3k"
 TITLE = "Вастрик"
 DESCRIPTION = "Авторский блог о выживании в мире технологий и происходящем вокруг киберпанке"
 
-PAID_BLOCK_CLASS = "block-paid"
-EXTRA_BLOCK_CLASS = "block-extra"
-
-STYLES_HASH = str(randint(1, 10000))
+STYLES_HASH = os.getenv("GITHUB_SHA") or str(randint(1, 10000))
 
 MAX_COMMENTS_PER_24H = 50
 

@@ -47,7 +47,7 @@ def clicker(context, block, text=None):
 
     return clicker_template.render({
         **context.flatten(),
-        "clicker": text or "",
+        "text": text or "",
         "block": block,
         "votes": clicker.get("total") or 0,
         "is_voted": block in context["user_votes"],
