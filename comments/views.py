@@ -46,7 +46,7 @@ def create_comment(request):
     )
 
     Post.objects.filter(id=post.id).update(
-        comment_count=Comment.objects.filter(post=post, is_visible=True, is_deleted=False).count()
+        comment_count=Comment.visible_objects().filter(post=post).count()
     )
 
     if comment.block:
