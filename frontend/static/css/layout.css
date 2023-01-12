@@ -17,6 +17,12 @@
     box-sizing: border-box;
 }
 
+    @media (max-width: 570px) {
+        .header {
+            justify-content: flex-start;
+        }
+    }
+
     .header-logo {
         display: flex;
         flex-direction: row;
@@ -32,12 +38,23 @@
             height: 48px;
         }
 
+    .header-burger {
+        font-size: 22px;
+        line-height: 24px;
+        padding: 8px 11px;
+        font-weight: 700;
+    }
+
     .header-menu {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         gap: 20px;
     }
+
+        .header-menu-visible {
+            display: flex !important;
+        }
 
         .header-menu-item {
             position: relative;

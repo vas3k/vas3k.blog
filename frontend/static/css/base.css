@@ -220,6 +220,11 @@ h2 + h3,
         border-color: #0088cc;
     }
 
+    .button-round {
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+    }
+
 
 .form {
     display: flex;
