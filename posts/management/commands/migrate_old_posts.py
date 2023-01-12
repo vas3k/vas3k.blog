@@ -1,5 +1,6 @@
 import logging
 import json
+from datetime import datetime
 
 from django.core.management import BaseCommand
 from django.db import connections
@@ -48,7 +49,7 @@ class Command(BaseCommand):
                         word_count=parse_word_count(row),
                         comment_count=row["comments_count"],
                         view_count=row["views_count"],
-                        is_raw_html=bool(not row["text"] and row["html"]),
+                        is_raw_html=parse_is_raw_html(row),
                         is_visible=row["is_visible"],
                         is_members_only=row["is_members_only"],
                         is_commentable=row["is_commentable"],
@@ -80,12 +81,28 @@ def parse_text(row):
     else:
         text = row["html"]
 
+    if row["type"] == "world" and row["created_at"] < datetime(2017, 3, 1):
+        text = row["html"]
+
+    if row["slug"] == "389":
+        text = row["html"]
+
     if text:
         text = text.replace("i.vas3k.ru", "i.vas3k.blog")
         text = text.replace("http://vas3k.ru", "https://vas3k.blog")
         text = text.replace("https://vas3k.ru", "https://vas3k.blog")
 
     return text
+
+
+def parse_is_raw_html(row):
+    if row["type"] == "world" and row["created_at"] < datetime(2017, 2, 20):
+        return True
+
+    if row["slug"] == "389":
+        return True
+
+    return bool(not row["text"] and row["html"])
 
 
 def parse_image(row):
