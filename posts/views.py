@@ -116,9 +116,8 @@ def show_post(request, post_type, post_slug):
     if post_type not in POST_TYPES:
         raise Http404()
 
-    # drafts are visible only to admins
-    if not post.is_visible:
-        # if not request.me or not request.me.is_admin:
+    # drafts are visible only with a flag
+    if not post.is_visible and not request.GET.get("preview"):
         raise Http404()
 
     Post.objects.filter(id=post.id)\
