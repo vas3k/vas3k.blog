@@ -368,3 +368,8 @@ img.emoji {
    margin: 0 .05em 0 .1em;
    vertical-align: -0.1em;
 }
+
+i.fa, i.fab {
+    position: relative;
+    top: 2px;
+}
