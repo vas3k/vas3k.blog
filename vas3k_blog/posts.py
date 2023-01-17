@@ -34,13 +34,6 @@ POST_TYPES: dict[str, PostTypeConfig] = {
         list_template="posts/lists/blog.html",
         show_template="posts/full/blog.html",
     ),
-    "challenge": PostTypeConfig(
-        name="Поисковые челленджи",
-        list_items_per_page=30,
-        card_template="posts/cards/horizontal.html",
-        list_template="posts/lists/blog.html",
-        show_template="posts/full/legacy/challenge.html",
-    ),
     "gallery": PostTypeConfig(
         name="Галлерея",
         list_items_per_page=30,

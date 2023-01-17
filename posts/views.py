@@ -6,7 +6,7 @@ from comments.models import Comment
 from posts.forms import PostEditForm
 from posts.models import Post
 from posts.renderers import render_list, render_list_all, render_post
-from vas3k_blog.posts import INDEX_PAGE_BEST_POSTS
+from vas3k_blog.posts import INDEX_PAGE_BEST_POSTS, POST_TYPES
 
 
 def index(request):
@@ -93,6 +93,9 @@ def list_posts(request, post_type="all"):
     posts = Post.visible_objects().select_related()
 
     if post_type and post_type != "all":
+        if post_type not in POST_TYPES:
+            return Http404()
+
         posts = posts.filter(type=post_type)
         if not posts:
             raise Http404()
@@ -108,6 +111,10 @@ def show_post(request, post_type, post_slug):
     # post_type can be changed
     if post.type != post_type:
         return redirect("show_post", post.type, post.slug)
+
+    # post_type can be removed
+    if post_type not in POST_TYPES:
+        return Http404()
 
     # drafts are visible only to admins
     if not post.is_visible:

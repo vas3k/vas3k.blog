@@ -9,21 +9,21 @@ It is completely custom and is not intended to be used as a universal blog engin
 
 ## ⚙️ Tech details
 
-Backend:
+**Backend:**
 - Python 3.11+
 - Django 4+
 - PostgreSQL
 - [Poetry](https://python-poetry.org/) as a package manager
 
-Frontend:
+**Frontend:**
 - [htmx](https://htmx.org/)
 - Mostly pure JS, no webpack, no builders
 - No CSS framework
 
-Blogging:
+**Blogging part:**
 - Markdown with a bunch of [custom plugins](common/markdown/plugins)
 
-CI/CD:
+**CI/CD:**
 - Github Actions + SSH deployment using [docker-compose.production.yml](docker-compose.production.yml) as a service configuration
 
 
