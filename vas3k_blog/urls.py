@@ -1,11 +1,13 @@
 from django.conf import settings
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
 from django.views.generic import RedirectView
 
 from clickers.views import click_comment, click_block
 from comments.views import delete_comment, create_comment
 from inside.views import donate, subscribe, confirm, unsubscribe
+from posts.sitemaps import sitemaps
 from posts.views import index, show_post, list_posts, edit_post
 from rss.feeds import FullFeed, PublicFeed, PrivateFeed
 from users.views import profile, robots
@@ -40,6 +42,7 @@ urlpatterns = [
     path(r"comments/create/", create_comment, name="create_comment"),
     path(r"comments/<str:comment_id>/delete/", delete_comment, name="delete_comment"),
 
+    path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
     path("robots.txt", robots, name="robots"),
 
     path(r"<str:post_type>/<str:post_slug>/", show_post, name="show_post"),
