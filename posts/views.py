@@ -94,7 +94,7 @@ def list_posts(request, post_type="all"):
 
     if post_type and post_type != "all":
         if post_type not in POST_TYPES:
-            return Http404()
+            raise Http404()
 
         posts = posts.filter(type=post_type)
         if not posts:
@@ -114,7 +114,7 @@ def show_post(request, post_type, post_slug):
 
     # post_type can be removed
     if post_type not in POST_TYPES:
-        return Http404()
+        raise Http404()
 
     # drafts are visible only to admins
     if not post.is_visible:
