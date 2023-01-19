@@ -3,6 +3,7 @@ from uuid import uuid4
 
 from django.db import models
 from django.urls import reverse
+from django.utils.html import strip_tags
 
 from utils.slug import generate_unique_slug
 
@@ -65,6 +66,7 @@ class Post(models.Model):
 
         if flush_cache:
             self.html_cache = None
+            self.word_count = strip_tags(self.text).count(" ") if self.text else 0
 
         self.updated_at = datetime.utcnow()
         return super().save(*args, **kwargs)

@@ -419,6 +419,7 @@
 
     .block-media figure {
         box-sizing: border-box;
+        width: 100%;
     }
 
     .block-media figcaption {
