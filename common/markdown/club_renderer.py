@@ -80,7 +80,7 @@ class Vas3kRenderer(mistune.HTMLRenderer):
 
     def video(self, src, alt="", title=None):
         video_tag = (
-            f'<video src="{mistune.escape(src)}" controls autoplay loop muted playsinline>{mistune.escape(alt)}</video>'
+            f'<video src="{mistune.escape(src)}" controls loop muted playsinline>{mistune.escape(alt)}</video>'
         )
         caption = f"<figcaption>{mistune.escape(title)}</figcaption>" if title else ""
         return f"<figure>{video_tag}{caption}</figure>"
