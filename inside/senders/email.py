@@ -1,5 +1,4 @@
 import logging
-import re
 
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
@@ -32,7 +31,7 @@ def send_vas3k_email(subscriber: Subscriber, subject: str, html: str, force: boo
 
     email = EmailMultiAlternatives(
         subject=subject,
-        body=re.sub(r"<[^>]+>", "", prepared_html),
+        body=prepared_html,
         from_email=settings.DEFAULT_FROM_EMAIL,
         to=[subscriber.email],
         headers={
