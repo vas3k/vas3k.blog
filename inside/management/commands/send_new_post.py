@@ -66,9 +66,9 @@ class Command(BaseCommand):
             # send a letter
             try:
                 send_vas3k_email(
-                    recipient=subscriber.email,
-                    subject=f"Новый пост на Вастрик.ру: {post.title}",
-                    html=html,
+                    subscriber=subscriber,
+                    subject=f"Новый пост в блоге Вастрика: {post.title}",
+                    html=html
                 )
             except Exception as ex:
                 self.stdout.write(f"Sending to {subscriber.email} failed: {ex}")

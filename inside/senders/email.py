@@ -1,9 +1,12 @@
 import logging
-import re
 
 from django.conf import settings
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 from premailer import Premailer
+
+from inside.models import Subscriber
+
+log = logging.getLogger(__name__)
 
 
 def prepare_letter(html, base_url):
@@ -20,13 +23,20 @@ def prepare_letter(html, base_url):
     return html
 
 
-def send_vas3k_email(recipient, subject, html, **kwargs):
+def send_vas3k_email(subscriber: Subscriber, subject: str, html: str, force: bool = False, **kwargs):
+    if not subscriber.is_confirmed and not force:
+        log.warn(f"Not sending to {subscriber.email}. Not confirmed")
+
     prepared_html = prepare_letter(html, base_url=f"https://{settings.APP_HOST}")
-    return send_mail(
+
+    email = EmailMessage(
         subject=subject,
-        html_message=prepared_html,
-        message=re.sub(r"<[^>]+>", "", prepared_html),
+        body=prepared_html,
         from_email=settings.DEFAULT_FROM_EMAIL,
-        recipient_list=[recipient],
+        to=[subscriber.email],
+        headers={
+            "List-Unsubscribe": f"https://{settings.APP_HOST}/unsubscribe/{subscriber.secret_hash}/"
+        },
         **kwargs
     )
+    return email.send(fail_silently=True)

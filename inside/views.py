@@ -38,12 +38,13 @@ def subscribe(request):
     if is_created:
         opt_in_template = loader.get_template("emails/opt_in.html")
         send_vas3k_email(
-            recipient=subscriber.email,
+            subscriber=subscriber,
             subject=f"Подтверждение подписки",
             html=opt_in_template.render({
                 "email": subscriber.email,
                 "secret_hash": subscriber.secret_hash
             }),
+            force=True,
         )
 
     if is_created or not subscriber.is_confirmed:
