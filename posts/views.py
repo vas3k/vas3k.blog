@@ -10,81 +10,22 @@ from vas3k_blog.posts import INDEX_PAGE_BEST_POSTS, POST_TYPES
 
 
 def index(request):
-    # select latest post
-    top_post = Post.visible_objects()\
-        .filter(is_visible_on_home_page=True)\
-        .order_by("-created_at")\
-        .first()
-
     # blog posts
     blog_posts = Post.visible_objects()\
-        .filter(type="blog", is_visible_on_home_page=True)\
-        .exclude(id=top_post.id if top_post else None)\
-        .order_by("-created_at")[:3]
-
-    # travel posts
-    latest_world_story = Post.visible_objects()\
-        .filter(type="world", is_visible_on_home_page=True)\
-        .exclude(id=top_post.id if top_post else None)\
-        .order_by("-created_at")\
-        .first()
-    top_world_posts = Post.visible_objects()\
-        .filter(type="world", is_visible_on_home_page=True)\
-        .exclude(id__in=[
-            top_post.id if top_post else None,
-            latest_world_story.id if latest_world_story else None
-        ])\
-        .order_by("-view_count")[:7]
-    world_posts = [latest_world_story] + list(top_world_posts)
-
-    # featured posts
-    best_posts = Post.visible_objects()\
-        .filter(slug__in=INDEX_PAGE_BEST_POSTS)\
-        .order_by("-created_at")[:10]
-
-    # notes
-    notes_posts = Post.visible_objects()\
-        .filter(type="notes", is_visible_on_home_page=True)\
-        .order_by("-created_at")[:11]
+        .order_by("-created_at")
 
     return render(request, "index.html", {
         "blocks": [
             {
-                "template": "index/main.html",
-                "post": top_post
-            },
-            {
                 "title": "",
-                "template": "index/posts3.html",
+                "template": "index/posts2.html",
                 "posts": blog_posts
             },
             {
-                "title": "Обо мне",
+                "title": "About me",
                 "template": "index/about.html",
                 "posts": []
             },
-            {
-                "title": "Заметки",
-                "url": "/notes/",
-                "template": "index/posts4.html",
-                "posts": notes_posts
-            },
-            {
-                "title": "Отвратительные путешествия",
-                "template": "index/posts3.html",
-                "url": "/world/",
-                "posts": world_posts
-            },
-            {
-                "title": "Нетленки",
-                "template": "index/posts2.html",
-                "posts": best_posts
-            },
-            {
-                "title": "Проекты",
-                "template": "index/projects.html",
-                "posts": []
-            }
         ]
     })
 

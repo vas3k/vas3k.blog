@@ -17,7 +17,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         with connections["old"].cursor() as cursor:
-            cursor.execute("select * from stories order by is_visible desc")
+            cursor.execute("select * from stories_en order by is_visible desc")
             for row in dictfetchall(cursor):
                 if row["type"] not in POST_TYPES:
                     self.stdout.write(f"Skipping: {row['type']} {row['slug']}")
@@ -51,9 +51,9 @@ class Command(BaseCommand):
                         view_count=row["views_count"],
                         is_raw_html=parse_is_raw_html(row),
                         is_visible=row["is_visible"],
-                        is_members_only=row["is_members_only"],
-                        is_commentable=row["is_commentable"],
-                        is_visible_on_home_page=row["is_featured"],
+                        is_members_only=False,
+                        is_commentable=False,
+                        is_visible_on_home_page=True,
                     )
                 )
                 self.stdout.write(f"Post {post.slug} updated...")

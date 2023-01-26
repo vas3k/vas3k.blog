@@ -6,7 +6,6 @@
             {% if me %}<i class="fas fa-lock-open"></i>{% else %}<i class="fas fa-lock"></i>{% endif %}
         </span>
     {% endif %}
-    <span class="card-views"><i class="fas fa-eye"></i>&nbsp;{{ post.view_count|cool_number }}</span>
     <span class="card-info">
         <span {% if post.data.headline_title_size %}style="font-size: {{ post.data.headline_title_size }};"{% endif %}>
             <span class="card-title p-name">{{ post.title }}</span>

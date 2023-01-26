@@ -1,22 +1,5 @@
 {% load static %}
 
 <section class="post-footer">
-    {% if story.is_members_only %}
-        <div class="post-members-share">
-            <div class="post-members-share-heart">
-                <i class="fas fa-heart"></i>
-            </div>
-            <div>
-                <h3>Как делиться закрытыми постами?</h3>
-                <ul>
-                    <li>👍 Можно цитировать, делать скриншоты, репостить картинки, и давать ссылки на пост в паблике. Это хорошо и привлекает новых читателей</li>
-                    <li>🙅‍♀️ Нельзя воровать весь текст или выкладывать сохранённые страницы. Это плохо и атата</li>
-                </ul>
-            </div>
-        </div>
-    {% else %}
-        <a href="{% url "donate" %}" class="button button-red button-huuuuge">🍺 Поблагодарить автора</a>
-    {% endif %}
-
-    {% include "common/post_subscribe.html" %}
+    <a href="https://www.paypal.com/paypalme/vas3kcom" class="button button-red button-huuuuge">🍺 Buy me a beer</a>
 </section>

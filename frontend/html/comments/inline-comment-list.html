@@ -1,32 +1,34 @@
 {% load comments %}
 {% load text_filters %}
 
-<div class="inline-comments" id="block-{{ block }}">
-    <div class="inline-comments-header" onclick="return toggle(event, '.inline-comments-content', 'inline-comments-content-hidden');">
-        {% if block_comments|length > 0 %}
-            {{ block_comments|length }}&nbsp;{{ block_comments|length|rupluralize:"комментарий,комментария,комментариев" }}
-        {% else %}
-            Комментировать
-        {% endif %}
-    </div>
-
-    <div class="inline-comments-content {% if not request.user.is_authenticated %}inline-comments-content-hidden{% endif %}">
-        {% if block_comments %}
-            <div class="inline-comments-list" id="inline-comments-list-{{ block }}">
-                {% for comment in block_comments %}
-                    {% include "comments/inline-comment.html" %}
-                {% endfor %}
-            </div>
-        {% endif %}
-
-        {% if post.is_commentable %}
-            {% if request.user.is_authenticated %}
-                {% include "comments/inline-comment-form.html" %}
+{% if post.is_commentable %}
+    <div class="inline-comments" id="block-{{ block }}">
+        <div class="inline-comments-header" onclick="return toggle(event, '.inline-comments-content', 'inline-comments-content-hidden');">
+            {% if block_comments|length > 0 %}
+                {{ block_comments|length }}&nbsp;{{ block_comments|length|rupluralize:"комментарий,комментария,комментариев" }}
             {% else %}
-                <div class="inline-comments-login">
-                    <a href="{% url "login" %}" class="button">Войти и написать</a>
+                Комментировать
+            {% endif %}
+        </div>
+
+        <div class="inline-comments-content {% if not request.user.is_authenticated %}inline-comments-content-hidden{% endif %}">
+            {% if block_comments %}
+                <div class="inline-comments-list" id="inline-comments-list-{{ block }}">
+                    {% for comment in block_comments %}
+                        {% include "comments/inline-comment.html" %}
+                    {% endfor %}
                 </div>
             {% endif %}
-        {% endif %}
+
+            {% if post.is_commentable %}
+                {% if request.user.is_authenticated %}
+                    {% include "comments/inline-comment-form.html" %}
+                {% else %}
+                    <div class="inline-comments-login">
+                        <a href="{% url "login" %}" class="button">Войти и написать</a>
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>
     </div>
-</div>
+{% endif %}

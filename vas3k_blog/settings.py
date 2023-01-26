@@ -98,7 +98,7 @@ LOGGING = {
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": os.getenv("POSTGRES_DB") or "vas3k_blog",
+        "NAME": os.getenv("POSTGRES_DB") or "vas3k_blog_en",
         "USER": os.getenv("POSTGRES_USER") or "postgres",
         "PASSWORD": os.getenv("POSTGRES_PASSWORD") or "",
         "HOST": os.getenv("POSTGRES_HOST") or "localhost",
@@ -133,7 +133,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = "ru"
+LANGUAGE_CODE = "en-US"
 TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = False
@@ -215,19 +215,9 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 AUTHOR = "@vas3k"
-TITLE = "Вастрик"
-DESCRIPTION = "Авторский блог о выживании в мире технологий и происходящем вокруг киберпанке"
+TITLE = "vas3k"
+DESCRIPTION = "Personal blog about technology and survival in the world of cyberpunk"
 
 STYLES_HASH = os.getenv("GITHUB_SHA") or str(randint(1, 10000))
 
 MAX_COMMENTS_PER_24H = 50
-
-if SENTRY_DSN and not DEBUG:
-    # activate sentry on production
-    sentry_sdk.init(dsn=SENTRY_DSN, integrations=[
-        DjangoIntegration(),
-    ])
-
-if DEBUG:
-    INSTALLED_APPS += ["debug_toolbar"]
-    MIDDLEWARE = ["debug_toolbar.middleware.DebugToolbarMiddleware"] + MIDDLEWARE
