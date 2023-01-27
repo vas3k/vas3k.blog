@@ -10,12 +10,15 @@ from notifications.telegram.bot import bot
 @receiver(post_save, sender=Comment)
 def create_comment(sender, instance, created, **kwargs):
     if not created:
-        return
+        return  # skip updates
 
     comment = instance
     post = comment.post
 
     link = f"https://{settings.APP_HOST}/{post.type}/{post.slug}/"
+
+    if not post.is_published():
+        link += "?preview=1"
 
     if comment.block:
         link += f"#block-{comment.block}-{comment.id}"

@@ -71,6 +71,9 @@ class Post(models.Model):
         self.updated_at = datetime.utcnow()
         return super().save(*args, **kwargs)
 
+    def is_published(self):
+        return self.is_visible and self.published_at < datetime.utcnow()
+
     def get_absolute_url(self):
         if self.url:
             return self.url
