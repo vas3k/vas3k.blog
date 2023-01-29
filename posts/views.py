@@ -10,15 +10,15 @@ from vas3k_blog.posts import INDEX_PAGE_BEST_POSTS, POST_TYPES
 
 
 def index(request):
-    # select latest post
+    # select top post
     top_post = Post.visible_objects()\
         .filter(is_visible_on_home_page=True)\
         .order_by("-created_at")\
         .first()
 
-    # blog posts
+    # latest posts
     blog_posts = Post.visible_objects()\
-        .filter(type="blog", is_visible_on_home_page=True)\
+        .filter(type__in=["blog", "world"], is_visible_on_home_page=True)\
         .exclude(id=top_post.id if top_post else None)\
         .order_by("-created_at")[:3]
 
