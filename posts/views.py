@@ -13,39 +13,39 @@ def index(request):
     # select top post
     top_post = Post.visible_objects()\
         .filter(is_visible_on_home_page=True)\
-        .order_by("-created_at")\
+        .order_by("-published_at")\
         .first()
 
     # latest posts
-    blog_posts = Post.visible_objects()\
+    latest_posts = Post.visible_objects()\
         .filter(type__in=["blog", "world"], is_visible_on_home_page=True)\
         .exclude(id=top_post.id if top_post else None)\
-        .order_by("-created_at")[:3]
+        .order_by("-published_at")[:6]
 
     # travel posts
-    latest_world_story = Post.visible_objects()\
+    latest_world_posts = Post.visible_objects()\
         .filter(type="world", is_visible_on_home_page=True)\
-        .exclude(id=top_post.id if top_post else None)\
-        .order_by("-created_at")\
-        .first()
+        .exclude(id__in=[post.id for post in latest_posts] if latest_posts else [])\
+        .order_by("-published_at")[:3]
     top_world_posts = Post.visible_objects()\
         .filter(type="world", is_visible_on_home_page=True)\
         .exclude(id__in=[
             top_post.id if top_post else None,
-            latest_world_story.id if latest_world_story else None
+            *[post.id for post in latest_posts],
+            *[post.id for post in latest_world_posts],
         ])\
-        .order_by("-view_count")[:7]
-    world_posts = [latest_world_story] + list(top_world_posts)
+        .order_by("-view_count")[:6]
+    world_posts = list(latest_world_posts) + list(top_world_posts)
 
     # featured posts
     best_posts = Post.visible_objects()\
         .filter(slug__in=INDEX_PAGE_BEST_POSTS)\
-        .order_by("-created_at")[:10]
+        .order_by("-published_at")[:10]
 
     # notes
     notes_posts = Post.visible_objects()\
         .filter(type="notes", is_visible_on_home_page=True)\
-        .order_by("-created_at")[:11]
+        .order_by("-published_at")[:11]
 
     return render(request, "index.html", {
         "blocks": [
@@ -56,7 +56,7 @@ def index(request):
             {
                 "title": "",
                 "template": "index/posts3.html",
-                "posts": blog_posts
+                "posts": latest_posts
             },
             {
                 "title": "Обо мне",
