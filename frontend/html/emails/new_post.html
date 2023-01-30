@@ -24,7 +24,7 @@
     </p>
 
     <a href="https://vas3k.blog/{{ post.type }}/{{ post.slug }}/">
-        <img src="{% if post.preview_image %}{{ post.preview_image }}{% else %}{{ post.image }}{% endif %}" alt="{{ post.title }}">
+        <img src="{% if post.og_image %}{{ post.og_image }}{% else %}{{ post.image }}{% endif %}" alt="{{ post.title }}">
     </a>
 
     {% if post.announce_text %}

@@ -1,5 +1,4 @@
 import logging
-from datetime import datetime, timedelta
 
 from django.core.management import BaseCommand
 from django.template import loader
@@ -16,21 +15,13 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument("--production", type=bool, required=False, default=False)
-        parser.add_argument("--hours", type=int, required=False, default=24)
         parser.add_argument("--auto-confirm", type=bool, required=False, default=False)
 
     def handle(self, *args, **options):
         production = options.get("production")
-        hours = options.get("hours") or 24
-        if not production:
-            hours = 99999
 
         # Step 1. Check for a new post
-        post = Post.objects.filter(
-            is_visible=True,
-            created_at__lte=datetime.utcnow(),
-            created_at__gte=datetime.utcnow() - timedelta(hours=hours),
-        ).order_by("-created_at").first()
+        post = Post.visible_objects().order_by("-published_at").first()
 
         if not post:
             self.stdout.write(f"No new posts. Exiting...")

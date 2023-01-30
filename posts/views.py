@@ -34,7 +34,7 @@ def index(request):
             *[post.id for post in latest_posts],
             *[post.id for post in latest_world_posts],
         ])\
-        .order_by("-view_count")[:6]
+        .order_by("-view_count")[:5]
     world_posts = list(latest_world_posts) + list(top_world_posts)
 
     # featured posts
