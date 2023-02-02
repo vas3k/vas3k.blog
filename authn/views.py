@@ -152,7 +152,6 @@ def patreon_callback(request):
 
     user = User.objects\
         .filter(Q(email=user_data["data"]["attributes"]["email"]) | Q(patreon_id=user_data["data"]["id"]))\
-        .exlude(patreon_id__isnull=True)\
         .first()
 
     if user:
