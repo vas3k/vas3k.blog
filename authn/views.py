@@ -156,8 +156,11 @@ def patreon_callback(request):
         .first()
 
     if user:
-        user.patreon_id = user_data["data"]["id"]
-        user.save()
+        if not user.patreon_id:
+            return render(request, "error.html", {
+                "message": "Пользователь с таким имейлом есть, но он не с Патреона. "
+                           "Войдите другим способом."
+            })
     else:
         user = User.objects.create_user(
             patreon_id=user_data["data"]["id"],
