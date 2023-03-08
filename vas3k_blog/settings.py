@@ -164,6 +164,8 @@ CLUB_OPENID_CONFIG = {
     "client_kwargs": {"scope": "openid"},
 }
 
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
 PATREON_AUTH_URL = "https://www.patreon.com/oauth2/authorize"
 PATREON_TOKEN_URL = "https://www.patreon.com/api/oauth2/token"
 PATREON_USER_URL = "https://www.patreon.com/api/oauth2/v2/identity"

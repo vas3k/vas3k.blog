@@ -34,7 +34,7 @@ jobs:
           secret_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
           secret_PATREON_CLIENT_ID: ${{ secrets.PATREON_CLIENT_ID }}
           secret_PATREON_CLIENT_SECRET: ${{ secrets.PATREON_CLIENT_SECRET }}
-          secret_JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          secret_CLUB_OPENID_CONFIG_SECRET: ${{ secrets.CLUB_OPENID_CONFIG_SECRET }}
           secret_EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
           secret_EMAIL_HOST_USER: ${{ secrets.EMAIL_HOST_USER }}
           secret_EMAIL_HOST_PASSWORD: ${{ secrets.EMAIL_HOST_PASSWORD }}
