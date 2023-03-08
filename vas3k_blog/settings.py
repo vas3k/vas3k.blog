@@ -1,12 +1,11 @@
 import os
-from datetime import timedelta
 from pathlib import Path
 from random import randint
 
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Build paths inside the project like this: BASE_DIR / "subdir".
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -155,7 +154,15 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Auth
 
-CLUB_AUTH_URL = "https://vas3k.club/auth/external/"
+CLUB_BASE_URL = "https://vas3k.club"
+CLUB_OPENID_CONFIG = {
+    "name": "club",
+    "client_id": "vas3k_blog",
+    "client_secret": os.getenv("CLUB_OPENID_CONFIG_SECRET") or "vas3k_blog",
+    "api_base_url": CLUB_BASE_URL,
+    "server_metadata_url": f"{CLUB_BASE_URL}/.well-known/openid-configuration",
+    "client_kwargs": {"scope": "openid"},
+}
 
 PATREON_AUTH_URL = "https://www.patreon.com/oauth2/authorize"
 PATREON_TOKEN_URL = "https://www.patreon.com/api/oauth2/token"
@@ -163,23 +170,6 @@ PATREON_USER_URL = "https://www.patreon.com/api/oauth2/v2/identity"
 PATREON_CLIENT_ID = os.getenv("PATREON_CLIENT_ID")
 PATREON_CLIENT_SECRET = os.getenv("PATREON_CLIENT_SECRET")
 PATREON_SCOPE = "identity identity[email]"
-
-JWT_ALGORITHM = "RS256"
-JWT_PUBLIC_KEY = """-----BEGIN PUBLIC KEY-----
-MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAvEDEGKL0b+okI6QBBMiu
-3GOHOG/Ml4KJ13tWyPnl5yGswf9rUGOLo0T0dXxSwxp/6g1ZeYqDR7jckuP6A3Rv
-DPdKYc44eG3YB/bO2Yeq57Kx1rxvFvWZap2jTyu2wbALmmeg0ne3wkXPExTy/EQ4
-LDft8nraSJuW7c+qrah+F94qKGVNvilf20V5S186iGpft2j/UAl9s81kzZKBwk7M
-B+u4jSH8E3KHZVb28CVNOpnYYcLBNLsjGwZk6qbiuq1PEq4AZ5TN3EdoVP9nbIGY
-BZAMwoNxP4YQN+mDRa6BU2Mhy+c9ea+fuCKRxNi3+nYjF00D28fErFFcA+BEe4A1
-Hhq25PsVfUgOYvpv1F/ImPJBl8q728DEzDcj1QzL0flbPUMBV6Bsq+l2X3OdrVtQ
-GXiwJfJRWIVRVDuJzdH+Te2bvuxk2d0Sq/H3uzXYd/IQU5Jw0ZZRTKs+Rzdpb8ui
-eoDmq2uz6Q2WH2gPwyuVlRfatJOHCUDjd6dE93lA0ibyJmzxo/G35ns8sZoZaJrW
-rVdFROm3nmAIATC/ui9Ex+tfuOkScYJ5OV1H1qXBckzRVwfOHF0IiJQP4EblLlvv
-6CEL2VBz0D2+gE4K4sez6YSn3yTg9TkWGhXWCJ7vomfwIfHIdZsItqay156jMPaV
-c+Ha7cw3U+n6KI4idHLiwa0CAwEAAQ==
------END PUBLIC KEY-----"""
-JWT_EXP_TIMEDELTA = timedelta(days=120)
 
 # Email
 

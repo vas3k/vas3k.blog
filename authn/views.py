@@ -1,14 +1,16 @@
 import logging
-from urllib.parse import urlencode, quote, urlparse
+from urllib.parse import urlencode, urlparse
 
-import jwt
+from authlib.integrations.base_client import OAuthError
 from django.conf import settings
 from django.contrib.auth import logout, login
 from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from requests import HTTPError
 
 from authn import club, patreon
+from authn.club import oauth
 from authn.exceptions import PatreonException
 from users.models import User
 
@@ -28,33 +30,37 @@ def login_club(request):
     if request.user.is_authenticated:
         return redirect("profile")
 
-    goto = request.GET.get("goto")
-    params = urlencode({
-        "app_id": "vas3k_blog",
-        "redirect": f"https://{request.get_host()}/auth/club_callback/" + (f"?goto={quote(goto)}" if goto else "")
-    })
-    return redirect(f"{settings.CLUB_AUTH_URL}?{params}")
+    # TODO: implement
+    # goto = request.GET.get("goto")
+
+    redirect_uri = request.build_absolute_uri(reverse("club_callback"))
+    return oauth.club.authorize_redirect(request, redirect_uri)
 
 
 def club_callback(request):
-    token = request.GET.get("jwt")
-    if not token:
+    try:
+        token = oauth.club.authorize_access_token(request)
+    except OAuthError as ex:
+        return render(request, "error.html", {
+            "title": "Ошибка OAuth",
+            "message": f"Что-то проебалось при авторизации: {ex}"
+        })
+    except HTTPError as ex:
+        return render(request, "error.html", {
+            "title": "Ошибка Клуба",
+            "message": f"Что-то сломалось или сайт упал, попробуйте еще раз: {ex}"
+        })
+
+    userinfo = token.get("userinfo")
+
+    if not token or not userinfo:
         return render(request, "error.html", {
             "title": "Что-то пошло не так",
-            "message": "При авторизации потерялся токен. Попробуйте войти еще раз."
+            "message": "При авторизации потерялся токен юзера. Попробуйте войти еще раз."
         })
 
-    try:
-        payload = jwt.decode(token, settings.JWT_PUBLIC_KEY, algorithms=[settings.JWT_ALGORITHM])
-    except (jwt.DecodeError, jwt.ExpiredSignatureError) as ex:
-        log.error(f"JWT token error: {ex}")
-        return render(request, "error.html", {
-            "title": "Что-то сломалось",
-            "message": "Неправильный ключ. Наверное, что-то сломалось. Либо ты ХАКИР!!11"
-        })
-
-    user_slug = payload["user_slug"]
-    club_profile = club.parse_membership(user_slug, token)
+    user_slug = userinfo["sub"]
+    club_profile = club.parse_membership(token)
     if not club_profile or not club_profile.get("user"):
         return render(request, "error.html", {
             "message": f"Член Клуба с именем {user_slug} не найден. "
@@ -64,25 +70,25 @@ def club_callback(request):
 
     if club_profile["user"]["payment_status"] != "active":
         return render(request, "error.html", {
-            "message": "Ваша подписка истекла. "
+            "message": "Ваша подписка на Клуб истекла. "
                        "<a href=\"https://vas3k.club\">Продлите</a> её здесь."
         })
 
-    user = User.objects.filter(Q(email=payload["user_email"]) | Q(vas3k_club_slug=payload["user_slug"])).first()
+    user = User.objects.filter(Q(email=userinfo["email"]) | Q(vas3k_club_slug=userinfo["sub"])).first()
     if user:
         user.avatar = club_profile["user"]["avatar"]
-        user.vas3k_club_slug = payload["user_slug"]
+        user.vas3k_club_slug = userinfo["sub"]
         if not user.email:
-            user.email = payload["user_email"]
+            user.email = userinfo["email"]
         user.country = club_profile["user"]["country"]
         user.city = club_profile["user"]["city"]
         user.save()
     else:
         user = User.objects.create_user(
-            vas3k_club_slug=payload["user_slug"],
+            vas3k_club_slug=userinfo["sub"],
             avatar=club_profile["user"]["avatar"],
             username=club_profile["user"]["full_name"][:20],
-            email=payload["user_email"],
+            email=userinfo["email"],
         )
 
     login(request, user)
