@@ -33,7 +33,7 @@ def login_club(request):
     # TODO: implement
     # goto = request.GET.get("goto")
 
-    redirect_uri = request.build_absolute_uri(reverse("club_callback"))
+    redirect_uri = f"https://{settings.APP_HOST}{reverse('club_callback')}"
     return oauth.club.authorize_redirect(request, redirect_uri)
 
 
