@@ -10,7 +10,7 @@ from comments.views import delete_comment, create_comment
 from inside.views import donate, subscribe, confirm, unsubscribe
 from posts.sitemaps import sitemaps
 from posts.views import index, show_post, list_posts, edit_post
-from rss.feeds import FullFeed, PublicFeed, PrivateFeed
+from rss.feeds import FullFeed
 from users.views import profile, robots
 from authn.views import log_in, log_out, login_club, login_patreon, club_callback, patreon_callback
 
@@ -32,10 +32,10 @@ urlpatterns = [
     path(r"subscribe/confirm/<str:secret_hash>/", confirm, name="subscribe_confirm"),
     path(r"unsubscribe/<str:secret_hash>/", unsubscribe, name="unsubscribe"),
 
-    path(r"rss/", cache_page(FullFeed(), 60 * 60), name="rss.full"),
-    path(r"rss/public/", cache_page(FullFeed(), 60 * 60), name="rss.public"),
-    path(r"rss/private/", cache_page(FullFeed(), 60 * 60), name="rss.private"),
-    path(r"rss/blog/", cache_page(FullFeed(), 60 * 60), name="rss.blog"),  # legacy
+    path(r"rss/", cache_page(60 * 60)(FullFeed()), name="rss.full"),
+    path(r"rss/public/", cache_page(60 * 60)(FullFeed()), name="rss.public"),
+    path(r"rss/private/", cache_page(60 * 60)(FullFeed()), name="rss.private"),
+    path(r"rss/blog/", cache_page(60 * 60)(FullFeed()), name="rss.blog"),  # legacy
 
     path(r"clickers/comments/<str:comment_id>/", click_comment, name="click_comment"),
     path(r"clickers/blocks/<str:post_slug>/<str:block>/", click_block, name="click_block"),
