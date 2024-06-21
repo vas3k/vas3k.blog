@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
 from django.views.generic import RedirectView
+from django.views.decorators.cache import cache_page
 
 from clickers.views import click_comment, click_block
 from comments.views import delete_comment, create_comment
@@ -31,10 +32,10 @@ urlpatterns = [
     path(r"subscribe/confirm/<str:secret_hash>/", confirm, name="subscribe_confirm"),
     path(r"unsubscribe/<str:secret_hash>/", unsubscribe, name="unsubscribe"),
 
-    path(r"rss/", FullFeed(), name="rss.full"),
-    path(r"rss/public/", PublicFeed(), name="rss.public"),
-    path(r"rss/private/", PrivateFeed(), name="rss.private"),
-    path(r"rss/blog/", FullFeed(), name="rss.blog"),  # legacy
+    path(r"rss/", cache_page(FullFeed(), 60 * 60), name="rss.full"),
+    path(r"rss/public/", cache_page(FullFeed(), 60 * 60), name="rss.public"),
+    path(r"rss/private/", cache_page(FullFeed(), 60 * 60), name="rss.private"),
+    path(r"rss/blog/", cache_page(FullFeed(), 60 * 60), name="rss.blog"),  # legacy
 
     path(r"clickers/comments/<str:comment_id>/", click_comment, name="click_comment"),
     path(r"clickers/blocks/<str:post_slug>/<str:block>/", click_block, name="click_block"),
