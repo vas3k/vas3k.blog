@@ -212,6 +212,7 @@
     display: block;
     overflow: hidden;
     width: 100%;
+    min-height: 500px;
 }
 
     .headline-image {
@@ -253,6 +254,11 @@
         z-index: 20;
         font-size: 300%;
     }
+
+        .headline-info-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
         @media only screen and (max-width : 570px) {
             .headline-info {

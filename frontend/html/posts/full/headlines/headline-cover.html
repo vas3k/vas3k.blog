@@ -25,18 +25,20 @@
     {% endif %}
 
     <div class="headline-info">
-        <div class="headline-info-title-customize">
-            <div class="headline-info-title the-title p-name">
-                {% if request.user.is_superuser %}<a href="{% url "edit_post" post.type post.slug %}">✏️</a>{% endif %}
-                {{ post.title | safe }}
+        <div class="headline-info-inner">
+            <div class="headline-info-title-customize">
+                <div class="headline-info-title the-title p-name">
+                    {% if request.user.is_superuser %}<a href="{% url "edit_post" post.type post.slug %}">✏️</a>{% endif %}
+                    {{ post.title | safe }}
+                </div>
             </div>
+            {% if post.subtitle %}
+                <div class="clearfix20"></div>
+                <div class="headline-info-subtitle the-subtitle p-summary">{{ post.subtitle | safe }}</div>
+            {% endif %}
+            <div class="clearfix10"></div>
+            <div class="headline-info-date hide-on-iphone dt-published">{{ post.published_at|date:"d E Y"|lower }} — {{ post.comment_count }}&nbsp;{{ post.comment_count|rupluralize:"комментарий,комментария,комментариев" }} — {{ post.view_count }}&nbsp;{{ post.view_count|rupluralize:"просмотр,просмотра,просмотров" }} — {{ post.word_count }}&nbsp;{{ post.word_count|rupluralize:"слово,слова,слов" }}</div>
+            <a rel="author" class="p-author h-card" href="{{ request.scheme }}://{{ request.get_host }}" style="display: none;">{{ settings.AUTHOR }}</a>
         </div>
-        {% if post.subtitle %}
-            <div class="clearfix20"></div>
-            <div class="headline-info-subtitle the-subtitle p-summary">{{ post.subtitle | safe }}</div>
-        {% endif %}
-        <div class="clearfix10"></div>
-        <div class="headline-info-date hide-on-iphone dt-published">{{ post.published_at|date:"d E Y"|lower }} — {{ post.comment_count }}&nbsp;{{ post.comment_count|rupluralize:"комментарий,комментария,комментариев" }} — {{ post.view_count }}&nbsp;{{ post.view_count|rupluralize:"просмотр,просмотра,просмотров" }} — {{ post.word_count }}&nbsp;{{ post.word_count|rupluralize:"слово,слова,слов" }}</div>
-        <a rel="author" class="p-author h-card" href="{{ request.scheme }}://{{ request.get_host }}" style="display: none;">{{ settings.AUTHOR }}</a>
     </div>
 </div>
