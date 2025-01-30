@@ -138,17 +138,17 @@
                 <img src="{% static "images/btc.png" %}" alt="Bitcoin QR code">
                 <small>bc1qu5m46dq4zdmyye738pqe0wjcxtgmdq20qatm6k</small>
             </div>
+
             <div class="donate-service-selector-item">
-                <span>Эфир или USDC/USDT</span>
+                <span>Эфир или USDT</span>
                 <img src="{% static "images/eth.png" %}" alt="ETH/ERC20 QR code">
                 <small>0x35c0ef9C40568b25520d25235280e73a9bcb0d77</small>
             </div>
+
             <div class="donate-service-selector-item">
-                <span>Polkadot</span>
-                <a href="https://sub.id/13gCScunZLdXDkYKuaDi8QcsTT5nEEgxpiyYLTSHc6iCNW3b" target="_blank">
-                    <img src="{% static "images/dot.png" %}" alt="DOT QR code">
-                </a>
-                <small>13gCScunZLdXDkYKuaDi8QcsTT5nEEgxpiyYLTSHc6iCNW3b</small>
+                <span>TON</span>
+                <img src="{% static "images/ton.png" %}" alt="DOT QR code">
+                <small>UQA3z-5WpahR8o5bJoo11FyWfogpfJgmLgnVNVZ8iXZfUS_6</small>
             </div>
         </div>
     </div>
@@ -159,14 +159,21 @@
         document.querySelectorAll(".donate-selector-item").forEach(item => {
             item.classList.remove("donate-selector-item-active");
         });
-        event.target.classList.add("donate-selector-item-active");
+
+        if (event.target.classList.contains("donate-selector-item")) {
+            event.target.classList.add("donate-selector-item-active");
+        } else if (event.target.parentElement && event.target.parentElement.classList.contains("donate-selector-item")) {
+            event.target.parentElement.classList.add("donate-selector-item-active");
+        }
 
         document.querySelectorAll(".donate-amount").forEach(item => {
             item.classList.remove("donate-amount-active");
         });
 
         let tab = document.querySelector(tabId);
-        tab.classList.add("donate-amount-active");
+        if (tab) {
+            tab.classList.add("donate-amount-active");
+        }
     }
 </script>
 {% endblock %}
