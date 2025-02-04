@@ -40,7 +40,7 @@
     max-width: 600px;
     margin: 40px auto 20px;
     font-size: 18px;
-    background-color: #FFF;
+    background-color: var(--block-bg-color);
     padding: 40px;
     box-sizing: border-box;
     overflow: hidden;
@@ -63,17 +63,16 @@
         width: 150px;
     }
 
-
 .donate-service {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
     gap: 30px;
     font-size: 120%;
     width: 95%;
-    max-width: 800px;
-    margin: 80px auto;
+    max-width: 850px;
+    margin: 40px auto;
     box-sizing: border-box;
 }
 
@@ -81,9 +80,11 @@
         flex-direction: column;
     }
 
+    .donate-service-image {
+        max-width: 130px;
+    }
+
     .donate-service-description {
-        width: 100%;
-        max-width: 60%;
         box-sizing: border-box;
     }
 
@@ -136,6 +137,7 @@
     }
 
     .donate-service {
+        flex-direction: column;
         justify-content: center;
     }
 

@@ -10,7 +10,7 @@
     background-repeat: no-repeat;
     background-position: 50% 50%;
     -webkit-transition: all 0.1s linear;
-    box-shadow: 10px 10px 30px #CCC;
+    box-shadow: var(--block-shadow);
     transition: all 0.5s;
     transform: translateZ(0);
     border-radius: 30px;
@@ -69,16 +69,16 @@
         line-height: 1.3em;
         -webkit-box-decoration-break: clone;
         box-decoration-break: clone;
-        background-color: var(--block-bg-color);
-        color: var(--text-color);
+        background-color: var(--card-title-bg-color);
+        color: var(--card-title-color);
         padding: 5px 10px;
         box-sizing: border-box;
         transition: all 0.5s;
     }
 
         .card:hover .card-title {
-            background-color: #333;
-            color: var(--opposite-text-color);
+            background-color: var(--card-title-color);
+            color: var(--card-title-bg-color);
             transition: all 0.3s;
         }
 
@@ -91,21 +91,25 @@
         padding: 3px 10px;
         -webkit-box-decoration-break: clone;
         box-decoration-break: clone;
-        background-color: var(--block-bg-color);
-        color: var(--text-color);
+        background-color: var(--card-title-bg-color);
+        color: var(--card-title-color);
         line-height: 1.3em;
         transition: all 0.5s;
     }
 
         .card:hover .card-subtitle {
-            background-color: #333;
-            color: var(--opposite-text-color);
+            background-color: var(--card-title-color);
+            color: var(--card-title-bg-color);
             transition: all 0.3s;
         }
 
-        @media (max-width: 1024px) {
+        @media (max-width: 1100px) {
+            .card-title {
+                font-size: 170%;
+            }
+
             .card-subtitle {
-                font-size: 100%;
+                font-size: 90%;
             }
         }
 
@@ -115,15 +119,15 @@
     }
 
         .card-vertical .card-info {
-            background-color: var(--block-bg-color);
-            color: var(--text-color);
+            background-color: var(--card-title-bg-color);
+            color: var(--card-title-color);
             padding: 20px;
             text-align: left;
         }
 
             .card-vertical:hover .card-info {
-                background-color: #333;
-                color: var(--opposite-text-color);
+                background-color: var(--card-title-color);
+                color: var(--card-title-bg-color);
                 transition: all 0.3s;
             }
 

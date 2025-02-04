@@ -31,6 +31,9 @@ html, html[theme="light"] {
     --block-shadow: 10px 15px 40px rgba(83, 91, 110, 0.11);
     --block-border: none;
 
+    --card-title-color: #333;
+    --card-title-bg-color: #FFF;
+
     --link-color: #16a6ff;
     --link-hover-color: #999;
     --visited-link-color: #333;
@@ -62,6 +65,9 @@ html[theme="dark"] {
     --opposite-block-bg-color: #FFF;
     --block-shadow: 0px 0px 0px #000;
     --block-border: solid 1px #FCFDFF;
+
+    --card-title-color: #FFF;
+    --card-title-bg-color: #333;
 
     --link-color: #16a6ff;
     --link-hover-color: #FFF;

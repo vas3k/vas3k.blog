@@ -31,51 +31,14 @@
             Они существуют только благодаря людям, которые их поддерживают.
             Если вам нравится то, что я делаю, занести мне донат — это лучший способ сказать «спасибо».
         </div>
-
-        <div class="donate-selector">
-            <div class="donate-selector-item" onclick="return showDonateTab(event, '#donate-amount-1');">300<br><small>руб</small></div>
-            <div class="donate-selector-item donate-selector-item-active" onclick="return showDonateTab(event, '#donate-amount-2');">512<br><small>руб</small></div>
-            <div class="donate-selector-item" onclick="return showDonateTab(event, '#donate-amount-3');">1499<br><small>руб</small></div>
-            <div class="donate-selector-item" onclick="return showDonateTab(event, '#donate-amount-4');">2500<br><small>руб</small></div>
-            <div class="donate-selector-item" style="line-height: 40px;" onclick="return showDonateTab(event, '#donate-amount-5');"><small>Любая сумма</small></div>
-        </div>
-
-        <div class="donate-amount" id="donate-amount-1">
-            <img src="{% static "images/donate/server.jpg" %}">
-            <strong>На сервер</strong><br>
-            Мы используем только качественное и высокопроизводительное оборудование!
-        </div>
-
-        <div class="donate-amount donate-amount-active" id="donate-amount-2">
-            <img src="{% static "images/donate/beers.jpg" %}">
-            <strong>512 рублей на пиво</strong><br>
-            Клинические исследования доказали: пиво эффективнее всего генерирует идеи для нового поста в блоге. Не знаю почему так.
-        </div>
-
-        <div class="donate-amount" id="donate-amount-3">
-            <img src="{% static "images/donate/mindset.jpg" %}">
-            <strong>За охуительные идеи</strong><br>
-            Мы всё реже говорим людям, что разделяем их идеи. Потому мы и одиноки.
-            Теперь можно сообщить об этом без слов.
-        </div>
-
-        <div class="donate-amount" id="donate-amount-4">
-            <img src="{% static "images/donate/oleg.jpg" %}">
-            <strong>Олег Юрьевич</strong><br>
-            Да не, никто столько не заносит. Это донат только для сильных и смелых миллионеров по жизни.
-        </div>
-
-        <div class="donate-amount" id="donate-amount-5">
-            <img src="{% static "images/donate/other.jpg" %}">
-            <strong>Побрацки</strong><br>
-            Да все и так поняли, что эти переключатели ни на что не влияют и лишь хитрая психологическая манипуляция.
-        </div>
     </div>
 
-
     <div class="block donate-service">
+        <div class="donate-service-image">
+            <img src="{% static "images/donate/tinkoff.png" %}" onclick="this.src='{% static "images/donate/tinkoff2.png" %}'">
+        </div>
         <div class="donate-service-description">
-            <strong>На карту Тиньков (карты РФ)</strong><br>
+            <strong>На Тиньков (карты РФ)</strong><br>
             Если вы из России, перевод на карту будет проще всего. По клику откроется удобное окошко.
 
             <br><br>
@@ -85,17 +48,20 @@
             </small>
         </div>
         <div class="donate-service-button">
-            <a href="https://www.tinkoff.ru/rm/zubarev.vasiliy1/KlQ9b64480" class="button" target="_blank">
+            <a href="https://www.tbank.ru/cf/7UBE2Mapqik" class="button" target="_blank">
                 💳 Донатить
             </a>
         </div>
     </div>
 
     <div class="block donate-service">
+        <div class="donate-service-image">
+            <img src="{% static "images/donate/stripe.png" %}">
+        </div>
         <div class="donate-service-description">
             <strong>Через Stripe (карты не РФ)</strong><br>
 
-            Позволяет напрямую задонатить мне в Евро с любых зарубежных карт. Поддерживает Google и Apple Pay.
+            Позволяет задонатить мне в Евро с любых зарубежных карт. Поддерживает Google и Apple Pay.
 
         </div>
         <div class="donate-service-button">
@@ -106,6 +72,24 @@
     </div>
 
     <div class="block donate-service">
+        <div class="donate-service-image">
+            <img src="{% static "images/donate/revolut.png" %}">
+        </div>
+        <div class="donate-service-description">
+            <strong>Revolut</strong><br>
+            Прямой перевод для пользователей Революта.
+        </div>
+        <div class="donate-service-button">
+            <a href="https://revolut.me/vas3k" class="button" target="_blank">
+                💳 Донатить
+            </a>
+        </div>
+    </div>
+
+    <div class="block donate-service">
+        <div class="donate-service-image">
+            <img src="{% static "images/donate/paypal.png" %}">
+        </div>
         <div class="donate-service-description">
             <strong>PayPal</strong><br>
             Вариант для живущих заграницей и просто у кого там завалялась мелочь на аккаунте.
@@ -118,6 +102,9 @@
     </div>
 
     <div class="block donate-service">
+        <div class="donate-service-image">
+            <img src="{% static "images/donate/patreon.png" %}">
+        </div>
         <div class="donate-service-description">
             <strong>На Патреоне</strong><br>
             Там можно заносить автоматически и получить ранний доступ и прочие плюшки.
@@ -153,27 +140,4 @@
         </div>
     </div>
 </div>
-
-<script>
-    function showDonateTab(event, tabId) {
-        document.querySelectorAll(".donate-selector-item").forEach(item => {
-            item.classList.remove("donate-selector-item-active");
-        });
-
-        if (event.target.classList.contains("donate-selector-item")) {
-            event.target.classList.add("donate-selector-item-active");
-        } else if (event.target.parentElement && event.target.parentElement.classList.contains("donate-selector-item")) {
-            event.target.parentElement.classList.add("donate-selector-item-active");
-        }
-
-        document.querySelectorAll(".donate-amount").forEach(item => {
-            item.classList.remove("donate-amount-active");
-        });
-
-        let tab = document.querySelector(tabId);
-        if (tab) {
-            tab.classList.add("donate-amount-active");
-        }
-    }
-</script>
 {% endblock %}

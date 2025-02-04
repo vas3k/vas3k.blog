@@ -52,6 +52,12 @@ function initializeSpoilers() {
     }));
 }
 
+function toggleTheme(event) {
+    let theme = event.target.checked ? "dark" : "light";
+    document.documentElement.setAttribute("theme", theme);
+    localStorage.setItem("theme", theme);
+}
+
 function toggleHeaderSearch(event, targetId) {
     let searchForm = document.querySelector(targetId);
     searchForm.classList.toggle("header-search-hidden");
