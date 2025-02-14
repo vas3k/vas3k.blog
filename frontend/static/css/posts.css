@@ -178,10 +178,6 @@
         max-width: 100%;
     }
 
-    html[theme="dark"] .post img[src$=".png"] {
-        filter: invert(85%) hue-rotate(180deg);
-    }
-
     .post big {
         font-size: 120%;
     }
