@@ -6,7 +6,7 @@ from django.conf import settings
 
 from utils.request import parse_ip_address
 
-logger = logging.getLogger("vas3k_blog.access_log")
+log = logging.getLogger("vas3k_blog.access_log")
 
 
 class DomainLocaleMiddleware:
@@ -48,7 +48,7 @@ class RequestLoggingMiddleware:
         referer = request.META.get("HTTP_REFERER", "-")
         user_agent = request.META.get("HTTP_USER_AGENT", "-")
 
-        logger.info(
+        log.info(
             f"[{requester_ip}] {method} {domain} {path} {status_code} -> {duration} sec "
             f"UA: {user_agent} Ref: {referer}",
         )
