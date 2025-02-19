@@ -1,9 +1,10 @@
 {% load text_filters %}
 {% load comments %}
+{% load i18n %}
 
 <div class="comments">
     {% if post.is_commentable or comments|length > 0 %}
-        <span class="header-2 comments-title">Комментарии 👇</span>
+        <span class="header-2 comments-title">{% trans "Комментарии" %} 👇</span>
     {% endif %}
 
     <div class="comments-list" id="comments-list">
@@ -18,7 +19,7 @@
         {% include "comments/comment-form.html" %}
     {% else %}
         <div class="comments-form-login">
-            <a href="{% url "login" %}" class="button button-big">Войдите, чтобы написать комментарий</a>
+            <a href="{% url "login" %}" class="button button-big">{% trans "Войдите, чтобы написать комментарий" %}</a>
         </div>
     {% endif %}
 {% endif %}

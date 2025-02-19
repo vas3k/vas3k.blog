@@ -1,6 +1,7 @@
 from django.db.models import F
 from django.http import Http404, HttpResponseForbidden
 from django.shortcuts import render, redirect, get_object_or_404
+from django.utils.translation import gettext_lazy as _, get_language
 
 from comments.models import Comment
 from posts.forms import PostEditForm
@@ -59,32 +60,32 @@ def index(request):
                 "posts": latest_posts
             },
             {
-                "title": "Обо мне",
+                "title": _("Обо мне"),
                 "template": "index/about.html",
                 "posts": []
             },
             {
-                "title": "Заметки",
+                "title": _("Заметки"),
                 "url": "/notes/",
                 "template": "index/posts4.html",
                 "posts": notes_posts
             },
             {
-                "title": "Отвратительные путешествия",
+                "title": _("Отвратительные путешествия"),
                 "template": "index/posts3.html",
                 "url": "/world/",
                 "posts": world_posts
-            },
+            } if get_language() == "ru" else {},
             {
-                "title": "Нетленки",
+                "title": _("Нетленки"),
                 "template": "index/posts2.html",
                 "posts": best_posts
-            },
+            } if get_language() == "ru" else {},
             {
-                "title": "Проекты",
+                "title": _("Проекты"),
                 "template": "index/projects.html",
                 "posts": []
-            }
+            } if get_language() == "ru" else {},
         ]
     })
 
@@ -106,7 +107,7 @@ def list_posts(request, post_type="all"):
 
 
 def show_post(request, post_type, post_slug):
-    post = get_object_or_404(Post, slug=post_slug)
+    post = get_object_or_404(Post, slug=post_slug, lang=get_language())
 
     # post_type can be changed
     if post.type != post_type:
@@ -150,7 +151,7 @@ def edit_post(request, post_type, post_slug):
     if not request.user.is_superuser:
         return HttpResponseForbidden()
 
-    post = get_object_or_404(Post, type=post_type, slug=post_slug)
+    post = get_object_or_404(Post, type=post_type, slug=post_slug, lang=get_language())
 
     if request.method == "POST":
         form = PostEditForm(request.POST, instance=post)

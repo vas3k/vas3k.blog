@@ -1,38 +1,41 @@
+{% load i18n %}
+
 <section class="post-subscribe">
     <div class="post-subscribe-header">
-        ✅ Подписка на Вастрика
+        ✅ {% trans "Подписка на Вастрика" %}
     </div>
 
     <div class="post-subscribe-description">
-        🚨 Роскомнадзор банит одну соцсеть за другой,
-        поэтому я рекомендую подписаться как по почте (её сложнее заблокировать),
-        так и на вашей любимой площадке. Тогда у нас будет хотя бы два канала для связи.
+        {{ strings.SUBSCRIBE }}
     </div>
 
     <div class="post-subscribe-form">
         <form action="{% url "subscribe" %}" method="post">
-            <label class="post-subscribe-form-label" for="inside_email">Ваш электронный адрес:</label>
+            <label class="post-subscribe-form-label" for="inside_email">{% trans "Ваш электронный адрес:" %}</label>
             <div class="post-subscribe-form-fields">
                 {% csrf_token %}
                 <input type="text" name="name" style="position: absolute; left: -99999px;">
                 <input type="email" id="inside_email" name="email" placeholder="your@email.com" required="required">
-                <button type="submit" class="button button-red">Подписаться</button>
+                <button type="submit" class="button button-red">{% trans "Подписаться" %}</button>
             </div>
             <div class="post-subscribe-form-hint">
-                * никакого спама, только мои уведомления
+                {% trans "* никакого спама, только мои уведомления" %}
             </div>
         </form>
     </div>
 
     <div class="post-subscribe-sub-header">
-        Другие площадки 👇
+        {% trans "Другие площадки" %} 👇
     </div>
 
     <div class="post-subscribe-items">
-        <a href="https://t.me/vas3k_channel" class="button">Телеграм-канал</a>
-        <a href="https://www.patreon.com/vas3k" class="button">Патреон</a>
-        <a href="https://mastodon.online/@vas3k" class="button">Мастодон</a>
-        <a href="https://twitter.com/vas3k" class="button">Твиттер</a>
+        {% if request.LANGUAGE_CODE == "ru" %}
+            <a href="{% trans "https://t.me/vas3k_channel" %}" class="button">{% trans "Телеграм-канал" %}</a>
+        {% endif %}
+        <a href="{% trans "https://mastodon.online/@vas3k" %}" class="button">{% trans "Мастодон" %}</a>
+        <a href="{% trans "https://bsky.app/profile/vas3k.bsky.social" %}" class="button">{% trans "Блюскай" %}</a>
+        <a href="{% trans "https://twitter.com/vas3k" %}" class="button">{% trans "Твиттер" %}</a>
+        <a href="{% trans "https://www.patreon.com/vas3k" %}" class="button">{% trans "Патреон" %}</a>
         <a href="{% url "rss.full" %}" class="button">RSS</a>
     </div>
 </section>

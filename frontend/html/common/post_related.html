@@ -1,12 +1,15 @@
 {% load static %}
 {% load text_filters %}
 {% load posts %}
+{% load i18n %}
 
-<section class="post-related">
-    <div class="post-related-title"><span><b>Еще?</b> Тогда вот</span></div>
-    <div class="cards-group cards-group-3x">
-        {% for post in related %}
-            {% include "posts/cards/horizontal.html" %}
-        {% endfor %}
-    </div>
-</section>
+{% if related %}
+    <section class="post-related">
+        <div class="post-related-title"><span><b>{% trans "Еще?" %}</b> {% trans "Тогда вот" %}</span></div>
+        <div class="cards-group cards-group-3x">
+            {% for post in related %}
+                {% include "posts/cards/horizontal.html" %}
+            {% endfor %}
+        </div>
+    </section>
+{% endif %}

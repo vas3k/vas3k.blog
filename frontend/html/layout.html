@@ -1,27 +1,27 @@
-{% load static %}<!DOCTYPE html>
+{% load static %}{% load i18n %}<!DOCTYPE html>
 <html lang="ru">
     <head>
-        <title>{% block title %}{{ settings.TITLE | safe }}{% endblock %}</title>
+        <title>{% block title %}{{ strings.TITLE | safe }}{% endblock %}</title>
         <meta charset="UTF-8">
-        <meta name="description" content="{{ settings.DESCRIPTION }}">
+        <meta name="description" content="{{ strings.DESCRIPTION }}">
         <meta name="keywords" content="{{ settings.KEYWORDS }}">
-        <meta name="author" content="{{ settings.AUTHOR }}">
+        <meta name="author" content="{{ strings.AUTHOR }}">
         <meta name="yandex-verification" content="5f66353ad89fbe6f">
         <meta name="fediverse:creator" content="@vas3k@mastodon.online">
         <meta name="google-site-verification" content="B8zgWa65q_o7zEV-YAA3rmgq4AlT-l37W-2nNbDE6pc">
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
         <meta name="format-detection" content="telephone=no">
-        <link rel="canonical" href="https://{{ settings.APP_HOST }}{{ request.get_full_path_info }}">
+        <link rel="canonical" href="https://{{ request.get_host }}{{ request.get_full_path_info }}">
         {% block meta %}
-            <meta property="og:title" content="{{ settings.TITLE }}">
+            <meta property="og:title" content="{{ strings.TITLE }}">
             <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}">
             <meta property="og:type" content="website">
             <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/{% static "images/favicon_128.png" %}">
-            <meta property="og:description" content="{{ settings.DESCRIPTION }}">
+            <meta property="og:description" content="{{ strings.DESCRIPTION }}">
 
             <meta name="twitter:card" content="summary_large_image">
-            <meta name="twitter:title" content="{{ settings.TITLE }}">
-            <meta name="twitter:description" content="{{ settings.DESCRIPTION }}">
+            <meta name="twitter:title" content="{{ strings.TITLE }}">
+            <meta name="twitter:description" content="{{ strings.DESCRIPTION }}">
             <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/{% static "images/favicon_128.png" %}">
             <meta name="twitter:image:src" content="{{ request.scheme }}://{{ request.get_host }}/{% static "images/favicon_128.png" %}">
         {% endblock %}
@@ -54,26 +54,37 @@
             <footer class="footer">
                 {% block footer_contacts %}
                     <div class="contacts">
-                        <div>Для связи &rarr;</div>
-                        <a href="mailto:me@vas3k.ru" class="contacts-item" target="_blank" rel="me">
+                        <div>{% trans "Для связи" %} &rarr;</div>
+                        <a href="{% trans "mailto:me@vas3k.ru" %}" class="contacts-item" target="_blank" rel="me">
                             <i class="fas fa-envelope"></i>
-                            <span>me@vas3k.ru</span>
+                            <span>{% trans "me@vas3k.ru" %}</span>
                         </a>
-                        <a href="https://t.me/to_vas3k_bot" class="contacts-item" target="_blank" rel="me">
+                        <a href="{% trans "https://t.me/to_vas3k_bot" %}" class="contacts-item" target="_blank" rel="me">
                             <i class="fab fa-telegram"></i>
-                            <span>Телеграм-бот</span>
+                            <span>{% trans "Телеграм-бот" %}</span>
                         </a>
-                        <a href="https://twitter.com/vas3k" class="contacts-item" target="_blank" rel="me">
+                        <a href="{% trans "https://twitter.com/vas3k" %}" class="contacts-item" target="_blank" rel="me">
                             <i class="fab fa-twitter-square"></i>
-                            <span>Твиттер</span>
+                            <span>{% trans "Твиттер" %}</span>
                         </a>
                     </div>
                 {% endblock %}
 
-                <div class="footer-disclaimer">
-                    Вы можете использовать цитаты из статей, картинки и скриншоты в своих блогах и презентациях, если поставите ссылку на оригинальный пост.
-                    Присылайте ссылки на них мне в личку, мне будет приятно посмотреть как моё странное творчество идет в народ.
-                    В коммерческих целях ничего использовать нельзя.
+                <div class="footer-warning">
+                    {% trans "Вы можете использовать цитаты из статей, картинки и скриншоты в своих блогах и презентациях, если поставите ссылку на оригинальный пост. Присылайте ссылки на них мне в личку, мне будет приятно посмотреть как моё странное творчество идет в народ. В коммерческих целях ничего использовать нельзя." %}
+                </div>
+
+                <div class="footer-buttons">
+                    {% for lang, text, domain in settings.DOMAIN_LANGUAGE_SELECTOR %}
+                        {% if lang != request.LANGUAGE_CODE %}
+                            <a href="{{ domain }}" class="button button-inverted button-round header-menu-item header-menu-round">{{ text }}</a>
+                        {% endif %}
+                    {% endfor %}
+
+                    <label class="theme-switcher button button-inverted button-round header-menu-item header-menu-round" onclick="return toggleTheme(event);" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <span class="slider round"></span>
+                    </label>
                 </div>
             </footer>
         {% endblock %}

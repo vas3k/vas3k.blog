@@ -5,15 +5,15 @@
 {% load paginator %}
 
 {% block title %}
-    {{ post_type_config.name }} — {{ settings.TITLE }}
+    {{ post_type_config.name }} — {{ strings.TITLE }}
 {% endblock %}
 
 {% block meta %}
-    <meta property="og:title" content="{{ post_type_config.name }} — {{ settings.TITLE }}" />
+    <meta property="og:title" content="{{ post_type_config.name }} — {{ strings.TITLE }}" />
     <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}" />
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ post_type_config.name }} — {{ settings.TITLE }}">
+    <meta name="twitter:title" content="{{ post_type_config.name }} — {{ strings.TITLE }}">
 {% endblock %}
 
 {% block body %}

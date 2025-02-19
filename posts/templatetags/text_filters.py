@@ -26,6 +26,9 @@ def cool_number(value, num_decimals=1):
     """
     11500 -> 11.5K, etc
     """
+    if not value:
+        return "0"
+
     int_value = int(value)
     formatted_number = "{{:.{}f}}".format(num_decimals)
     if int_value < 1000:

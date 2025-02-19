@@ -1,9 +1,11 @@
 from datetime import datetime
 from uuid import uuid4
 
+from django.conf import settings
 from django.db import models
 from django.urls import reverse
 from django.utils.html import strip_tags
+from django.utils.translation import get_language
 
 from utils.slug import generate_unique_slug
 
@@ -11,7 +13,7 @@ from utils.slug import generate_unique_slug
 class Post(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
 
-    slug = models.CharField(max_length=64, unique=True, db_index=True)
+    slug = models.CharField(max_length=64, db_index=True)
     type = models.CharField(max_length=32, db_index=True)
 
     author = models.CharField(max_length=64)
@@ -46,16 +48,23 @@ class Post(models.Model):
     is_commentable = models.BooleanField(default=True)
     is_visible_on_home_page = models.BooleanField(default=False)
 
+    lang = models.CharField(max_length=2, default=settings.LANGUAGE_CODE)
+
     class Meta:
         db_table = "posts"
         ordering = ("-created_at",)
+        unique_together = [["slug", "lang"]]
 
     def __unicode__(self):
         return f"{self.type}/{self.slug}"
 
     @classmethod
     def visible_objects(cls):
-        return cls.objects.filter(is_visible=True, published_at__lte=datetime.utcnow()).order_by("-published_at")
+        return cls.objects.filter(
+            is_visible=True,
+            published_at__lte=datetime.utcnow(),
+            lang=get_language()
+        ).order_by("-published_at")
 
     def save(self, flush_cache=True, *args, **kwargs):
         if not self.slug:
@@ -74,9 +83,13 @@ class Post(models.Model):
     def is_published(self):
         return self.is_visible and self.published_at < datetime.utcnow()
 
+    def get_host(self):
+        return next((domain for domain, lang in settings.DOMAIN_LANGUAGES.items() if lang == self.lang), None)
+
     def get_absolute_url(self):
         if self.url:
             return self.url
+
         return reverse("show_post", kwargs={"post_type": self.type, "post_slug": self.slug})
 
     def main_image(self):
@@ -85,25 +98,3 @@ class Post(models.Model):
         elif self.og_image:
             return self.og_image
         return None
-
-    def season_grouper(self):
-        groups = {
-            1: "Зима",
-            2: "Зима",
-            3: "Весна",
-            4: "Весна",
-            5: "Весна",
-            6: "Лето",
-            7: "Лето",
-            8: "Лето",
-            9: "Лето",
-            10: "Осень",
-            11: "Осень",
-            12: "Зима",
-        }
-        month = int(self.created_at.strftime("%-m"))
-        year = int(self.created_at.strftime("%Y"))
-        if month <= 2:
-            # next year's winter is still the same winter
-            return f"{groups.get(month)} {year - 1}"
-        return f"{groups.get(month)} {year}"

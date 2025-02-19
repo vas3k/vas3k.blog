@@ -1,7 +1,10 @@
 import logging
+from datetime import datetime
 
+from django.conf import settings
 from django.core.management import BaseCommand
 from django.template import loader
+from django.utils.translation import gettext_lazy as _
 
 from inside.models import Subscriber
 from inside.senders.email import send_vas3k_email
@@ -14,14 +17,20 @@ class Command(BaseCommand):
     help = "Send new post announcement via email"
 
     def add_arguments(self, parser):
+        parser.add_argument("--lang", type=str, required=True, default=settings.LANGUAGE_CODE)
         parser.add_argument("--production", type=bool, required=False, default=False)
         parser.add_argument("--auto-confirm", type=bool, required=False, default=False)
 
     def handle(self, *args, **options):
         production = options.get("production")
+        lang = options.get("lang")
 
         # Step 1. Check for a new post
-        post = Post.visible_objects().order_by("-published_at").first()
+        post = Post.objects.filter(
+            is_visible=True,
+            published_at__lte=datetime.utcnow(),
+            lang=lang
+        ).order_by("-published_at").first()
 
         if not post:
             self.stdout.write(f"No new posts. Exiting...")
@@ -29,7 +38,7 @@ class Command(BaseCommand):
 
         # Step 2. Select all confirmed subscribers
         if production:
-            subscribers = Subscriber.objects.filter(is_confirmed=True).all()
+            subscribers = Subscriber.objects.filter(is_confirmed=True, lang=lang).all()
         else:
             subscribers = Subscriber.objects.filter(email="me@vas3k.ru").all()
 
@@ -58,7 +67,7 @@ class Command(BaseCommand):
             try:
                 send_vas3k_email(
                     subscriber=subscriber,
-                    subject=f"Новый пост в блоге Вастрика: {post.title}",
+                    subject=_("Новый пост в блоге Вастрика: ") + {post.title},
                     html=html
                 )
             except Exception as ex:

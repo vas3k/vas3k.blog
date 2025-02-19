@@ -1,19 +1,20 @@
 {% extends "layout.html" %}
 {% load static %}
 {% load text_filters %}
+{% load i18n %}
 
 {% block title %}
-    Подписаться — {{ block.super }}
+    {% trans "Подписаться" %} — {{ block.super }}
 {% endblock %}
 
 {% block meta %}
-    <meta property="og:title" content="Подписаться — {{ settings.TITLE }}">
+    <meta property="og:title" content="{% trans "Подписаться" %} — {{ strings.TITLE }}">
     <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/subscribe/">
     <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/images/favicon_128.png">
     <meta property="og:description" content="">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Подписаться — {{ settings.TITLE }}">
+    <meta name="twitter:title" content="{% trans "Подписаться" %} — {{ strings.TITLE }}">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/images/favicon_128.png">
     <meta name="twitter:image:src" content="{{ request.scheme }}://{{ request.get_host }}/static/images/favicon_128.png">

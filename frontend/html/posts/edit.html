@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% load i18n %}
 
 {% block body %}
 <div class="container block">
@@ -29,7 +30,7 @@
         </div>
 
         <div class="form-row form-row-right">
-            <button type="submit" class="button button-red">Сохранить</button>
+            <button type="submit" class="button button-red">{% trans "Сохранить" %}</button>
         </div>
     </form>
 </div>

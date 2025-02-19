@@ -1,5 +1,7 @@
 {% load comments %}
 {% load humanize %}
+{% load i18n %}
+
 <div class="comment" id="comment-{{ comment.id }}">
     <div class="comment-head">
         {% if comment.user %}
@@ -35,7 +37,7 @@
                   hx-swap="innerHTML"
                   hx-confirm="Удаляем?"
               >
-                Удалить
+                {% trans "Удалить" %}
               </button>
         </div>
     {% endif %}

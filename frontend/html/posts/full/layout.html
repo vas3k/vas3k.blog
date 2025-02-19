@@ -19,7 +19,7 @@
 
 {% block meta %}
     <meta name="robots" content="index, follow">
-    <meta property="author" content="{{ settings.AUTHOR }}">
+    <meta property="author" content="{{ strings.AUTHOR }}">
     <meta property="article:publisher" content="{{ request.scheme }}://{{ request.get_host }}">
     <meta property="article:author" content="{{ request.scheme }}://{{ request.get_host }}">
     <meta property="article:published_time" content="{{ post.published_at|date:'Y-m-d H:i:s' }}">
@@ -35,7 +35,7 @@
     <meta name="twitter:description" content="{{ post.og_description }}">
     <meta name="twitter:image" content="{{ post.og_image }}">
     <meta name="twitter:image:src" content="{{ post.og_image }}">
-    <meta name="twitter:creator" content="{{ settings.AUTHOR }}">
+    <meta name="twitter:creator" content="{{ strings.AUTHOR }}">
 {% endblock %}
 
 {% block body %}

@@ -67,6 +67,9 @@
             gap: 5px;
             align-items: center;
             padding: 11px 20px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
         }
 
         .header-menu-round {
@@ -201,9 +204,21 @@
     box-sizing: border-box;
 }
 
-    .footer-disclaimer {
+    .footer-warning {
         text-align: center;
-        padding-top: 40px;
+        padding-top: 55px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .footer-buttons {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+        padding-top: 30px;
     }
 
 

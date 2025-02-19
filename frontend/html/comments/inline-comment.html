@@ -1,4 +1,6 @@
 {% load comments %}
+{% load i18n %}
+
 <div class="inline-comment" id="block-{{ block }}-{{ comment.id }}" data-timestamp="{{ comment.created_at.timestamp | floatformat:"0" }}">
     <div class="inline-comment-upvotes">
         <div
@@ -24,7 +26,7 @@
               hx-swap="innerHTML"
               hx-confirm="Удаляем?"
           >
-            Удалить
+            {% trans "Удалить" %}
           </button>
         </div>
     {% endif %}

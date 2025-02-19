@@ -1,15 +1,18 @@
 from django.contrib.syndication.views import Feed
 from django.template.defaultfilters import truncatechars
 from django.utils.html import strip_tags
+from django.utils.translation import gettext_lazy as _
 
 from posts.models import Post
 from django.conf import settings
 
+from vas3k_blog.strings import DESCRIPTION
+
 
 class FullFeed(Feed):
-    title = "Вастрик.ру"
+    title = _("Вастрик.ру")
     link = "/rss/"
-    description = settings.DESCRIPTION
+    description = DESCRIPTION
 
     def items(self):
         items = Post.visible_objects()\
@@ -22,7 +25,7 @@ class FullFeed(Feed):
         return item.title
 
     def author_name(self):
-        return "Вастрик"
+        return _("Вастрик")
 
     def item_copyright(self):
         return "vas3k.blog"
@@ -36,7 +39,7 @@ class FullFeed(Feed):
         result = ""
 
         if item.image:
-            result += f"<a href='https://{settings.APP_HOST}{url}'><img src='{item.image}'></a><br><br>"
+            result += f"<a href='https://{item.get_host()}{url}'><img src='{item.image}'></a><br><br>"
 
         if item.og_description:
             result += item.og_description
@@ -49,12 +52,12 @@ class FullFeed(Feed):
 
 
 class PrivateFeed(FullFeed):
-    title = "Вастрик.ру: Секретный фид"
+    title = _("Вастрик.ру: Секретный фид")
     link = "/rss/private/"
 
 
 class PublicFeed(FullFeed):
-    title = "Вастрик.ру: Только публичные посты"
+    title = _("Вастрик.ру: Только публичные посты")
     link = "/rss/public/"
 
     def items(self):

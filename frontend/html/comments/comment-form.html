@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <form hx-post="{% url "create_comment" %}"
       hx-swap="outerHTML"
       action="{% url "create_comment" %}"
@@ -19,9 +21,9 @@
 
     <div class="comments-form-footer">
         <span>
-            Можно использовать <a href="https://doka.guide/tools/markdown/" target="_blank">Markdown</a>
+            {% trans "Можно использовать <a href='https://doka.guide/tools/markdown/' target='_blank'>Markdown</a>" %}
         </span>
 
-        <input type="submit" tabindex="3" class="button comments-form-submit" value="Отправить">
+        <input type="submit" tabindex="3" class="button comments-form-submit" value="{% trans "Отправить" %}">
     </div>
 </form>

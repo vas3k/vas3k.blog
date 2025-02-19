@@ -1,5 +1,6 @@
 import hashlib
 
+from django.conf import settings
 from django.db import models
 
 
@@ -10,6 +11,7 @@ class Subscriber(models.Model):
     bounces = models.IntegerField(default=0)
     data = models.JSONField(null=True, blank=True)
     is_confirmed = models.BooleanField(default=False)
+    lang = models.CharField(max_length=2, default=settings.LANGUAGE_CODE)
 
     class Meta:
         db_table = "subscribers"

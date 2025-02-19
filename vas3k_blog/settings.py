@@ -4,6 +4,7 @@ from random import randint
 
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / "subdir".
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -12,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY") or "wow so secret"
 DEBUG = (os.getenv("DEBUG") != "false")
 
-ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1", "vas3k.blog", "vas3k.ru"]
+ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1", "vas3k.blog", "vas3k.ru", "vas3k.com", "vas3k.en"]
 INTERNAL_IPS = ["127.0.0.1"]
 
 ADMINS = [
@@ -42,6 +43,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "django.middleware.locale.LocaleMiddleware",
+    "vas3k_blog.middleware.DomainLocaleMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
@@ -68,6 +71,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "vas3k_blog.context_processors.settings_processor",
                 "vas3k_blog.context_processors.cookies_processor",
+                "vas3k_blog.context_processors.strings_processor",
             ],
         },
     },
@@ -132,11 +136,38 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
+LANGUAGES = [
+    ("en", "English"),
+    ("ru", "Russian"),
+]
+
 LANGUAGE_CODE = "ru"
 TIME_ZONE = "UTC"
 USE_I18N = True
+USE_L10N = True
 USE_TZ = False
 
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, "locale"),
+]
+
+# Domain to language mapping
+DOMAIN_LANGUAGES = {
+    "vas3k.blog": "ru",
+    "vas3k.com": "en",
+}
+
+if DEBUG:
+    DOMAIN_LANGUAGES = {
+        "vas3k.ru": "ru",
+        "vas3k.en": "en",
+        **DOMAIN_LANGUAGES,
+    }
+
+DOMAIN_LANGUAGE_SELECTOR = [
+    ("ru", "RU", "https://vas3k.blog"),
+    ("en", "EN", "https://vas3k.com"),
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -184,7 +215,7 @@ EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS = True
 
-DEFAULT_FROM_EMAIL = "Вастрик <inside@inside.vas3k.ru>"
+DEFAULT_FROM_EMAIL = _("Вастрик <inside@inside.vas3k.ru>")
 
 # Telegram
 
@@ -206,11 +237,9 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.vas3k.blog",
     "https://vas3k.ru",
     "https://*.vas3k.ru",
+    "https://vas3k.com",
+    "https://*.vas3k.com",
 ]
-
-AUTHOR = "@vas3k"
-TITLE = "Вастрик"
-DESCRIPTION = "Авторский блог о выживании в мире технологий и происходящем вокруг киберпанке"
 
 STYLES_HASH = os.getenv("GITHUB_SHA") or str(randint(1, 10000))
 

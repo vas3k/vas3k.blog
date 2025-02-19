@@ -15,7 +15,7 @@ def create_comment(sender, instance, created, **kwargs):
     comment = instance
     post = comment.post
 
-    link = f"https://{settings.APP_HOST}/{post.type}/{post.slug}/"
+    link = f"https://{post.get_host()}/{post.type}/{post.slug}/"
 
     if not post.is_published():
         link += "?preview=1"

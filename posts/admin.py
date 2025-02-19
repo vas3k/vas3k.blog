@@ -5,7 +5,7 @@ from posts.models import Post
 
 class PostAdmin(admin.ModelAdmin):
     list_display = (
-        "title", "slug", "type", "created_at",
+        "title", "slug", "type", "lang", "created_at",
         "published_at", "comment_count", "view_count",
         "is_visible"
     )

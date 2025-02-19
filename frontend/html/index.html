@@ -2,6 +2,8 @@
 
 {% block body %}
     {% for block in blocks %}
-        {% include block.template %}
+        {% if block and block.template %}
+            {% include block.template %}
+        {% endif %}
     {% endfor %}
 {% endblock %}

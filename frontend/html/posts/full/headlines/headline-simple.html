@@ -1,5 +1,6 @@
 {% load text_filters %}
 {% load posts %}
+{% load i18n %}
 
 <style>
 {% if post.data.headline_title_size %}
@@ -19,7 +20,7 @@
         </div>
     </div>
 
-    <a rel="author" class="p-author h-card" href="{{ request.scheme }}://{{ request.get_host }}" style="display: none;">{{ settings.AUTHOR }}</a>
+    <a rel="author" class="p-author h-card" href="{{ request.scheme }}://{{ request.get_host }}" style="display: none;">{{ strings.AUTHOR }}</a>
 
     {% if post.subtitle %}
         <div class="simple-headline-subtitle the-subtitle p-summary">{{ post.subtitle | safe }}</div>
@@ -27,7 +28,7 @@
 
     {% if post.is_members_only %}
         <div class="post-members-badge">
-            <i class="fas fa-lock-open"></i>&nbsp;&nbsp;&nbsp;пост только для своих
+            <i class="fas fa-lock-open"></i>&nbsp;&nbsp;&nbsp;{% trans "пост только для своих" %}
         </div>
     {% endif %}
 

@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <section class="post-footer">
     {% if story.is_members_only %}
@@ -15,7 +16,7 @@
             </div>
         </div>
     {% else %}
-        <a href="{% url "donate" %}" class="button button-red button-huuuuge">🍺 Поблагодарить автора</a>
+        <a href="{% url "donate" %}" class="button button-red button-huuuuge">🍺 {% trans "Поблагодарить автора" %}</a>
     {% endif %}
 
     {% include "common/post_subscribe.html" %}

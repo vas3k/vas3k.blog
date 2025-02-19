@@ -2,6 +2,7 @@
 {% load static %}
 {% load text_filters %}
 {% load posts %}
+{% load i18n %}
 
 {% block title %}
     {{ user.username }} — {{ block.super }}
@@ -19,10 +20,10 @@
                 <a href="/godmode/" class="button button-blue">Админка</a>
             {% endif %}
 
-            <a href="{% url "logout" %}" class="button button-red">Выйти</a>
+            <a href="{% url "logout" %}" class="button button-red">{% trans "Выйти" %}</a>
         </div>
 
-        <div class="block-title">👤 Настройки профиля</div>
+        <div class="block-title">👤 {% trans "Настройки профиля" %}</div>
 
         <form action="{% url "profile" %}" method="post" class="profile-edit-form">
             {% csrf_token %}
@@ -50,7 +51,7 @@
                 {% endif %}
             </div>
 
-            <button type="submit" class="button">Сохранить</button>
+            <button type="submit" class="button">{% trans "Сохранить" %}</button>
         </form>
     </div>
 </div>

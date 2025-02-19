@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+{% load i18n %}<!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Вастрик.ру</title>
+    <title>{% trans "Вастрик.ру" %}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -128,9 +128,9 @@
         <!-- Footer information. Footer is a useful landmark element. -->
         <footer>
             <div style="border-top: solid 1px #EEEEEE; padding: 20px 0 0 0; font-size: 12px; opacity: 0.6;">
-                <a href="https://t.me/vas3k_channel">Телеграм</a> ·
-                <a href="https://twitter.com/vas3k">Твиттер</a> ·
-                <a href="https://www.patreon.com/vas3k">Патреон</a>
+                <a href="{% trans "https://t.me/vas3k_channel" %}">{% trans "Телеграм" %}</a> ·
+                <a href="{% trans "https://twitter.com/vas3k" %}">{% trans "Твиттер" %}</a> ·
+                <a href="{% trans "https://www.patreon.com/vas3k" %}">{% trans "Патреон" %}</a>
 
                 {% block footer %}{% endblock %}
             </div>

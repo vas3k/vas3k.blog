@@ -1,6 +1,7 @@
 from django.db.models import F
 from django.http import Http404, JsonResponse, HttpResponseNotAllowed, HttpResponse
 from django.shortcuts import get_object_or_404, render
+from django.utils.translation import get_language
 
 from clickers.models import Clicker
 from comments.models import Comment
@@ -37,7 +38,7 @@ def click_block(request, post_slug, block):
     if request.method != "POST":
         return HttpResponseNotAllowed(["POST"])
 
-    post = get_object_or_404(Post, slug=post_slug)
+    post = get_object_or_404(Post, slug=post_slug, lang=get_language())
 
     clicker, is_created = Clicker.objects.get_or_create(
         post=post,

@@ -47,6 +47,7 @@ urlpatterns = [
     path("robots.txt", robots, name="robots"),
 
     path(r"<str:post_type>/<str:post_slug>/", show_post, name="show_post"),
+    path(r"<str:post_type>/<str:post_slug>/index.html", show_post, name="show_post_legacy"),  # legacy fallback
     path(r"<str:post_type>/<str:post_slug>/edit/", edit_post, name="edit_post"),
     path(
         r"<str:post_type>/<str:post_slug>/<str:block>/",
