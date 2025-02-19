@@ -90,6 +90,7 @@ LOGGING = {
                 "%(method)s  %(domain)s %(path)s "
                 "-> %(status_code)s (%.3f sec) UA: %(user_agent)s Referer: %(referer)s"
             ),
+            "style": "%s",
         },
     },
     "handlers": {
@@ -104,7 +105,7 @@ LOGGING = {
         },
     },
     "loggers": {
-        "django.request": {
+        "django.full_request": {
             "handlers": ["console_access_log"],
             "level": "DEBUG",
             "propagate": False,

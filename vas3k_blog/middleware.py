@@ -4,7 +4,7 @@ import time
 from django.utils import translation
 from django.conf import settings
 
-logger = logging.getLogger("django.request")
+logger = logging.getLogger("django.full_request")
 
 
 class DomainLocaleMiddleware:
