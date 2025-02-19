@@ -90,6 +90,7 @@ LOGGING = {
                 "%(method)s  %(domain)s %(path)s "
                 "-> %(status_code)s (%.3f sec) UA: %(user_agent)s Referer: %(referer)s"
             ),
+            "style": "%",
         },
     },
     "handlers": {

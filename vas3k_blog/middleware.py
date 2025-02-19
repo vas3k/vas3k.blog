@@ -38,14 +38,13 @@ class RequestLoggingMiddleware:
         response = self.get_response(request)
         duration = time.time() - start_time
 
-        # Extract required details
         domain = request.get_host()
         requester_ip = self.get_client_ip(request)
         status_code = response.status_code
         method = request.method
         path = request.path
-        referer = request.META.get("HTTP_REFERER", "-")  # Use '-' if not present
-        user_agent = request.META.get("HTTP_USER_AGENT", "-")  # Use '-' if not present
+        referer = request.META.get("HTTP_REFERER", "-")
+        user_agent = request.META.get("HTTP_USER_AGENT", "-")
 
         # Log the request with additional headers
         logger.info(
