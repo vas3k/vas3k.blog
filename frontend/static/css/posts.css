@@ -670,10 +670,11 @@
     }
 
 .post-translations {
-    padding: 12px;
+    padding: 10px 25px;
     opacity: 0.8;
     margin: 0 auto;
     max-width: 900px;
+    width: fit-content;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

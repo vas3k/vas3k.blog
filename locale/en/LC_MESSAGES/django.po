@@ -179,7 +179,7 @@ msgstr "Socials"
 
 #: frontend/html/common/post_translations.html:7
 msgid "Пост доступен на других языках"
-msgstr "In other languages"
+msgstr "This post is available in other languages"
 
 #: frontend/html/donate.html:27
 msgid "Поддержать автора"
@@ -236,7 +236,7 @@ msgstr "Good old PayPal transfer which always work."
 
 #: frontend/html/donate.html:95 frontend/html/donate.html:168
 msgid "Прямой перевод для пользователей Революта."
-msgstr "Direct transfer for Revolut users."
+msgstr "Direct transfer for Revolut users. Fast and zero fees."
 
 #: frontend/html/donate.html:109
 msgid "На Патреоне"
