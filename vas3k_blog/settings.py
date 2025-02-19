@@ -90,21 +90,28 @@ LOGGING = {
                 "%(method)s  %(domain)s %(path)s "
                 "-> %(status_code)s (%.3f sec) UA: %(user_agent)s Referer: %(referer)s"
             ),
-            "style": "%",
         },
     },
     "handlers": {
-        "console": {
+        "console_access_log": {
             "level": "DEBUG",
             "class": "logging.StreamHandler",
             "formatter": "custom",
         },
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+        },
     },
     "loggers": {
+        "django.request": {
+            "handlers": ["console_access_log"],
+            "level": "DEBUG",
+            "propagate": False,
+        },
         "": {  # "catch all" loggers by referencing it with the empty string
             "handlers": ["console"],
             "level": "DEBUG",
-            "propagate": False,
         },
     },
 }
