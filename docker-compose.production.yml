@@ -27,6 +27,11 @@ services:
       - postgres
     ports:
       - "127.0.0.1:8022:8022"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100M"
+        max-file: "3"
 
   postgres:
     image: postgres:15
