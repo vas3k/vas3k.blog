@@ -1,5 +1,10 @@
+import logging
+import time
+
 from django.utils import translation
 from django.conf import settings
+
+logger = logging.getLogger("django.request")
 
 
 class DomainLocaleMiddleware:
@@ -22,3 +27,48 @@ class DomainLocaleMiddleware:
             response['Content-Language'] = request.LANGUAGE_CODE
 
         return response
+
+
+class RequestLoggingMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        start_time = time.time()
+        response = self.get_response(request)
+        duration = time.time() - start_time
+
+        # Extract required details
+        domain = request.get_host()
+        requester_ip = self.get_client_ip(request)
+        status_code = response.status_code
+        method = request.method
+        path = request.path
+        referer = request.META.get("HTTP_REFERER", "-")  # Use '-' if not present
+        user_agent = request.META.get("HTTP_USER_AGENT", "-")  # Use '-' if not present
+
+        # Log the request with additional headers
+        logger.info(
+            "",
+            extra={
+                "domain": domain,
+                "requester_ip": requester_ip,
+                "status_code": status_code,
+                "method": method,
+                "path": path,
+                "duration": duration,
+                "referer": referer,
+                "user_agent": user_agent,
+            },
+        )
+
+        return response
+
+    def get_client_ip(self, request):
+        """Get real client IP, respecting X-Forwarded-For if present."""
+        x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
+        if x_forwarded_for:
+            ip = x_forwarded_for.split(",")[0]  # First IP in the list
+        else:
+            ip = request.META.get("REMOTE_ADDR")
+        return ip

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.locale.LocaleMiddleware",
     "vas3k_blog.middleware.DomainLocaleMiddleware",
+    "vas3k_blog.middleware.RequestLoggingMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
@@ -82,18 +83,31 @@ WSGI_APPLICATION = "vas3k_blog.wsgi.application"
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
+    "formatters": {
+        "custom": {
+            "format": (
+                "[%(asctime)s] [%(requester_ip)s] "
+                "%(method)s  %(domain)s %(path)s "
+                "-> %(status_code)s (%.3f sec) UA: %(user_agent)s Referer: %(referer)s"
+            ),
+        },
+    },
     "handlers": {
         "console": {
-            "class": "logging.StreamHandler"
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "formatter": "custom",
         },
     },
     "loggers": {
         "": {  # "catch all" loggers by referencing it with the empty string
             "handlers": ["console"],
             "level": "DEBUG",
+            "propagate": False,
         },
     },
 }
+
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
