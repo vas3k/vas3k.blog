@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-19 09:13+0000\n"
+"POT-Creation-Date: 2025-02-19 18:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -153,11 +153,11 @@ msgstr "Search the site..."
 msgid "Поблагодарить автора"
 msgstr "Say thanks to the author"
 
-#: frontend/html/common/post_related.html:7
+#: frontend/html/common/post_related.html:8
 msgid "Еще?"
 msgstr "More?"
 
-#: frontend/html/common/post_related.html:7
+#: frontend/html/common/post_related.html:8
 msgid "Тогда вот"
 msgstr "Here you go"
 
@@ -187,9 +187,10 @@ msgid ""
 "благодаря людям, которые их поддерживают. Если вам нравится то, что я делаю, "
 "занести мне донат — это лучший способ сказать «спасибо»."
 msgstr ""
-"Independent and AI-bullshit-free blogs on the Internet are a dying breed. They only exist "
-"because of the people who still support them. If you like my articles, dropping me a "
-"donation is the best way to say 'thank you' and motivation to continue."
+"Independent and AI-bullshit-free blogs on the Internet are a dying breed. "
+"They only exist because of the people who still support them. If you like my "
+"articles, dropping me a donation is the best way to say 'thank you' and "
+"motivation to continue."
 
 #: frontend/html/donate.html:41
 msgid "На Тиньков (карты РФ)"
@@ -208,62 +209,64 @@ msgid "Либо по номеру карты:"
 msgstr "Card number:"
 
 #: frontend/html/donate.html:52 frontend/html/donate.html:69
-#: frontend/html/donate.html:84 frontend/html/donate.html:142
-#: frontend/html/donate.html:157
+#: frontend/html/donate.html:99 frontend/html/donate.html:157
+#: frontend/html/donate.html:172
 msgid "Донатить"
 msgstr "Donate"
 
-#: frontend/html/donate.html:62 frontend/html/donate.html:135
+#: frontend/html/donate.html:62 frontend/html/donate.html:150
 msgid "Через Stripe (карты не РФ)"
 msgstr "Stripe"
 
-#: frontend/html/donate.html:64 frontend/html/donate.html:137
+#: frontend/html/donate.html:64 frontend/html/donate.html:152
 msgid ""
 "Позволяет задонатить мне в Евро с любых зарубежных карт. Поддерживает Google "
 "и Apple Pay."
 msgstr "Supports cards, Google Pay and Apple Pay."
 
-#: frontend/html/donate.html:80 frontend/html/donate.html:153
-msgid "Прямой перевод для пользователей Революта."
-msgstr "Direct transfer for Revolut users."
-
-#: frontend/html/donate.html:94
-msgid "На Патреоне"
-msgstr "Patreon"
-
-#: frontend/html/donate.html:95
-msgid ""
-"Там можно заносить автоматически и получить ранний доступ и прочие плюшки."
-msgstr ""
-"You can subscribe to my Patreon and get early access to posts and other perks."
-
-#: frontend/html/donate.html:98
-msgid "Стать Патроном"
-msgstr "Become a Patron"
-
-#: frontend/html/donate.html:108
+#: frontend/html/donate.html:80 frontend/html/donate.html:123
 msgid ""
 "Вариант для живущих заграницей и просто у кого там завалялась мелочь на "
 "аккаунте."
 msgstr "Good old PayPal transfer which always work."
 
-#: frontend/html/donate.html:123
-msgid "Можно задонатить одноразово или подписаться на новые обновления."
-msgstr "There you can donate me a beer/coffee or become a member to get new updates."
+#: frontend/html/donate.html:95 frontend/html/donate.html:168
+msgid "Прямой перевод для пользователей Революта."
+msgstr "Direct transfer for Revolut users."
 
-#: frontend/html/donate.html:126
+#: frontend/html/donate.html:109
+msgid "На Патреоне"
+msgstr "Patreon"
+
+#: frontend/html/donate.html:110
+msgid ""
+"Там можно заносить автоматически и получить ранний доступ и прочие плюшки."
+msgstr ""
+"You can subscribe to my Patreon and get early access to posts and other "
+"perks."
+
+#: frontend/html/donate.html:113
+msgid "Стать Патроном"
+msgstr "Become a Patron"
+
+#: frontend/html/donate.html:138
+msgid "Можно задонатить одноразово или подписаться на новые обновления."
+msgstr ""
+"There you can donate me a beer/coffee or become a member to get new updates."
+
+#: frontend/html/donate.html:141
 msgid "Купить мне Ko-fi"
 msgstr "Buy me Ko-fi"
 
-#: frontend/html/donate.html:165
+#: frontend/html/donate.html:180
 msgid "Криптой"
 msgstr "Crypto"
 
-#: frontend/html/donate.html:170
+#: frontend/html/donate.html:185
 msgid "Биткоин"
 msgstr "Bitcoin"
 
-#: frontend/html/donate.html:176
+#: frontend/html/donate.html:191
 msgid "Эфир или USDT"
 msgstr "ETH and USDT"
 
@@ -348,8 +351,8 @@ msgid "Просто проигнорируйте это письмо или на
 msgstr "Just ignore this email or click"
 
 #: frontend/html/emails/opt_in.html:28
-msgid ", чтобы полностью стереть свой e-mail из базы."
-msgstr "to completely erase your email from the database."
+msgid "и я удалю вас везде."
+msgstr "and I delete you everywhere."
 
 #: frontend/html/emails/opt_in.html:29
 msgid ""
@@ -489,7 +492,7 @@ msgid ""
 "кнопку, чтобы подписаться. Это обязательно, иначе ничего приходить не будет. "
 "Если никаких писем нет — проверьте «спам» или попробуйте другой адрес."
 msgstr ""
-"I've sent you a confirmation email. Open and click the link there to "
+"I've sent you a confirmation letter. Open and click the link there to "
 "subscribe. This is mandatory, otherwise nothing will come. If there are no "
 "emails — check the 'spam' or try another address."
 
@@ -555,7 +558,7 @@ msgstr "Vastrik: Secret feed"
 msgid "Вастрик.ру: Только публичные посты"
 msgstr "Vastrik: Public posts only"
 
-#: vas3k_blog/settings.py:215
+#: vas3k_blog/settings.py:240
 msgid "Вастрик <inside@inside.vas3k.ru>"
 msgstr "Vastrik <inside@inside.vas3k.ru>"
 
@@ -582,8 +585,8 @@ msgstr ""
 "I write about technology, wacky IT stuff and surviving the cyberpunk going "
 "on around us. And been doing this for over 10 years.\n"
 "\n"
-"I'm a [software engineer](https://www.linkedin.com/in/vas3k/) from Siberia, ex team-"
-"lead and indie-hacker living in Berlin 🇩🇪\n"
+"I'm a [software engineer](https://www.linkedin.com/in/vas3k/) from Siberia, "
+"ex team-lead and indie-hacker living in Berlin 🇩🇪\n"
 "\n"
 "I have a dog, a [camper bus](https://vas3k-blog.translate.goog/blog/"
 "bus_2022/?_x_tr_sl=ru&_x_tr_tl=en&_x_tr_hl=en-US&_x_tr_pto=wapp) and run an "
@@ -599,5 +602,6 @@ msgid ""
 "как по почте (её сложнее заблокировать), так и на вашей любимой площадке. \n"
 "Тогда у нас будет хотя бы два канала для связи."
 msgstr ""
-"Subscribe to any of my channels so you don't miss new posts. Email is usually the most "
-"reliable way but the Gen Z hate it, so I have socials too."
+"Subscribe to any of my channels so you don't miss new posts. Email is "
+"usually the most reliable way but the Gen Z hate it, so I have socials too."
+
