@@ -4,7 +4,7 @@
 
 {% if translations %}
     <section class="block post-translations">
-        <div class="post-translations-title">{% trans "Пост доступен на других языках" %} 👉</div>
+        <div class="post-translations-title">{% trans "Этот пост переведен на другие языки" %} 👉</div>
         {% for post in translations %}
             <a href="https://{{ post.get_host }}{{ post.get_absolute_url }}" class="button post-translation">
                 <div class="post-translation-language">{{ post.get_full_language_name }}</div>

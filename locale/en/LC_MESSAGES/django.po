@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-19 21:09+0000\n"
+"POT-Creation-Date: 2025-02-19 21:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -178,7 +178,7 @@ msgid "Другие площадки"
 msgstr "Socials"
 
 #: frontend/html/common/post_translations.html:7
-msgid "Пост доступен на других языках"
+msgid "Этот пост переведен на другие языки"
 msgstr "This post is available in other languages"
 
 #: frontend/html/donate.html:27
