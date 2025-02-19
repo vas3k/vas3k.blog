@@ -669,6 +669,27 @@
         margin-right: 4px;
     }
 
+.post-translations {
+    padding: 12px;
+    opacity: 0.8;
+    margin: 0 auto;
+    max-width: 900px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+    .post-translations-title {
+        font-weight: 500;
+    }
+
+    .post-translation {
+        padding: 10px 25px;
+    }
+
 .post-members-badge {
     display: inline-block;
     margin: 40px auto;

@@ -46,6 +46,12 @@
         </div>
     {% endblock %}
 
+    {% block translations %}
+        {% if translations %}
+            {% include "common/post_translations.html" %}
+        {% endif %}
+    {% endblock %}
+
     {% block post %}
         <div class="container container-width-full h-entry">
             <div class="post e-content">

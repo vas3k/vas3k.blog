@@ -92,6 +92,9 @@ class Post(models.Model):
 
         return reverse("show_post", kwargs={"post_type": self.type, "post_slug": self.slug})
 
+    def get_full_language_name(self):
+        return dict(settings.LANGUAGES).get(self.lang, self.lang)
+
     def main_image(self):
         if self.image and not self.image.endswith(".mp4"):
             return self.image

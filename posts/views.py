@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db.models import F
 from django.http import Http404, HttpResponseForbidden
 from django.shortcuts import render, redirect, get_object_or_404
@@ -138,9 +140,19 @@ def show_post(request, post_type, post_slug):
         .filter(post=post)\
         .order_by("created_at")
 
+    translations = Post.objects.filter(
+        type=post.type,
+        slug=post.slug,
+        is_visible=True,
+        published_at__lte=datetime.utcnow(),
+    ).exclude(
+        lang=get_language()
+    ).order_by("lang")
+
     return render_post(request, post, {
         "post": post,
         "comments": comments,
+        "translations": translations,
     })
 
 

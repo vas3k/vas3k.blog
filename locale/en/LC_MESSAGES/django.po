@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-19 18:25+0000\n"
+"POT-Creation-Date: 2025-02-19 21:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -177,6 +177,10 @@ msgstr "* no spam or ads, only new post notifications"
 msgid "Другие площадки"
 msgstr "Socials"
 
+#: frontend/html/common/post_translations.html:7
+msgid "Пост доступен на других языках"
+msgstr "In other languages"
+
 #: frontend/html/donate.html:27
 msgid "Поддержать автора"
 msgstr "Support the author"
@@ -334,11 +338,11 @@ msgstr ""
 msgid "Нажмите сюда, чтобы подтвердить это"
 msgstr "Click here to confirm this"
 
-#: frontend/html/emails/opt_in.html:20
+#: frontend/html/emails/opt_in.html:22
 msgid "Да, я хочу подписаться"
-msgstr "Yes, I want to subscribe"
+msgstr "I want to subscribe"
 
-#: frontend/html/emails/opt_in.html:27
+#: frontend/html/emails/opt_in.html:29
 msgid ""
 "Если вы не знаете о чём идет речь, значит кто-то по ошибке ввёл адрес вашей "
 "почты."
@@ -346,15 +350,15 @@ msgstr ""
 "If you don't know what this is about, someone mistakenly entered your email "
 "address."
 
-#: frontend/html/emails/opt_in.html:28
+#: frontend/html/emails/opt_in.html:30
 msgid "Просто проигнорируйте это письмо или нажмите"
 msgstr "Just ignore this email or click"
 
-#: frontend/html/emails/opt_in.html:28
+#: frontend/html/emails/opt_in.html:30
 msgid "и я удалю вас везде."
 msgstr "and I delete you everywhere."
 
-#: frontend/html/emails/opt_in.html:29
+#: frontend/html/emails/opt_in.html:31
 msgid ""
 "В любом случае, без вашего согласия по кнопке выше я ничего слать не буду."
 msgstr "In any case, I won't send anything without your consent."
@@ -530,23 +534,23 @@ msgstr ""
 "I have removed your email from the database and will not send you anything "
 "else"
 
-#: posts/views.py:63
+#: posts/views.py:65
 msgid "Обо мне"
 msgstr "About me"
 
-#: posts/views.py:68
+#: posts/views.py:70
 msgid "Заметки"
 msgstr "Notes"
 
-#: posts/views.py:74
+#: posts/views.py:76
 msgid "Отвратительные путешествия"
 msgstr "Travel"
 
-#: posts/views.py:80
+#: posts/views.py:82
 msgid "Нетленки"
 msgstr "Oldies but goldies"
 
-#: posts/views.py:85
+#: posts/views.py:87
 msgid "Проекты"
 msgstr "Projects"
 
@@ -558,7 +562,7 @@ msgstr "Vastrik: Secret feed"
 msgid "Вастрик.ру: Только публичные посты"
 msgstr "Vastrik: Public posts only"
 
-#: vas3k_blog/settings.py:240
+#: vas3k_blog/settings.py:219
 msgid "Вастрик <inside@inside.vas3k.ru>"
 msgstr "Vastrik <inside@inside.vas3k.ru>"
 
@@ -604,4 +608,3 @@ msgid ""
 msgstr ""
 "Subscribe to any of my channels so you don't miss new posts. Email is "
 "usually the most reliable way but the Gen Z hate it, so I have socials too."
-

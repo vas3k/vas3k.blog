@@ -349,7 +349,7 @@
         display: block;
         width: 100%;
         text-align: center;
-        margin: 60px auto 20px;
+        margin: 60px auto 0;
     }
 
         .simple-headline-image img,
