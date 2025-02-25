@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 from django.conf import settings
 from django.http import HttpResponseForbidden, HttpResponseNotAllowed, HttpResponse, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, render
+from django.utils.translation import get_language
 
 from comments.forms import CommentForm
 from comments.models import Comment
@@ -18,7 +19,7 @@ def create_comment(request):
     if not form.is_valid():
         return HttpResponseBadRequest("post_slug is required")
 
-    post = get_object_or_404(Post, slug=form.cleaned_data.get("post_slug"))
+    post = get_object_or_404(Post, slug=form.cleaned_data.get("post_slug"), lang=get_language())
     if not post.is_commentable:
         return render(
             request, "error.html", {
