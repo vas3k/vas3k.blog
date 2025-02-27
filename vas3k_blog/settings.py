@@ -13,7 +13,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY") or "wow so secret"
 DEBUG = (os.getenv("DEBUG") != "false")
 
-ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1", "vas3k.blog", "vas3k.ru", "vas3k.com", "vas3k.en"]
+ALLOWED_HOSTS = [
+    "0.0.0.0",
+    "127.0.0.1",
+    "vas3k.blog",
+    "vas3k.ru",
+    "vas3k.com",
+    "vas3k.en",
+]
 INTERNAL_IPS = ["127.0.0.1"]
 
 ADMINS = [
@@ -140,6 +147,7 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGES = [
     ("en", "English"),
     ("ru", "Russian"),
+    ("es", "Español"),
 ]
 
 LANGUAGE_CODE = "ru"
@@ -156,6 +164,7 @@ LOCALE_PATHS = [
 DOMAIN_LANGUAGES = {
     "vas3k.blog": "ru",
     "vas3k.com": "en",
+    "es.vas3k.blog": "es",
 }
 
 if DEBUG:
@@ -168,6 +177,7 @@ if DEBUG:
 DOMAIN_LANGUAGE_SELECTOR = [
     ("ru", "RU", "https://vas3k.blog"),
     ("en", "EN", "https://vas3k.com"),
+    ("es", "ES", "https://es.vas3k.blog"),
 ]
 
 # Static files (CSS, JavaScript, Images)
