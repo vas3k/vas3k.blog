@@ -1,0 +1,585 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-27 22:24+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: frontend/html/comments/comment-form.html:24
+#: frontend/html/comments/form.html:26
+msgid ""
+"Можно использовать <a href='https://doka.guide/tools/markdown/' "
+"target='_blank'>Markdown</a>"
+msgstr ""
+"你可以使用 <a href='https://www.markdownguide.org/cheat-sheet/' "
+"target='_blank'>Markdown</a>"
+
+#: frontend/html/comments/comment-form.html:27
+#: frontend/html/comments/form.html:29
+msgid "Отправить"
+msgstr "发送"
+
+#: frontend/html/comments/comment-list.html:7
+msgid "Комментарии"
+msgstr "评论"
+
+#: frontend/html/comments/comment-list.html:22
+#: frontend/html/comments/form.html:34
+msgid "Войдите, чтобы написать комментарий"
+msgstr "登录后发表评论"
+
+#: frontend/html/comments/comment.html:40
+#: frontend/html/comments/inline-comment.html:29
+msgid "Удалить"
+msgstr "删除"
+
+#: frontend/html/comments/inline-comment-form.html:16
+msgid "Откомментировать прямо здесь..."
+msgstr "在这里直接评论..."
+
+#: frontend/html/common/contacts.html:6
+#: frontend/html/common/post_subscribe.html:33
+#: frontend/html/emails/layout.html:131
+msgid "https://t.me/vas3k_channel"
+msgstr "https://t.me/vas3k_channel"
+
+#: frontend/html/common/contacts.html:7
+#: frontend/html/common/post_subscribe.html:33
+msgid "Телеграм-канал"
+msgstr "Telegram频道"
+
+#: frontend/html/common/contacts.html:11
+#: frontend/html/common/post_subscribe.html:37
+#: frontend/html/emails/layout.html:132 frontend/html/layout.html:66
+msgid "https://twitter.com/vas3k"
+msgstr "https://x.com/vas3kcom"
+
+#: frontend/html/common/contacts.html:13
+#: frontend/html/common/post_subscribe.html:37
+#: frontend/html/emails/layout.html:132 frontend/html/layout.html:68
+msgid "Твиттер"
+msgstr "Twitter"
+
+#: frontend/html/common/contacts.html:16
+#: frontend/html/common/post_subscribe.html:35
+msgid "https://mastodon.online/@vas3k"
+msgstr "https://mas.to/@vas3kcom"
+
+#: frontend/html/common/contacts.html:18
+#: frontend/html/common/post_subscribe.html:35
+msgid "Мастодон"
+msgstr "Mastodon"
+
+#: frontend/html/common/contacts.html:21
+#: frontend/html/common/post_subscribe.html:36
+msgid "https://bsky.app/profile/vas3k.bsky.social"
+msgstr "https://bsky.app/profile/vas3k.bsky.social"
+
+#: frontend/html/common/contacts.html:23
+#: frontend/html/common/post_subscribe.html:36
+msgid "Блюскай"
+msgstr "Bsky"
+
+#: frontend/html/common/contacts.html:26
+#: frontend/html/common/post_subscribe.html:38
+#: frontend/html/emails/layout.html:133
+msgid "https://www.patreon.com/vas3k"
+msgstr "https://ko-fi.com/vas3k"
+
+#: frontend/html/common/contacts.html:28
+#: frontend/html/common/post_subscribe.html:38
+#: frontend/html/emails/layout.html:133
+msgid "Патреон"
+msgstr "Ko-fi"
+
+#: frontend/html/common/contacts.html:31
+msgid "https://github.com/vas3k"
+msgstr "https://github.com/vas3k"
+
+#: frontend/html/common/contacts.html:33
+msgid "Гитхаб"
+msgstr "Github"
+
+#: frontend/html/common/contacts.html:36 frontend/html/common/contacts.html:38
+#: frontend/html/layout.html:60
+msgid "me@vas3k.ru"
+msgstr "me@zh.vas3k.blog"
+
+#: frontend/html/common/contacts.html:43
+msgid "RSS"
+msgstr "RSS"
+
+#: frontend/html/common/header.html:7 rss/feeds.py:28 vas3k_blog/strings.py:4
+msgid "Вастрик"
+msgstr "Vastrik"
+
+#: frontend/html/common/header.html:19
+msgid "Посты"
+msgstr "博客"
+
+#: frontend/html/common/header.html:25
+msgid "Путешествия"
+msgstr "旅行"
+
+#: frontend/html/common/header.html:31
+#: frontend/html/common/post_subscribe.html:19 frontend/html/subscribe.html:7
+#: frontend/html/subscribe.html:11 frontend/html/subscribe.html:17
+msgid "Подписаться"
+msgstr "订阅"
+
+#: frontend/html/common/header.html:36 frontend/html/donate.html:7
+#: frontend/html/donate.html:11 frontend/html/donate.html:17
+msgid "Донат"
+msgstr "赞助"
+
+#: frontend/html/common/header.html:56
+msgid "Искать по сайту..."
+msgstr "站内搜索..."
+
+#: frontend/html/common/post_footer.html:19
+msgid "Поблагодарить автора"
+msgstr "感谢作者"
+
+#: frontend/html/common/post_related.html:8
+msgid "Еще?"
+msgstr "想看更多？"
+
+#: frontend/html/common/post_related.html:8
+msgid "Тогда вот"
+msgstr "给你"
+
+#: frontend/html/common/post_subscribe.html:5
+msgid "Подписка на Вастрика"
+msgstr "订阅新文章"
+
+#: frontend/html/common/post_subscribe.html:14
+msgid "Ваш электронный адрес:"
+msgstr "你的电子邮箱："
+
+#: frontend/html/common/post_subscribe.html:22
+msgid "* никакого спама, только мои уведомления"
+msgstr "* 没有垃圾邮件或广告，只有新文章提醒"
+
+#: frontend/html/common/post_subscribe.html:28
+msgid "Другие площадки"
+msgstr "社交媒体"
+
+#: frontend/html/common/post_translations.html:7
+msgid "Этот пост переведен на другие языки"
+msgstr "本文有其他语言版本"
+
+#: frontend/html/donate.html:27
+msgid "Поддержать автора"
+msgstr "支持作者"
+
+#: frontend/html/donate.html:31
+msgid ""
+"Независимые авторы в интернете — вымирающая редкость. Они существуют только "
+"благодаря людям, которые их поддерживают. Если вам нравится то, что я делаю, "
+"занести мне донат — это лучший способ сказать «спасибо»."
+msgstr ""
+"独立且不受AI垃圾影响的博客在互联网上正在消亡。它们的存在只因为还有人支持它们。如果你喜欢我的文章，给我一点赞助是表达"谢谢"的最好方式，也是我继续写作的动力。"
+
+#: frontend/html/donate.html:41
+msgid "На Тиньков (карты РФ)"
+msgstr "Tinkoff（俄罗斯银行卡）"
+
+#: frontend/html/donate.html:42
+msgid ""
+"Если вы из России, перевод на карту будет проще всего. По клику откроется "
+"удобное окошко."
+msgstr ""
+"如果你来自俄罗斯，银行卡转账是最简单的方式。点击后会打开一个方便的窗口。"
+
+#: frontend/html/donate.html:47
+msgid "Либо по номеру карты:"
+msgstr "卡号："
+
+#: frontend/html/donate.html:52 frontend/html/donate.html:69
+#: frontend/html/donate.html:99 frontend/html/donate.html:157
+#: frontend/html/donate.html:172
+msgid "Донатить"
+msgstr "赞助"
+
+#: frontend/html/donate.html:62 frontend/html/donate.html:150
+msgid "Через Stripe (карты не РФ)"
+msgstr "Stripe"
+
+#: frontend/html/donate.html:64 frontend/html/donate.html:152
+msgid ""
+"Позволяет задонатить мне в Евро с любых зарубежных карт. Поддерживает Google "
+"и Apple Pay."
+msgstr "支持各种银行卡、Google Pay和Apple Pay。"
+
+#: frontend/html/donate.html:80 frontend/html/donate.html:123
+msgid ""
+"Вариант для живущих заграницей и просто у кого там завалялась мелочь на "
+"аккаунте."
+msgstr "经典的PayPal转账，总是能用。"
+
+#: frontend/html/donate.html:95 frontend/html/donate.html:168
+msgid "Прямой перевод для пользователей Революта."
+msgstr "Revolut用户的直接转账。快速且零手续费。"
+
+#: frontend/html/donate.html:109
+msgid "На Патреоне"
+msgstr "Patreon"
+
+#: frontend/html/donate.html:110
+msgid ""
+"Там можно заносить автоматически и получить ранний доступ и прочие плюшки."
+msgstr ""
+"你可以订阅我的Patreon，获得文章的早期访问权和其他福利。"
+
+#: frontend/html/donate.html:113
+msgid "Стать Патроном"
+msgstr "成为赞助人"
+
+#: frontend/html/donate.html:138
+msgid "Можно задонатить одноразово или подписаться на новые обновления."
+msgstr "你可以一次性给我买杯咖啡，或者成为会员获取新更新。"
+
+#: frontend/html/donate.html:141
+msgid "Купить мне Ko-fi"
+msgstr "给我买杯Ko-fi"
+
+#: frontend/html/donate.html:180
+msgid "Криптой"
+msgstr "加密货币"
+
+#: frontend/html/donate.html:185
+msgid "Биткоин"
+msgstr "比特币"
+
+#: frontend/html/donate.html:191
+msgid "Эфир или USDT"
+msgstr "以太坊和USDT"
+
+#: frontend/html/emails/layout.html:4 rss/feeds.py:13
+msgid "Вастрик.ру"
+msgstr "Vastrik"
+
+#: frontend/html/emails/layout.html:131
+msgid "Телеграм"
+msgstr "Telegram"
+
+#: frontend/html/emails/new_post.html:15
+msgid "Новый пост на Вастрике"
+msgstr "Vastrik的新文章"
+
+#: frontend/html/emails/new_post.html:20
+msgid "Привет, Олимпийский!"
+msgstr "嘿！"
+
+#: frontend/html/emails/new_post.html:24
+msgid ""
+"Это Вастрик. У меня в блоге сегодня вышел новый пост и я, как и обещал, "
+"присылаю вам его одними из первых."
+msgstr ""
+"我是Vastrik。今天我发布了一篇新文章，正如我承诺的那样，我最先把它发给你。"
+
+#: frontend/html/emails/new_post.html:39
+msgid "Читать пост"
+msgstr "阅读文章"
+
+#: frontend/html/emails/new_post.html:48
+msgid "Я стараюсь слать письма только тем, кто их хочет и читает."
+msgstr "我尽量只向那些想要并阅读它们的人发送邮件。"
+
+#: frontend/html/emails/new_post.html:49
+msgid ""
+"Поэтому вот вам большая кнопка, чтобы вы любой момент могли отписаться от "
+"моих писем и удалить свой e-mail из базы."
+msgstr ""
+"所以这里有一个大按钮，让你随时可以取消订阅我的邮件并从我的数据库中删除你的电子邮箱。"
+
+#: frontend/html/emails/new_post.html:54 frontend/html/emails/new_post.html:60
+msgid "Отписаться"
+msgstr "取消订阅"
+
+#: frontend/html/emails/opt_in.html:5 inside/views.py:44
+msgid "Подтверждение подписки"
+msgstr "确认你的订阅"
+
+#: frontend/html/emails/opt_in.html:10
+msgid "Привет!"
+msgstr "嘿！"
+
+#: frontend/html/emails/opt_in.html:14
+msgid ""
+"Кто-то, возможно даже вы, хочет получать новые посты с блога <a "
+"href='https://vas3k.blog'>Вастрика</a> на этот адрес."
+msgstr ""
+"有人，也许就是你，想要接收来自<a href='https://zh.vas3k.blog'>Vastrik博客</a>的新文章到这个地址。"
+
+#: frontend/html/emails/opt_in.html:15
+msgid "Нажмите сюда, чтобы подтвердить это"
+msgstr "点击这里确认"
+
+#: frontend/html/emails/opt_in.html:22
+msgid "Да, я хочу подписаться"
+msgstr "是的，我想订阅"
+
+#: frontend/html/emails/opt_in.html:29
+msgid ""
+"Если вы не знаете о чём идет речь, значит кто-то по ошибке ввёл адрес вашей "
+"почты."
+msgstr ""
+"如果你不知道这是关于什么的，那么有人错误地输入了你的电子邮箱地址。"
+
+#: frontend/html/emails/opt_in.html:30
+msgid "Просто проигнорируйте это письмо или нажмите"
+msgstr "直接忽略这封邮件或点击"
+
+#: frontend/html/emails/opt_in.html:30
+msgid "и я удалю вас везде."
+msgstr "我会在所有地方删除你的信息。"
+
+#: frontend/html/emails/opt_in.html:31
+msgid ""
+"В любом случае, без вашего согласия по кнопке выше я ничего слать не буду."
+msgstr ""
+"无论如何，没有你点击上面按钮的同意，我不会发送任何内容。"
+
+#: frontend/html/index/about.html:7
+msgid "Привет"
+msgstr "嘿"
+
+#: frontend/html/index/about.html:7
+msgid "Я Вастрик!"
+msgstr "我是Vastrik！"
+
+#: frontend/html/layout.html:57
+msgid "Для связи"
+msgstr "联系我"
+
+#: frontend/html/layout.html:58
+msgid "mailto:me@vas3k.ru"
+msgstr "mailto:me@zh.vas3k.blog"
+
+#: frontend/html/layout.html:62
+msgid "https://t.me/to_vas3k_bot"
+msgstr "https://t.me/vas3k"
+
+#: frontend/html/layout.html:64
+msgid "Телеграм-бот"
+msgstr "Telegram"
+
+#: frontend/html/layout.html:74
+msgid ""
+"Вы можете использовать цитаты из статей, картинки и скриншоты в своих блогах "
+"и презентациях, если поставите ссылку на оригинальный пост. Присылайте "
+"ссылки на них мне в личку, мне будет приятно посмотреть как моё странное "
+"творчество идет в народ. В коммерческих целях ничего использовать нельзя."
+msgstr ""
+"如果你在引用原文的附近放置链接，你可以在你的文章或演示文稿中使用我的文章中的引述、图片和截图。不得将任何内容用于商业目的。"
+
+#: frontend/html/posts/edit.html:33 frontend/html/users/profile.html:54
+msgid "Сохранить"
+msgstr "保存"
+
+#: frontend/html/posts/full/headlines/headline-simple.html:31
+msgid "пост только для своих"
+msgstr "仅会员文章"
+
+#: frontend/html/users/login.html:5
+msgid "Вход"
+msgstr "登录"
+
+#: frontend/html/users/login.html:10
+msgid "Входить здесь"
+msgstr "在这里登录"
+
+#: frontend/html/users/login.html:13
+msgid ""
+"Раньше комментарии были открыты для всех, но потом в них стало много "
+"идиотизма и спама, поэтому теперь комментирование доступно только для "
+"патронов и членов Вастрик Клуба."
+msgstr ""
+"评论曾向所有人开放，但后来出现了太多的愚蠢言论和垃圾信息，所以现在评论功能只对赞助者开放。"
+
+#: frontend/html/users/login.html:18
+msgid "Войти через Патреон"
+msgstr "通过Patreon登录"
+
+#: frontend/html/users/login.html:22
+msgid "Войти через Вастрик.Клуб"
+msgstr "通过Vastrik Club登录"
+
+#: frontend/html/users/post_access_denied.html:13
+msgid "Пост только для своих"
+msgstr "仅会员文章"
+
+#: frontend/html/users/post_access_denied.html:16
+msgid ""
+"К сожалению, некоторые темы приходится обсуждать вдали от большого "
+"интернета. Эта — одна из них."
+msgstr ""
+"不幸的是，有些话题必须远离大互联网讨论。这就是其中之一。"
+
+#: frontend/html/users/post_access_denied.html:20
+msgid ""
+"Пост доступен только тем, кто заносит мне донаты. Такая схема отлично "
+"позволяет отсеивать проходимцев."
+msgstr ""
+"文章仅对那些向我捐赠的人开放。这种方式很好地筛选掉了路人。"
+
+#: frontend/html/users/post_access_denied.html:23
+msgid "Войти"
+msgstr "登录"
+
+#: frontend/html/users/profile.html:23
+msgid "Выйти"
+msgstr "退出"
+
+#: frontend/html/users/profile.html:26
+msgid "Настройки профиля"
+msgstr "个人资料设置"
+
+#: inside/management/commands/send_new_post.py:70
+msgid "Новый пост в блоге Вастрика: "
+msgstr "Vastrik博客的新文章: "
+
+#: inside/views.py:20
+msgid "Антиспам"
+msgstr "反垃圾邮件"
+
+#: inside/views.py:21
+msgid ""
+"Антиспам проверка не пройдена. Попробуйте обновить страницу и ввести email "
+"еще раз"
+msgstr ""
+"反垃圾邮件检查失败。请尝试刷新页面并再次输入您的电子邮箱"
+
+#: inside/views.py:28
+msgid "Хммм"
+msgstr "嗯..."
+
+#: inside/views.py:29
+msgid "Это не выглядит как валидный имейл..."
+msgstr "这看起来不像有效的电子邮箱..."
+
+#: inside/views.py:54
+msgid "Нужно подтвердить почту"
+msgstr "你需要确认你的电子邮箱"
+
+#: inside/views.py:55
+msgid ""
+"Письмо с подтверждением улетело вам на почту. Откройте его и нажмите на "
+"кнопку, чтобы подписаться. Это обязательно, иначе ничего приходить не будет. "
+"Если никаких писем нет — проверьте «спам» или попробуйте другой адрес."
+msgstr ""
+"我已经给你发送了一封确认信。打开并点击其中的链接以订阅。这是必须的，否则你将收不到任何内容。如果没有收到邮件 — 请检查"垃圾邮件"或尝试其他地址。"
+
+#: inside/views.py:62
+msgid "Вы уже подписаны"
+msgstr "你已经订阅了"
+
+#: inside/views.py:63
+msgid "Но всё равно спасибо, что проверили :)"
+msgstr "不过还是谢谢你的检查 :)"
+
+#: inside/views.py:72
+msgid "Ура! Вы подписаны"
+msgstr "耶！你已订阅"
+
+#: inside/views.py:73
+msgid "Теперь вы будете получать на почту мои уведомления по почте"
+msgstr "现在你将通过电子邮件接收我的通知"
+
+#: inside/views.py:77
+msgid "Неизвестный адрес"
+msgstr "未知电子邮箱"
+
+#: inside/views.py:78
+msgid "Указанный адрес нам не известен. Подпишитесь еще раз"
+msgstr "我们不认识指定的电子邮箱。请再次订阅"
+
+#: inside/views.py:86
+msgid "Вы отписались"
+msgstr "你已取消订阅"
+
+#: inside/views.py:87
+msgid "Я удалил вашу почту из базы и больше ничего вам не пришлю"
+msgstr ""
+"我已从数据库中删除你的电子邮箱，不会再向你发送任何内容"
+
+#: posts/views.py:65
+msgid "Обо мне"
+msgstr "关于我"
+
+#: posts/views.py:70
+msgid "Заметки"
+msgstr "笔记"
+
+#: posts/views.py:76
+msgid "Отвратительные путешествия"
+msgstr "旅行"
+
+#: posts/views.py:82
+msgid "Нетленки"
+msgstr "经典文章"
+
+#: posts/views.py:87
+msgid "Проекты"
+msgstr "项目"
+
+#: rss/feeds.py:55
+msgid "Вастрик.ру: Секретный фид"
+msgstr "Vastrik：秘密订阅"
+
+#: rss/feeds.py:60
+msgid "Вастрик.ру: Только публичные посты"
+msgstr "Vastrik：仅公开文章"
+
+#: vas3k_blog/settings.py:219
+msgid "Вастрик <inside@inside.vas3k.ru>"
+msgstr "Vastrik <inside@inside.vas3k.ru>"
+
+#: vas3k_blog/strings.py:5
+msgid ""
+"Авторский блог о выживании в мире технологий и происходящем вокруг киберпанке"
+msgstr ""
+"关于在科技世界中生存和我们周围发生的赛博朋克现象的个人博客"
+
+#: vas3k_blog/strings.py:7
+msgid ""
+"В этом блоге я пишу о технологиях, всратом айти и выживании в творящемся "
+"вокруг киберпанке. Делаю это уже больше 10 лет.\n"
+"\n"
+"Я [программист](https://www.linkedin.com/in/vas3k/), техлид. Живу в [Берлине]"
+"(https://vas3k.blog/blog/go_to_berlin/) 🇩🇪 и нежно люблю его. До этого жил в "
+"[Литве](https://vas3k.blog/world/what_is_lithuania/) 🇱🇹, а [рос](https://"
+"vas3k.blog/world/nskflat/) и учился в Новосибирске 🥶\n"
+"\n"
+"У меня есть пёс, [Бус](https://vas3k.blog/blog/bus_2022/) и [Клуб](https://"
+"vas3k.club). Ну и еще мелкие [пет-проджекты](https://github.com/vas3k)."
+msgstr ""
+"我写关于技术、奇怪的IT事物和如何在我们周围的赛博朋克世界中生存。我已经这样做了10多年。\n"
+"\n"
+"我是一名来自西伯利亚的[软件工程师](https://www.linkedin.com/in/vas3k/)，前团队负责人和独立开发者，现居住在柏林 🇩🇪\n"
+"\n"
+"我有一只狗，一辆[露营车](https://zh.vas3k.blog/blog/bus_2022/)，并经营着一个在线社区。我也做一些[个人项目](https://github.com/vas3k)。\n"
+"\n"
+"这是我博客的中文版，我有时会翻译[主要版本](https://vas3k.blog)的文章。"
+
+#: vas3k_blog/strings.py:13
+msgid ""
+"🚨 Роскомнадзор банит одну соцсеть за другой, поэтому я рекомендую "
+"подписаться \n"
+"как по почте (её сложнее заблокировать), так и на вашей любимой площадке. \n"
+"Тогда у нас будет хотя бы два канала для связи."
+msgstr ""
+"订阅我的任何频道，这样你就不会错过新文章。电子邮件通常是最可靠的方式，但Z世代讨厌它，所以我也有社交媒体账号。"

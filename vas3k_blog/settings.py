@@ -165,6 +165,7 @@ DOMAIN_LANGUAGES = {
     "vas3k.blog": "ru",
     "vas3k.com": "en",
     "es.vas3k.blog": "es",
+    "zh.vas3k.blog": "zh",
 }
 
 if DEBUG:
@@ -177,7 +178,6 @@ if DEBUG:
 DOMAIN_LANGUAGE_SELECTOR = [
     ("ru", "RU", "https://vas3k.blog"),
     ("en", "EN", "https://vas3k.com"),
-    ("es", "ES", "https://es.vas3k.blog"),
 ]
 
 # Static files (CSS, JavaScript, Images)
