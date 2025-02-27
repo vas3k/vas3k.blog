@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-27 22:21+0000\n"
+"POT-Creation-Date: 2025-02-27 22:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,31 +23,31 @@ msgid ""
 "Можно использовать <a href='https://doka.guide/tools/markdown/' "
 "target='_blank'>Markdown</a>"
 msgstr ""
-"Puedes usar <a href='https://www.markdownguide.org/cheat-sheet/' "
-"target='_blank'>Markdown</a>"
+"आप <a href='https://www.markdownguide.org/cheat-sheet/' "
+"target='_blank'>Markdown</a> का उपयोग कर सकते हैं"
 
 #: frontend/html/comments/comment-form.html:27
 #: frontend/html/comments/form.html:29
 msgid "Отправить"
-msgstr "Enviar"
+msgstr "भेजें"
 
 #: frontend/html/comments/comment-list.html:7
 msgid "Комментарии"
-msgstr "Comentarios"
+msgstr "टिप्पणियाँ"
 
 #: frontend/html/comments/comment-list.html:22
 #: frontend/html/comments/form.html:34
 msgid "Войдите, чтобы написать комментарий"
-msgstr "Inicia sesión para dejar un comentario"
+msgstr "टिप्पणी करने के लिए लॉग इन करें"
 
 #: frontend/html/comments/comment.html:40
 #: frontend/html/comments/inline-comment.html:29
 msgid "Удалить"
-msgstr "Eliminar"
+msgstr "हटाएँ"
 
 #: frontend/html/comments/inline-comment-form.html:16
 msgid "Откомментировать прямо здесь..."
-msgstr "Comenta aquí mismo..."
+msgstr "यहीं टिप्पणी करें..."
 
 #: frontend/html/common/contacts.html:6
 #: frontend/html/common/post_subscribe.html:33
@@ -58,7 +58,7 @@ msgstr "https://t.me/vas3k_channel"
 #: frontend/html/common/contacts.html:7
 #: frontend/html/common/post_subscribe.html:33
 msgid "Телеграм-канал"
-msgstr "Canal de Telegram"
+msgstr "टेलीग्राम चैनल"
 
 #: frontend/html/common/contacts.html:11
 #: frontend/html/common/post_subscribe.html:37
@@ -70,7 +70,7 @@ msgstr "https://x.com/vas3kcom"
 #: frontend/html/common/post_subscribe.html:37
 #: frontend/html/emails/layout.html:132 frontend/html/layout.html:68
 msgid "Твиттер"
-msgstr "Twitter"
+msgstr "ट्विटर"
 
 #: frontend/html/common/contacts.html:16
 #: frontend/html/common/post_subscribe.html:35
@@ -80,7 +80,7 @@ msgstr "https://mas.to/@vas3kcom"
 #: frontend/html/common/contacts.html:18
 #: frontend/html/common/post_subscribe.html:35
 msgid "Мастодон"
-msgstr "Mastodon"
+msgstr "मैस्टोडॉन"
 
 #: frontend/html/common/contacts.html:21
 #: frontend/html/common/post_subscribe.html:36
@@ -90,7 +90,7 @@ msgstr "https://bsky.app/profile/vas3k.bsky.social"
 #: frontend/html/common/contacts.html:23
 #: frontend/html/common/post_subscribe.html:36
 msgid "Блюскай"
-msgstr "Bsky"
+msgstr "ब्लूस्काई"
 
 #: frontend/html/common/contacts.html:26
 #: frontend/html/common/post_subscribe.html:38
@@ -102,7 +102,7 @@ msgstr "https://ko-fi.com/vas3k"
 #: frontend/html/common/post_subscribe.html:38
 #: frontend/html/emails/layout.html:133
 msgid "Патреон"
-msgstr "Ko-fi"
+msgstr "को-फी"
 
 #: frontend/html/common/contacts.html:31
 msgid "https://github.com/vas3k"
@@ -110,11 +110,11 @@ msgstr "https://github.com/vas3k"
 
 #: frontend/html/common/contacts.html:33
 msgid "Гитхаб"
-msgstr "Github"
+msgstr "गिटहब"
 
 #: frontend/html/common/contacts.html:36 frontend/html/common/contacts.html:38
 #: frontend/html/layout.html:60
-msgid "me@vas3k.ru"
+msgid "me@vas3k.com"
 msgstr "me@vas3k.com"
 
 #: frontend/html/common/contacts.html:43
@@ -123,66 +123,66 @@ msgstr "RSS"
 
 #: frontend/html/common/header.html:7 rss/feeds.py:28 vas3k_blog/strings.py:4
 msgid "Вастрик"
-msgstr "Vastrik"
+msgstr "वास्त्रिक"
 
 #: frontend/html/common/header.html:19
 msgid "Посты"
-msgstr "Blog"
+msgstr "ब्लॉग"
 
 #: frontend/html/common/header.html:25
 msgid "Путешествия"
-msgstr "Viajes"
+msgstr "यात्रा"
 
 #: frontend/html/common/header.html:31
 #: frontend/html/common/post_subscribe.html:19 frontend/html/subscribe.html:7
 #: frontend/html/subscribe.html:11 frontend/html/subscribe.html:17
 msgid "Подписаться"
-msgstr "Suscribirse"
+msgstr "सदस्यता लें"
 
 #: frontend/html/common/header.html:36 frontend/html/donate.html:7
 #: frontend/html/donate.html:11 frontend/html/donate.html:17
 msgid "Донат"
-msgstr "Donar"
+msgstr "दान करें"
 
 #: frontend/html/common/header.html:56
 msgid "Искать по сайту..."
-msgstr "Buscar en el sitio..."
+msgstr "साइट पर खोजें..."
 
 #: frontend/html/common/post_footer.html:19
 msgid "Поблагодарить автора"
-msgstr "Agradecer al autor"
+msgstr "लेखक को धन्यवाद दें"
 
 #: frontend/html/common/post_related.html:8
 msgid "Еще?"
-msgstr "¿Más?"
+msgstr "और?"
 
 #: frontend/html/common/post_related.html:8
 msgid "Тогда вот"
-msgstr "Aquí tienes"
+msgstr "ये लो"
 
 #: frontend/html/common/post_subscribe.html:5
 msgid "Подписка на Вастрика"
-msgstr "Suscribirse a nuevas publicaciones"
+msgstr "नए पोस्ट के लिए सदस्यता लें"
 
 #: frontend/html/common/post_subscribe.html:14
 msgid "Ваш электронный адрес:"
-msgstr "Tu dirección de correo electrónico:"
+msgstr "आपका ईमेल पता:"
 
 #: frontend/html/common/post_subscribe.html:22
 msgid "* никакого спама, только мои уведомления"
-msgstr "* sin spam ni anuncios, solo notificaciones de nuevas publicaciones"
+msgstr "* कोई स्पैम या विज्ञापन नहीं, केवल नए पोस्ट की सूचनाएँ"
 
 #: frontend/html/common/post_subscribe.html:28
 msgid "Другие площадки"
-msgstr "Redes sociales"
+msgstr "सोशल मीडिया"
 
 #: frontend/html/common/post_translations.html:7
 msgid "Этот пост переведен на другие языки"
-msgstr "Esta publicación está disponible en otros idiomas"
+msgstr "यह पोस्ट अन्य भाषाओं में उपलब्ध है"
 
 #: frontend/html/donate.html:27
 msgid "Поддержать автора"
-msgstr "Apoyar al autor"
+msgstr "लेखक का समर्थन करें"
 
 #: frontend/html/donate.html:31
 msgid ""
@@ -190,191 +190,189 @@ msgid ""
 "благодаря людям, которые их поддерживают. Если вам нравится то, что я делаю, "
 "занести мне донат — это лучший способ сказать «спасибо»."
 msgstr ""
-"Los blogs independientes y libres de tonterías de IA en Internet son una especie en extinción. "
-"Solo existen gracias a las personas que aún los apoyan. Si te gustan mis "
-"artículos, hacerme una donación es la mejor manera de decir 'gracias' y "
-"una motivación para continuar."
+"इंटरनेट पर स्वतंत्र और AI-बकवास-मुक्त ब्लॉग एक विलुप्त होती प्रजाति हैं। "
+"वे केवल उन लोगों के कारण मौजूद हैं जो अभी भी उनका समर्थन करते हैं। अगर आपको मेरे "
+"लेख पसंद हैं, तो मुझे दान देना 'धन्यवाद' कहने और जारी रखने के लिए प्रेरणा का "
+"सबसे अच्छा तरीका है।"
 
 #: frontend/html/donate.html:41
 msgid "На Тиньков (карты РФ)"
-msgstr "Tinkoff (tarjetas RU)"
+msgstr "टिंकॉफ (रूस के कार्ड)"
 
 #: frontend/html/donate.html:42
 msgid ""
 "Если вы из России, перевод на карту будет проще всего. По клику откроется "
 "удобное окошко."
 msgstr ""
-"Si eres de Rusia, una transferencia a tarjeta será lo más fácil. Haz clic para abrir una "
-"ventana conveniente."
+"अगर आप रूस से हैं, तो कार्ड ट्रांसफर सबसे आसान होगा। क्लिक करने पर एक "
+"सुविधाजनक विंडो खुलेगी।"
 
 #: frontend/html/donate.html:47
 msgid "Либо по номеру карты:"
-msgstr "Número de tarjeta:"
+msgstr "कार्ड नंबर:"
 
 #: frontend/html/donate.html:52 frontend/html/donate.html:69
 #: frontend/html/donate.html:99 frontend/html/donate.html:157
 #: frontend/html/donate.html:172
 msgid "Донатить"
-msgstr "Donar"
+msgstr "दान करें"
 
 #: frontend/html/donate.html:62 frontend/html/donate.html:150
 msgid "Через Stripe (карты не РФ)"
-msgstr "Stripe"
+msgstr "स्ट्राइप"
 
 #: frontend/html/donate.html:64 frontend/html/donate.html:152
 msgid ""
 "Позволяет задонатить мне в Евро с любых зарубежных карт. Поддерживает Google "
 "и Apple Pay."
-msgstr "Compatible con tarjetas, Google Pay y Apple Pay."
+msgstr "कार्ड, Google Pay और Apple Pay का समर्थन करता है।"
 
 #: frontend/html/donate.html:80 frontend/html/donate.html:123
 msgid ""
 "Вариант для живущих заграницей и просто у кого там завалялась мелочь на "
 "аккаунте."
-msgstr "El clásico PayPal que siempre funciona."
+msgstr "पुराना अच्छा PayPal ट्रांसफर जो हमेशा काम करता है।"
 
 #: frontend/html/donate.html:95 frontend/html/donate.html:168
 msgid "Прямой перевод для пользователей Революта."
-msgstr "Transferencia directa para usuarios de Revolut. Rápido y sin comisiones."
+msgstr "रेवोल्यूट उपयोगकर्ताओं के लिए सीधा ट्रांसफर। तेज़ और कोई शुल्क नहीं।"
 
 #: frontend/html/donate.html:109
 msgid "На Патреоне"
-msgstr "Patreon"
+msgstr "पेट्रियन"
 
 #: frontend/html/donate.html:110
 msgid ""
 "Там можно заносить автоматически и получить ранний доступ и прочие плюшки."
 msgstr ""
-"Puedes suscribirte a mi Patreon y obtener acceso anticipado a publicaciones y otros "
-"beneficios."
+"आप मेरे पेट्रियन की सदस्यता ले सकते हैं और पोस्ट तक जल्दी पहुंच और अन्य "
+"लाभ प्राप्त कर सकते हैं।"
 
 #: frontend/html/donate.html:113
 msgid "Стать Патроном"
-msgstr "Convertirse en Patrón"
+msgstr "पेट्रियन बनें"
 
 #: frontend/html/donate.html:138
 msgid "Можно задонатить одноразово или подписаться на новые обновления."
 msgstr ""
-"Allí puedes donarme una cerveza/café o hacerte miembro para recibir nuevas actualizaciones."
+"वहां आप मुझे एक बीयर/कॉफी दान कर सकते हैं या नए अपडेट प्राप्त करने के लिए सदस्य बन सकते हैं।"
 
 #: frontend/html/donate.html:141
 msgid "Купить мне Ko-fi"
-msgstr "Comprarme un Ko-fi"
+msgstr "मुझे Ko-fi खरीदें"
 
 #: frontend/html/donate.html:180
 msgid "Криптой"
-msgstr "Cripto"
+msgstr "क्रिप्टो"
 
 #: frontend/html/donate.html:185
 msgid "Биткоин"
-msgstr "Bitcoin"
+msgstr "बिटकॉइन"
 
 #: frontend/html/donate.html:191
 msgid "Эфир или USDT"
-msgstr "ETH y USDT"
+msgstr "ETH और USDT"
 
 #: frontend/html/emails/layout.html:4 rss/feeds.py:13
 msgid "Вастрик.ру"
-msgstr "Vastrik"
+msgstr "वास्त्रिक"
 
 #: frontend/html/emails/layout.html:131
 msgid "Телеграм"
-msgstr "Telegram"
+msgstr "टेलीग्राम"
 
 #: frontend/html/emails/new_post.html:15
 msgid "Новый пост на Вастрике"
-msgstr "Nueva publicación de Vastrik"
+msgstr "वास्त्रिक से नया पोस्ट"
 
 #: frontend/html/emails/new_post.html:20
 msgid "Привет, Олимпийский!"
-msgstr "¡Hola!"
+msgstr "नमस्ते!"
 
 #: frontend/html/emails/new_post.html:24
 msgid ""
 "Это Вастрик. У меня в блоге сегодня вышел новый пост и я, как и обещал, "
 "присылаю вам его одними из первых."
 msgstr ""
-"Soy Vastrik. He publicado una nueva entrada hoy y te la envío "
-"primero, como prometí."
+"यह वास्त्रिक है। मैंने आज एक नया पोस्ट प्रकाशित किया है और मैं इसे आपको सबसे पहले भेज रहा हूँ।"
 
 #: frontend/html/emails/new_post.html:39
 msgid "Читать пост"
-msgstr "Leer la publicación"
+msgstr "पोस्ट पढ़ें"
 
 #: frontend/html/emails/new_post.html:48
 msgid "Я стараюсь слать письма только тем, кто их хочет и читает."
-msgstr "Intento enviar correos solo a quienes los quieren y los leen."
+msgstr "मैं केवल उन लोगों को ईमेल भेजने की कोशिश करता हूं जो उन्हें चाहते हैं और पढ़ते हैं।"
 
 #: frontend/html/emails/new_post.html:49
 msgid ""
 "Поэтому вот вам большая кнопка, чтобы вы любой момент могли отписаться от "
 "моих писем и удалить свой e-mail из базы."
 msgstr ""
-"Así que aquí tienes un gran botón para cancelar tu suscripción en cualquier momento y eliminar tu "
-"correo electrónico de mi base de datos."
+"इसलिए यहां आपके लिए एक बड़ा बटन है जिससे आप किसी भी समय सदस्यता रद्द कर सकते हैं और अपना "
+"ईमेल मेरे डेटाबेस से हटा सकते हैं।"
 
 #: frontend/html/emails/new_post.html:54 frontend/html/emails/new_post.html:60
 msgid "Отписаться"
-msgstr "Cancelar suscripción"
+msgstr "सदस्यता रद्द करें"
 
 #: frontend/html/emails/opt_in.html:5 inside/views.py:44
 msgid "Подтверждение подписки"
-msgstr "Confirma tu suscripción"
+msgstr "अपनी सदस्यता की पुष्टि करें"
 
 #: frontend/html/emails/opt_in.html:10
 msgid "Привет!"
-msgstr "¡Hola!"
+msgstr "नमस्ते!"
 
 #: frontend/html/emails/opt_in.html:14
 msgid ""
 "Кто-то, возможно даже вы, хочет получать новые посты с блога <a "
 "href='https://vas3k.blog'>Вастрика</a> на этот адрес."
 msgstr ""
-"Alguien, tal vez incluso tú, quiere recibir nuevas publicaciones del <a href='https://"
-"es.vas3k.blog'>blog de Vastrik</a> en esta dirección."
+"कोई, शायद आप ही, <a href='https://vas3k.com'>वास्त्रिक के ब्लॉग</a> से इस पते पर नए पोस्ट प्राप्त करना चाहता है।"
 
 #: frontend/html/emails/opt_in.html:15
 msgid "Нажмите сюда, чтобы подтвердить это"
-msgstr "Haz clic aquí para confirmar"
+msgstr "इसकी पुष्टि करने के लिए यहां क्लिक करें"
 
 #: frontend/html/emails/opt_in.html:22
 msgid "Да, я хочу подписаться"
-msgstr "Quiero suscribirme"
+msgstr "मैं सदस्यता लेना चाहता हूं"
 
 #: frontend/html/emails/opt_in.html:29
 msgid ""
 "Если вы не знаете о чём идет речь, значит кто-то по ошибке ввёл адрес вашей "
 "почты."
 msgstr ""
-"Si no sabes de qué se trata esto, alguien ingresó tu dirección de correo electrónico por error."
+"अगर आप नहीं जानते कि यह किस बारे में है, तो किसी ने गलती से आपका ईमेल पता दर्ज किया है।"
 
 #: frontend/html/emails/opt_in.html:30
 msgid "Просто проигнорируйте это письмо или нажмите"
-msgstr "Simplemente ignora este correo o haz clic"
+msgstr "बस इस ईमेल को अनदेखा करें या क्लिक करें"
 
 #: frontend/html/emails/opt_in.html:30
 msgid "и я удалю вас везде."
-msgstr "y te eliminaré de todas partes."
+msgstr "और मैं आपको हर जगह से हटा दूंगा।"
 
 #: frontend/html/emails/opt_in.html:31
 msgid ""
 "В любом случае, без вашего согласия по кнопке выше я ничего слать не буду."
-msgstr "En cualquier caso, no enviaré nada sin tu consentimiento."
+msgstr "किसी भी मामले में, मैं आपकी सहमति के बिना कुछ भी नहीं भेजूंगा।"
 
 #: frontend/html/index/about.html:7
 msgid "Привет"
-msgstr "Hola"
+msgstr "नमस्ते"
 
 #: frontend/html/index/about.html:7
 msgid "Я Вастрик!"
-msgstr "¡Soy Vastrik!"
+msgstr "मैं वास्त्रिक हूं!"
 
 #: frontend/html/layout.html:57
 msgid "Для связи"
-msgstr "Contáctame"
+msgstr "मुझसे संपर्क करें"
 
 #: frontend/html/layout.html:58
-msgid "mailto:me@vas3k.ru"
+msgid "mailto:me@vas3k.com"
 msgstr "mailto:me@vas3k.com"
 
 #: frontend/html/layout.html:62
@@ -383,7 +381,7 @@ msgstr "https://t.me/vas3k"
 
 #: frontend/html/layout.html:64
 msgid "Телеграм-бот"
-msgstr "Telegram"
+msgstr "टेलीग्राम"
 
 #: frontend/html/layout.html:74
 msgid ""
@@ -392,25 +390,25 @@ msgid ""
 "ссылки на них мне в личку, мне будет приятно посмотреть как моё странное "
 "творчество идет в народ. В коммерческих целях ничего использовать нельзя."
 msgstr ""
-"Puedes usar citas, imágenes y capturas de pantalla de mis publicaciones en tus artículos o "
-"presentaciones si incluyes un enlace a la publicación original. Nada puede ser "
-"utilizado con fines comerciales."
+"आप मेरे पोस्ट से उद्धरण, छवियां और स्क्रीनशॉट अपने लेखों या प्रस्तुतियों में उपयोग कर सकते हैं "
+"अगर आप पास में मूल पोस्ट का लिंक रखते हैं। किसी भी चीज़ का वाणिज्यिक उद्देश्यों के लिए "
+"उपयोग नहीं किया जा सकता है।"
 
 #: frontend/html/posts/edit.html:33 frontend/html/users/profile.html:54
 msgid "Сохранить"
-msgstr "Guardar"
+msgstr "सहेजें"
 
 #: frontend/html/posts/full/headlines/headline-simple.html:31
 msgid "пост только для своих"
-msgstr "publicación solo para miembros"
+msgstr "केवल सदस्यों के लिए पोस्ट"
 
 #: frontend/html/users/login.html:5
 msgid "Вход"
-msgstr "Entrar"
+msgstr "प्रवेश करें"
 
 #: frontend/html/users/login.html:10
 msgid "Входить здесь"
-msgstr "Entra aquí"
+msgstr "यहाँ प्रवेश करें"
 
 #: frontend/html/users/login.html:13
 msgid ""
@@ -418,75 +416,73 @@ msgid ""
 "идиотизма и спама, поэтому теперь комментирование доступно только для "
 "патронов и членов Вастрик Клуба."
 msgstr ""
-"Antes los comentarios estaban abiertos a todos, pero luego había muchas tonterías y "
-"spam en ellos, así que ahora los comentarios solo están disponibles para los patrones."
+"टिप्पणियाँ पहले सभी के लिए खुली थीं, लेकिन फिर उनमें बहुत सारी मूर्खता और स्पैम हो गया, इसलिए अब "
+"टिप्पणी करना केवल पेट्रन के लिए उपलब्ध है।"
 
 #: frontend/html/users/login.html:18
 msgid "Войти через Патреон"
-msgstr "Iniciar sesión con Patreon"
+msgstr "पेट्रियन से लॉग इन करें"
 
 #: frontend/html/users/login.html:22
 msgid "Войти через Вастрик.Клуб"
-msgstr "Iniciar sesión con Vastrik Club"
+msgstr "वास्त्रिक क्लब से लॉग इन करें"
 
 #: frontend/html/users/post_access_denied.html:13
 msgid "Пост только для своих"
-msgstr "Publicación solo para miembros"
+msgstr "केवल सदस्यों के लिए पोस्ट"
 
 #: frontend/html/users/post_access_denied.html:16
 msgid ""
 "К сожалению, некоторые темы приходится обсуждать вдали от большого "
 "интернета. Эта — одна из них."
 msgstr ""
-"Desafortunadamente, algunos temas tienen que discutirse lejos del internet general. "
-"Este es uno de ellos."
+"दुर्भाग्य से, कुछ विषयों की चर्चा बड़े इंटरनेट से दूर करनी पड़ती है। यह उनमें से एक है।"
 
 #: frontend/html/users/post_access_denied.html:20
 msgid ""
 "Пост доступен только тем, кто заносит мне донаты. Такая схема отлично "
 "позволяет отсеивать проходимцев."
 msgstr ""
-"Esta publicación solo está disponible para quienes me donan. Este sistema funciona muy bien para "
-"filtrar a los curiosos ocasionales."
+"पोस्ट केवल उन लोगों के लिए उपलब्ध है जो मुझे दान करते हैं। यह आकस्मिक आगंतुकों को छांटने के लिए अच्छा काम करता है।"
 
 #: frontend/html/users/post_access_denied.html:23
 msgid "Войти"
-msgstr "Entrar"
+msgstr "प्रवेश करें"
 
 #: frontend/html/users/profile.html:23
 msgid "Выйти"
-msgstr "Salir"
+msgstr "प्रवेश करें"
 
 #: frontend/html/users/profile.html:26
 msgid "Настройки профиля"
-msgstr "Configuración de perfil"
+msgstr "प्रोफाइल सेटिंग्स"
 
 #: inside/management/commands/send_new_post.py:70
 msgid "Новый пост в блоге Вастрика: "
-msgstr "Nueva publicación en el blog de Vastrik: "
+msgstr "वास्त्रिक के ब्लॉग में नया पोस्ट: "
 
 #: inside/views.py:20
 msgid "Антиспам"
-msgstr "Antispam"
+msgstr "एंटीस्पैम"
 
 #: inside/views.py:21
 msgid ""
 "Антиспам проверка не пройдена. Попробуйте обновить страницу и ввести email "
 "еще раз"
 msgstr ""
-"La verificación antispam falló. Intenta actualizar la página e ingresar tu email nuevamente"
+"एंटीस्पैम जांच विफल रही। पेज रिफ्रेश करके अपना ईमेल फिर से दर्ज करें"
 
 #: inside/views.py:28
 msgid "Хммм"
-msgstr "Hmmm"
+msgstr "हम्मम"
 
 #: inside/views.py:29
 msgid "Это не выглядит как валидный имейл..."
-msgstr "Esto no parece un email válido..."
+msgstr "यह वैध ईमेल जैसा नहीं लगता..."
 
 #: inside/views.py:54
 msgid "Нужно подтвердить почту"
-msgstr "Necesitas confirmar tu email"
+msgstr "आपको अपना ईमेल सत्यापित करना होगा"
 
 #: inside/views.py:55
 msgid ""
@@ -494,81 +490,80 @@ msgid ""
 "кнопку, чтобы подписаться. Это обязательно, иначе ничего приходить не будет. "
 "Если никаких писем нет — проверьте «спам» или попробуйте другой адрес."
 msgstr ""
-"Te he enviado un correo de confirmación. Ábrelo y haz clic en el enlace para "
-"suscribirte. Esto es obligatorio, de lo contrario no recibirás nada. Si no hay "
-"correos, verifica la carpeta de 'spam' o prueba con otra dirección."
+"मैंने आपको एक पुष्टिकरण पत्र भेजा है। सदस्यता लेने के लिए उसे खोलें और वहां लिंक पर क्लिक करें। "
+"यह अनिवार्य है, अन्यथा कुछ भी नहीं आएगा। अगर कोई ईमेल नहीं है — 'स्पैम' की जांच करें या कोई "
+"दूसरा पता आज़माएं।"
 
 #: inside/views.py:62
 msgid "Вы уже подписаны"
-msgstr "Ya estás suscrito"
+msgstr "आप पहले से ही सदस्य हैं"
 
 #: inside/views.py:63
 msgid "Но всё равно спасибо, что проверили :)"
-msgstr "Pero gracias por verificar de todos modos :)"
+msgstr "लेकिन फिर भी जांच करने के लिए धन्यवाद :)"
 
 #: inside/views.py:72
 msgid "Ура! Вы подписаны"
-msgstr "¡Genial! Estás suscrito"
+msgstr "वाह! आपने सदस्यता ले ली है"
 
 #: inside/views.py:73
 msgid "Теперь вы будете получать на почту мои уведомления по почте"
-msgstr "Ahora recibirás mis notificaciones por correo electrónico"
+msgstr "अब आपको ईमेल द्वारा मेरी सूचनाएं मिलेंगी"
 
 #: inside/views.py:77
 msgid "Неизвестный адрес"
-msgstr "Dirección desconocida"
+msgstr "अज्ञात ईमेल"
 
 #: inside/views.py:78
 msgid "Указанный адрес нам не известен. Подпишитесь еще раз"
-msgstr "La dirección especificada nos es desconocida. Suscríbete nuevamente"
+msgstr "निर्दिष्ट ईमेल हमें अज्ञात है। फिर से सदस्यता लें"
 
 #: inside/views.py:86
 msgid "Вы отписались"
-msgstr "Te has dado de baja"
+msgstr "आपने सदस्यता रद्द कर दी है"
 
 #: inside/views.py:87
 msgid "Я удалил вашу почту из базы и больше ничего вам не пришлю"
 msgstr ""
-"He eliminado tu correo electrónico de la base de datos y no te enviaré nada más"
+"मैंने डेटाबेस से आपका ईमेल हटा दिया है और आपको कुछ भी नहीं भेजूंगा"
 
 #: posts/views.py:65
 msgid "Обо мне"
-msgstr "Sobre mí"
+msgstr "मेरे बारे में"
 
 #: posts/views.py:70
 msgid "Заметки"
-msgstr "Notas"
+msgstr "नोट्स"
 
 #: posts/views.py:76
 msgid "Отвратительные путешествия"
-msgstr "Viajes"
+msgstr "यात्रा"
 
 #: posts/views.py:82
 msgid "Нетленки"
-msgstr "Clásicos atemporales"
+msgstr "पुराने लेकिन सुनहरे"
 
 #: posts/views.py:87
 msgid "Проекты"
-msgstr "Proyectos"
+msgstr "प्रोजेक्ट्स"
 
 #: rss/feeds.py:55
 msgid "Вастрик.ру: Секретный фид"
-msgstr "Vastrik: Feed secreto"
+msgstr "वास्त्रिक: गुप्त फीड"
 
 #: rss/feeds.py:60
 msgid "Вастрик.ру: Только публичные посты"
-msgstr "Vastrik: Solo publicaciones públicas"
+msgstr "वास्त्रिक: केवल सार्वजनिक पोस्ट"
 
 #: vas3k_blog/settings.py:219
-msgid "Вастрик <inside@inside.vas3k.ru>"
-msgstr "Vastrik <inside@inside.vas3k.ru>"
+msgid "Вастрик <inside@inside.vas3k.com>"
+msgstr "वास्त्रिक <inside@inside.vas3k.com>"
 
 #: vas3k_blog/strings.py:5
 msgid ""
 "Авторский блог о выживании в мире технологий и происходящем вокруг киберпанке"
 msgstr ""
-"Mi blog sobre cómo sobrevivir en el mundo de la tecnología y el ciberpunk "
-"que ocurre a nuestro alrededor"
+"तकनीकी दुनिया में जीवित रहने और आसपास के साइबरपंक के बारे में मेरा ब्लॉग"
 
 #: vas3k_blog/strings.py:7
 msgid ""
@@ -583,17 +578,13 @@ msgid ""
 "У меня есть пёс, [Бус](https://vas3k.blog/blog/bus_2022/) и [Клуб](https://"
 "vas3k.club). Ну и еще мелкие [пет-проджекты](https://github.com/vas3k)."
 msgstr ""
-"Escribo sobre tecnología, cosas locas de TI y cómo sobrevivir al ciberpunk que está ocurriendo "
-"a nuestro alrededor. Y llevo haciéndolo más de 10 años.\n"
+"मैं तकनीकी दुनिया, पागल IT बातों और आसपास के साइबरपंक में जीवित रहने के बारे में लिखता हूं। और यह 10 साल से अधिक समय से कर रहा हूं।\n"
 "\n"
-"Soy [ingeniero de software](https://www.linkedin.com/in/vas3k/) de Siberia, "
-"ex team-lead e indie-hacker viviendo en Berlín 🇩🇪\n"
+"मैं साइबेरिया से एक [सॉफ्टवेयर इंजीनियर](https://www.linkedin.com/in/vas3k/) हूं, पूर्व टीम-लीड और इंडी-हैकर जो बर्लिन 🇩🇪 में रहता है\n"
 "\n"
-"Tengo un perro, una [furgoneta camper](https://es.vas3k.blog/blog/bus_2022/) y dirijo una "
-"comunidad online. También hago algunos [proyectos personales](https://github.com/vas3k).\n"
+"मेरे पास एक कुत्ता, एक [कैंपर बस](https://vas3k.com/blog/bus_2022/) है और मैं एक ऑनलाइन समुदाय चलाता हूं। मैं कुछ [पेट प्रोजेक्ट्स](https://github.com/vas3k) भी करता हूं।\n"
 "\n"
-"Esta es la versión en español de mi blog, donde a veces traduzco artículos "
-"de la [versión principal](https://vas3k.blog)."
+"यह मेरे ब्लॉग का अंग्रेजी संस्करण है, जहां मैं कभी-कभी [मुख्य संस्करण](https://vas3k.blog) से लेखों का अनुवाद करता हूं।"
 
 #: vas3k_blog/strings.py:13
 msgid ""
@@ -602,5 +593,4 @@ msgid ""
 "как по почте (её сложнее заблокировать), так и на вашей любимой площадке. \n"
 "Тогда у нас будет хотя бы два канала для связи."
 msgstr ""
-"Suscríbete a cualquiera de mis canales para no perderte nuevas publicaciones. El correo electrónico es "
-"generalmente la forma más confiable, pero la Generación Z lo odia, así que también tengo redes sociales."
+"किसी भी चैनल की सदस्यता लें ताकि आप नए पोस्ट न गंवाएं। ईमेल आमतौर पर सबसे विश्वसनीय तरीका है लेकिन नई पीढ़ी इससे नफरत करती है, इसलिए मेरे सोशल मीडिया भी हैं।"

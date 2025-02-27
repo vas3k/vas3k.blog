@@ -115,7 +115,7 @@ msgstr "Github"
 #: frontend/html/common/contacts.html:36 frontend/html/common/contacts.html:38
 #: frontend/html/layout.html:60
 msgid "me@vas3k.ru"
-msgstr "me@zh.vas3k.blog"
+msgstr "me@vas3k.com"
 
 #: frontend/html/common/contacts.html:43
 msgid "RSS"
@@ -367,7 +367,7 @@ msgstr "联系我"
 
 #: frontend/html/layout.html:58
 msgid "mailto:me@vas3k.ru"
-msgstr "mailto:me@zh.vas3k.blog"
+msgstr "mailto:me@vas3k.com"
 
 #: frontend/html/layout.html:62
 msgid "https://t.me/to_vas3k_bot"

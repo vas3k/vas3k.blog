@@ -22,6 +22,7 @@ ALLOWED_HOSTS = [
     "vas3k.en",
     "es.vas3k.blog",
     "zh.vas3k.blog",
+    "hi.vas3k.blog",
 ]
 INTERNAL_IPS = ["127.0.0.1"]
 
@@ -150,6 +151,8 @@ LANGUAGES = [
     ("en", "English"),
     ("ru", "Russian"),
     ("es", "Español"),
+    ("zh", "Chinese"),
+    ("hi", "Hindi"),
 ]
 
 LANGUAGE_CODE = "ru"
@@ -168,6 +171,7 @@ DOMAIN_LANGUAGES = {
     "vas3k.com": "en",
     "es.vas3k.blog": "es",
     "zh.vas3k.blog": "zh",
+    "hi.vas3k.blog": "hi",
 }
 
 if DEBUG:
