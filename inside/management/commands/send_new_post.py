@@ -4,6 +4,7 @@ from datetime import datetime
 from django.conf import settings
 from django.core.management import BaseCommand
 from django.template import loader
+from django.utils import translation
 from django.utils.translation import gettext_lazy as _
 
 from inside.models import Subscriber
@@ -30,6 +31,9 @@ class Command(BaseCommand):
         print(f"Language: {lang}")
         print(f"Slug: {slug}")
         print(f"Mode: {'PRODUCTION' if production else 'DEBUG'}")
+
+        # Set language
+        translation.activate(lang)
 
         # Step 1. Check for a new post
         post = Post.objects.filter(
