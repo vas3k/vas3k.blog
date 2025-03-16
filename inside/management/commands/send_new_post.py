@@ -35,6 +35,7 @@ class Command(BaseCommand):
         post = Post.objects.filter(
             is_visible=True,
             published_at__lte=datetime.utcnow(),
+            **dict(slug=slug) if slug else {},
             lang=lang
         ).order_by("-published_at").first()
 
