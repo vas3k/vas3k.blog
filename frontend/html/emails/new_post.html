@@ -16,23 +16,23 @@
 {% endblock %}
 
 {% block body %}
-    <p>
-        {% trans "Привет, Олимпийский!" %}
-    </p>
-
-    <p>
-        {% trans "Это Вастрик. У меня в блоге сегодня вышел новый пост и я, как и обещал, присылаю вам его одними из первых." %}
-    </p>
-
-    <a href="https://vas3k.blog/{{ post.type }}/{{ post.slug }}/">
-        <img src="{% if post.og_image %}{{ post.og_image }}{% else %}{{ post.image }}{% endif %}" alt="{{ post.title }}">
-    </a>
-
     {% if post.announce_text %}
         <p>
             {{ post.announce_text | markdown | safe }}
         </p>
+    {% else %}
+        <p>
+            {% trans "Привет, Олимпийский!" %}
+        </p>
+
+        <p>
+            {% trans "Это Вастрик. У меня в блоге сегодня вышел новый пост и я, как и обещал, присылаю вам его одними из первых." %}
+        </p>
     {% endif %}
+
+    <a href="https://vas3k.blog/{{ post.type }}/{{ post.slug }}/">
+        <img src="{% if post.og_image %}{{ post.og_image }}{% else %}{{ post.image }}{% endif %}" alt="{{ post.title }}">
+    </a>
 
     <p>
         <a href="https://vas3k.blog/{{ post.type }}/{{ post.slug }}/" class="button button-big">
