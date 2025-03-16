@@ -128,7 +128,7 @@
         <!-- Footer information. Footer is a useful landmark element. -->
         <footer>
             <div style="border-top: solid 1px #EEEEEE; padding: 20px 0 0 0; font-size: 12px; opacity: 0.6;">
-                <a href="{% trans "https://t.me/vas3k_channel" %}">{% trans "Телеграм" %}</a> ·
+                {% if request.LANGUAGE_CODE == "ru" %}<a href="{% trans "https://t.me/vas3k_channel" %}">{% trans "Телеграм" %}</a> ·{% endif %}
                 <a href="{% trans "https://twitter.com/vas3k" %}">{% trans "Твиттер" %}</a> ·
                 <a href="{% trans "https://www.patreon.com/vas3k" %}">{% trans "Патреон" %}</a>
 
