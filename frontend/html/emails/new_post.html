@@ -30,12 +30,12 @@
         </p>
     {% endif %}
 
-    <a href="https://vas3k.blog/{{ post.type }}/{{ post.slug }}/">
+    <a href="https://{{ domain }}/{{ post.type }}/{{ post.slug }}/">
         <img src="{% if post.og_image %}{{ post.og_image }}{% else %}{{ post.image }}{% endif %}" alt="{{ post.title }}">
     </a>
 
     <p>
-        <a href="https://vas3k.blog/{{ post.type }}/{{ post.slug }}/" class="button button-big">
+        <a href="https://{{ domain }}/{{ post.type }}/{{ post.slug }}/" class="button button-big">
             👉 {% trans "Читать пост" %}
         </a>
     </p>
@@ -50,12 +50,12 @@
     </p>
 
     <p>
-        <a href="https://vas3k.blog/unsubscribe/{{ subscriber.secret_hash }}/" class="button">
+        <a href="https://{{ domain }}/unsubscribe/{{ subscriber.secret_hash }}/" class="button">
             ☠️ {% trans "Отписаться" %}
         </a>
     </p>
 {% endblock %}
 
 {% block footer %}
-    <a href="https://vas3k.blog/unsubscribe/{{ subscriber.secret_hash }}/" style="display: inline-block; float: right;">{% trans "Отписаться" %}</a>
+    <a href="https://{{ domain }}/unsubscribe/{{ subscriber.secret_hash }}/" style="display: inline-block; float: right;">{% trans "Отписаться" %}</a>
 {% endblock %}

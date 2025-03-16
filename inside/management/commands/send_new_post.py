@@ -34,6 +34,9 @@ class Command(BaseCommand):
 
         # Set language
         translation.activate(lang)
+        lang_to_domain_map = {value: key for key, value in settings.DOMAIN_LANGUAGES.items()}
+        domain = lang_to_domain_map.get(lang) or "vas3k.blog"
+        print(f"Domain: {domain}")
 
         # Step 1. Check for a new post
         post = Post.objects.filter(
@@ -72,6 +75,7 @@ class Command(BaseCommand):
             html = new_post_template.render({
                 "post": post,
                 "subscriber": subscriber,
+                "domain": domain,
             })
 
             # send a letter
