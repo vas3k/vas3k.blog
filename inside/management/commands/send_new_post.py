@@ -17,13 +17,19 @@ class Command(BaseCommand):
     help = "Send new post announcement via email"
 
     def add_arguments(self, parser):
-        parser.add_argument("--lang", type=str, required=True, default=settings.LANGUAGE_CODE)
+        parser.add_argument("--lang", type=str, required=False, default=settings.LANGUAGE_CODE)
+        parser.add_argument("--slug", type=str, required=False)
         parser.add_argument("--production", type=bool, required=False, default=False)
         parser.add_argument("--auto-confirm", type=bool, required=False, default=False)
 
     def handle(self, *args, **options):
         production = options.get("production")
-        lang = options.get("lang")
+        lang = options.get("lang") or settings.LANGUAGE_CODE
+        slug = options.get("slug")
+
+        print(f"Language: {lang}")
+        print(f"Slug: {slug}")
+        print(f"Mode: {'PRODUCTION' if production else 'DEBUG'}")
 
         # Step 1. Check for a new post
         post = Post.objects.filter(
@@ -67,10 +73,11 @@ class Command(BaseCommand):
             try:
                 send_vas3k_email(
                     subscriber=subscriber,
-                    subject=_("Новый пост в блоге Вастрика: ") + {post.title},
+                    subject=_("Новый пост в блоге Вастрика: ") + post.title,
                     html=html
                 )
             except Exception as ex:
+                log.exception("Failed to send email to %s", subscriber.email)
                 self.stdout.write(f"Sending to {subscriber.email} failed: {ex}")
                 continue
 
