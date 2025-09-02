@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-19 21:27+0000\n"
+"POT-Creation-Date: 2025-09-02 20:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,7 +52,7 @@ msgstr "Comment right here..."
 
 #: frontend/html/common/contacts.html:6
 #: frontend/html/common/post_subscribe.html:33
-#: frontend/html/emails/layout.html:131
+#: frontend/html/emails/layout.html:129
 msgid "https://t.me/vas3k_channel"
 msgstr "https://t.me/vas3k_channel"
 
@@ -63,13 +63,13 @@ msgstr "Telegram channel"
 
 #: frontend/html/common/contacts.html:11
 #: frontend/html/common/post_subscribe.html:37
-#: frontend/html/emails/layout.html:132 frontend/html/layout.html:66
+#: frontend/html/emails/layout.html:130 frontend/html/layout.html:66
 msgid "https://twitter.com/vas3k"
 msgstr "https://x.com/vas3kcom"
 
 #: frontend/html/common/contacts.html:13
 #: frontend/html/common/post_subscribe.html:37
-#: frontend/html/emails/layout.html:132 frontend/html/layout.html:68
+#: frontend/html/emails/layout.html:130 frontend/html/layout.html:68
 msgid "Твиттер"
 msgstr "Twitter"
 
@@ -95,13 +95,13 @@ msgstr "Bsky"
 
 #: frontend/html/common/contacts.html:26
 #: frontend/html/common/post_subscribe.html:38
-#: frontend/html/emails/layout.html:133
+#: frontend/html/emails/layout.html:131
 msgid "https://www.patreon.com/vas3k"
 msgstr "https://ko-fi.com/vas3k"
 
 #: frontend/html/common/contacts.html:28
 #: frontend/html/common/post_subscribe.html:38
-#: frontend/html/emails/layout.html:133
+#: frontend/html/emails/layout.html:131
 msgid "Патреон"
 msgstr "Ko-fi"
 
@@ -278,7 +278,7 @@ msgstr "ETH and USDT"
 msgid "Вастрик.ру"
 msgstr "Vastrik"
 
-#: frontend/html/emails/layout.html:131
+#: frontend/html/emails/layout.html:129
 msgid "Телеграм"
 msgstr "Telegram"
 
@@ -286,11 +286,11 @@ msgstr "Telegram"
 msgid "Новый пост на Вастрике"
 msgstr "New post from Vastrik"
 
-#: frontend/html/emails/new_post.html:20
+#: frontend/html/emails/new_post.html:25
 msgid "Привет, Олимпийский!"
 msgstr "Hey!"
 
-#: frontend/html/emails/new_post.html:24
+#: frontend/html/emails/new_post.html:29
 msgid ""
 "Это Вастрик. У меня в блоге сегодня вышел новый пост и я, как и обещал, "
 "присылаю вам его одними из первых."
@@ -463,7 +463,7 @@ msgstr "Enter"
 msgid "Настройки профиля"
 msgstr "Profile settings"
 
-#: inside/management/commands/send_new_post.py:70
+#: inside/management/commands/send_new_post.py:85
 msgid "Новый пост в блоге Вастрика: "
 msgstr "New post in Vastrik's blog: "
 
@@ -554,6 +554,49 @@ msgstr "Oldies but goldies"
 msgid "Проекты"
 msgstr "Projects"
 
+#: posts/views.py:95
+#, fuzzy
+#| msgid "Вастрик.ру"
+msgid "Вастрик.Клуб"
+msgstr "Vastrik Club"
+
+#: posts/views.py:96
+msgid "Наше уютное закрытое коммьюнити на краю большого интернета"
+msgstr "Our cozy community on the edge of the big internet"
+
+#: posts/views.py:104
+msgid "TaxHacker"
+msgstr "TaxHacker"
+
+#: posts/views.py:105
+msgid "Self-hosted трекер инвойсов и расходов с AI"
+msgstr "Self-hosted invoice and expense tracker with AI"
+
+#: posts/views.py:110
+msgid "How to Berlin"
+msgstr "How to Berlin"
+
+#: posts/views.py:111
+msgid "Помогаем переехать в Берлин и не сойти с ума"
+msgstr "Helping people move to Berlin and not go crazy"
+
+#: posts/views.py:118
+msgid "Infomate"
+msgstr "Infomate"
+
+#: posts/views.py:119
+msgid ""
+"Чтобы оставаться в курсе событий и получать информацию из разных источников"
+msgstr "Read news from multiple sources in one place"
+
+#: posts/views.py:127
+msgid "Планы на год"
+msgstr "Year Planner"
+
+#: posts/views.py:128
+msgid "Мой личный подход к ежегодному планированию"
+msgstr "My opinionated approach to yearly planning"
+
 #: rss/feeds.py:55
 msgid "Вастрик.ру: Секретный фид"
 msgstr "Vastrik: Secret feed"
@@ -562,7 +605,7 @@ msgstr "Vastrik: Secret feed"
 msgid "Вастрик.ру: Только публичные посты"
 msgstr "Vastrik: Public posts only"
 
-#: vas3k_blog/settings.py:219
+#: vas3k_blog/settings.py:235
 msgid "Вастрик <inside@inside.vas3k.ru>"
 msgstr "Vastrik <inside@inside.vas3k.ru>"
 

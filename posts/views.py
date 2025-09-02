@@ -86,8 +86,49 @@ def index(request):
             {
                 "title": _("Проекты"),
                 "template": "index/projects.html",
-                "posts": []
-            } if get_language() == "ru" else {},
+                "projects": [
+                    *(
+                        [
+                            {
+                                "url": "http://vas3k.club/",
+                                "image": "https://i.vas3k.ru/235b9705e449cd3c4e0d48ff41fe31196d6cbe359cdbd45e24359ac555fb9a0d.png",
+                                "title": _("Вастрик.Клуб"),
+                                "subtitle": _("Наше уютное закрытое коммьюнити на краю большого интернета"),
+                            }
+                        ]
+                        if get_language() == "ru" else []
+                    ),
+                    {
+                        "url": "https://taxhacker.app/",
+                        "image": "https://i.vas3k.blog/5658ab60079563c38b0664abf3d9010cdb1f643ff0f07d11130e9a8e9688ccfb.png",
+                        "title": _("TaxHacker"),
+                        "subtitle": _("Self-hosted трекер инвойсов и расходов с AI"),
+                    },
+                    {
+                        "url": "https://howtoberlin.de/",
+                        "image": "https://i.vas3k.ru/fa05b3c8ef78a2df7d6098a42f110f83a2d4e50439134dabafb892a1a062cfdc.png",
+                        "title": _("How to Berlin"),
+                        "subtitle": _("Помогаем переехать в Берлин и не сойти с ума"),
+                    },
+                    *(
+                        [
+                            {
+                                "url": "https://infomate.club/",
+                                "image": "https://i.vas3k.ru/47b9b0180d8eb1a9ee13ed45a0328a11da46661a15a4f813ebe10f106ca559a9.png",
+                                "title": _("Infomate"),
+                                "subtitle": _("Чтобы оставаться в курсе событий и получать информацию из разных источников"),
+                            }
+                        ]
+                        if get_language() == "ru" else []
+                    ),
+                    {
+                        "url": "https://year.vas3k.cloud/",
+                        "image": "https://i.vas3k.blog/702946d6657c92e7294a2ff1e8a9d63c5f3acd89cf5cfd77f0ddf7e0312d2e70.jpg",
+                        "title": _("Планы на год"),
+                        "subtitle": _("Мой личный подход к ежегодному планированию"),
+                    },
+                ]
+            },
         ]
     })
 

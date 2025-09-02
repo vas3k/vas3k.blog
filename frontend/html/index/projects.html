@@ -6,25 +6,14 @@
     {% endif %}
 
     <div class="cards-group cards-group-3x cards-group-projects">
-        <a href="http://vas3k.club/" class="card card-post card-vertical" style="background-image: url('https://i.vas3k.ru/235b9705e449cd3c4e0d48ff41fe31196d6cbe359cdbd45e24359ac555fb9a0d.png');">
-            <span class="card-info">
-                <span class="card-title p-name">Вастрик.Клуб</span>
-                <span class="card-subtitle p-summary">Наше уютное закрытое коммьюнити на краю большого интернета</span>
-            </span>
-        </a>
-
-        <a href="https://howtoberlin.de/" class="card card-post card-vertical" style="background-image: url('https://i.vas3k.ru/fa05b3c8ef78a2df7d6098a42f110f83a2d4e50439134dabafb892a1a062cfdc.png');">
-            <span class="card-info">
-                <span class="card-title p-name">How to Berlin</span>
-                <span class="card-subtitle p-summary">Помогаем переехать в Берлин и не сойти с ума</span>
-            </span>
-        </a>
-
-        <a href="https://infomate.club/" class="card card-post card-vertical" style="background-image: url('https://i.vas3k.ru/47b9b0180d8eb1a9ee13ed45a0328a11da46661a15a4f813ebe10f106ca559a9.png');">
-            <span class="card-info">
-                <span class="card-title p-name">Infomate</span>
-                <span class="card-subtitle p-summary">Чтобы оставаться в курсе событий и получать информацию из разных источников</span>
-            </span>
-        </a>
+        {% for project in block.projects %}
+            <a href="{{ project.url }}" class="card card-post card-vertical"
+               style="background-image: url('{{ project.image }}');">
+                <span class="card-info">
+                    <span class="card-title p-name">{{ project.title }}</span>
+                    <span class="card-subtitle p-summary">{{ project.subtitle }}</span>
+                </span>
+            </a>
+        {% endfor %}
     </div>
 </section>
