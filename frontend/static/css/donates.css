@@ -106,6 +106,12 @@
         line-height: 1.3em;
     }
 
+    .donate-service-footer {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+    }
+
     .donate-service-selector {
         width: 100%;
         display: flex;
@@ -123,6 +129,33 @@
             overflow-wrap: anywhere;
             word-break: break-all;
         }
+
+.copy-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    background: #d6d6d6;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+    .copy-phone:hover {
+        background: #e0e0e0;
+    }
+
+    .copy-phone svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    .copy-phone-copied {
+        background: #848484;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 12px;
+    }
 
 
 @media (max-width: 570px) {

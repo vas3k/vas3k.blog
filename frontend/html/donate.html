@@ -33,19 +33,37 @@
     </div>
 
     {% if request.LANGUAGE_CODE == "ru" %}
-        <div class="block donate-service">
+        <div class="block donate-service" id="sbp">
             <div class="donate-service-image">
-                <img src="{% static "images/donate/tinkoff.png" %}" onclick="this.src='{% static "images/donate/tinkoff2.png" %}'">
+                <img src="{% static "images/donate/sbp.png" %}">
             </div>
             <div class="donate-service-description">
-                <strong>{% trans "На Тиньков (карты РФ)" %}</strong><br>
+                <strong>{% trans "СБП / Тиньков (карты РФ)" %}</strong><br>
                 {% trans "Если вы из России, перевод на карту будет проще всего. По клику откроется удобное окошко." %}
 
                 <br><br>
 
-                <small>
-                    {% trans "Либо по номеру карты:" %} 5536913972058263
-                </small>
+                <span class="donate-service-footer">
+                    <span>{% trans "Номер телефона:" %}</span>
+                    <span class="copy-phone" data-num="+79998148883"
+                         onclick="
+                           navigator.clipboard.writeText(this.dataset.num).then(() => {
+                             const icon = this.querySelector('svg');
+                             const copied = document.createElement('span');
+                             copied.className = 'copy-phone-copied';
+                             copied.innerText = 'Copied!';
+                             this.replaceChild(copied, icon);
+                             setTimeout(() => {
+                               this.replaceChild(icon, copied);
+                             }, 1500);
+                           })
+                        ">
+                        <span>+79998148883</span>
+                        <svg width="800px" height="800px" viewBox="0 -2 36 36" id="Lager_112" data-name="Lager 112" xmlns="http://www.w3.org/2000/svg">
+                            <path id="Path_113" data-name="Path 113" d="M34,0H14a2,2,0,0,0-2,2V8H2a2,2,0,0,0-2,2V30a2,2,0,0,0,2,2H22a2,2,0,0,0,2-2V24H34a2,2,0,0,0,2-2V2A2,2,0,0,0,34,0ZM20,14V27a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V13a1,1,0,0,1,1-1H19a1,1,0,0,1,1,1ZM32,6V19a1,1,0,0,1-1,1H24V10a2,2,0,0,0-2-2H16V5a1,1,0,0,1,1-1H31a1,1,0,0,1,1,1Z" fill="#161615"/>
+                        </svg>
+                    </span>
+                </span>
             </div>
             <div class="donate-service-button">
                 <a href="https://www.tbank.ru/cf/7UBE2Mapqik" class="button" target="_blank">

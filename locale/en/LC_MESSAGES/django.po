@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-02 20:20+0000\n"
+"POT-Creation-Date: 2025-09-24 10:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -197,8 +197,10 @@ msgstr ""
 "motivation to continue."
 
 #: frontend/html/donate.html:41
-msgid "На Тиньков (карты РФ)"
-msgstr "Tinkoff (RU cards)"
+#, fuzzy
+#| msgid "На Тиньков (карты РФ)"
+msgid "СБП / Тиньков (карты РФ)"
+msgstr "SBP / Tinkoff (RU cards)"
 
 #: frontend/html/donate.html:42
 msgid ""
@@ -209,68 +211,68 @@ msgstr ""
 "convenient window."
 
 #: frontend/html/donate.html:47
-msgid "Либо по номеру карты:"
-msgstr "Card number:"
+msgid "Номер телефона:"
+msgstr "Phone number:"
 
-#: frontend/html/donate.html:52 frontend/html/donate.html:69
-#: frontend/html/donate.html:99 frontend/html/donate.html:157
-#: frontend/html/donate.html:172
+#: frontend/html/donate.html:70 frontend/html/donate.html:87
+#: frontend/html/donate.html:117 frontend/html/donate.html:175
+#: frontend/html/donate.html:190
 msgid "Донатить"
 msgstr "Donate"
 
-#: frontend/html/donate.html:62 frontend/html/donate.html:150
+#: frontend/html/donate.html:80 frontend/html/donate.html:168
 msgid "Через Stripe (карты не РФ)"
 msgstr "Stripe"
 
-#: frontend/html/donate.html:64 frontend/html/donate.html:152
+#: frontend/html/donate.html:82 frontend/html/donate.html:170
 msgid ""
 "Позволяет задонатить мне в Евро с любых зарубежных карт. Поддерживает Google "
 "и Apple Pay."
 msgstr "Supports cards, Google Pay and Apple Pay."
 
-#: frontend/html/donate.html:80 frontend/html/donate.html:123
+#: frontend/html/donate.html:98 frontend/html/donate.html:141
 msgid ""
 "Вариант для живущих заграницей и просто у кого там завалялась мелочь на "
 "аккаунте."
 msgstr "Good old PayPal transfer which always work."
 
-#: frontend/html/donate.html:95 frontend/html/donate.html:168
+#: frontend/html/donate.html:113 frontend/html/donate.html:186
 msgid "Прямой перевод для пользователей Революта."
 msgstr "Direct transfer for Revolut users. Fast and zero fees."
 
-#: frontend/html/donate.html:109
+#: frontend/html/donate.html:127
 msgid "На Патреоне"
 msgstr "Patreon"
 
-#: frontend/html/donate.html:110
+#: frontend/html/donate.html:128
 msgid ""
 "Там можно заносить автоматически и получить ранний доступ и прочие плюшки."
 msgstr ""
 "You can subscribe to my Patreon and get early access to posts and other "
 "perks."
 
-#: frontend/html/donate.html:113
+#: frontend/html/donate.html:131
 msgid "Стать Патроном"
 msgstr "Become a Patron"
 
-#: frontend/html/donate.html:138
+#: frontend/html/donate.html:156
 msgid "Можно задонатить одноразово или подписаться на новые обновления."
 msgstr ""
 "There you can donate me a beer/coffee or become a member to get new updates."
 
-#: frontend/html/donate.html:141
+#: frontend/html/donate.html:159
 msgid "Купить мне Ko-fi"
 msgstr "Buy me Ko-fi"
 
-#: frontend/html/donate.html:180
+#: frontend/html/donate.html:198
 msgid "Криптой"
 msgstr "Crypto"
 
-#: frontend/html/donate.html:185
+#: frontend/html/donate.html:203
 msgid "Биткоин"
 msgstr "Bitcoin"
 
-#: frontend/html/donate.html:191
+#: frontend/html/donate.html:209
 msgid "Эфир или USDT"
 msgstr "ETH and USDT"
 
@@ -650,3 +652,6 @@ msgid ""
 msgstr ""
 "Subscribe to any of my channels so you don't miss new posts. Email is "
 "usually the most reliable way but the Gen Z hate it, so I have socials too."
+
+#~ msgid "Либо по номеру карты:"
+#~ msgstr "Card number:"
