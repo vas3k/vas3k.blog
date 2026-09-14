@@ -1,34 +1,34 @@
 {% load i18n %}
 
-<section class="post-subscribe">
-    <div class="post-subscribe-header">
+<section class="post-links">
+    <div class="post-links-header">
         ✅ {% trans "Подписка на Вастрика" %}
     </div>
 
-    <div class="post-subscribe-description">
+    <div class="post-links-description">
         {{ strings.SUBSCRIBE }}
     </div>
 
-    <div class="post-subscribe-form">
+    <div class="post-links-form">
         <form action="{% url "subscribe" %}" method="post">
-            <label class="post-subscribe-form-label" for="inside_email">{% trans "Ваш электронный адрес:" %}</label>
-            <div class="post-subscribe-form-fields">
+            <label class="post-links-form-label" for="inside_email">{% trans "Ваш электронный адрес:" %}</label>
+            <div class="post-links-form-fields">
                 {% csrf_token %}
                 <input type="text" name="name" style="position: absolute; left: -99999px;">
                 <input type="email" id="inside_email" name="email" placeholder="your@email.com" required="required">
                 <button type="submit" class="button button-red">{% trans "Подписаться" %}</button>
             </div>
-            <div class="post-subscribe-form-hint">
+            <div class="post-links-form-hint">
                 {% trans "* никакого спама, только мои уведомления" %}
             </div>
         </form>
     </div>
 
-    <div class="post-subscribe-sub-header">
+    <div class="post-links-sub-header">
         {% trans "Другие площадки" %} 👇
     </div>
 
-    <div class="post-subscribe-items">
+    <div class="post-links-items">
         {% if request.LANGUAGE_CODE == "ru" %}
             <a href="{% trans "https://t.me/vas3k_channel" %}" class="button">{% trans "Телеграм-канал" %}</a>
         {% endif %}

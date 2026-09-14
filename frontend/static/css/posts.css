@@ -739,7 +739,7 @@
         font-size: 120%;
     }
 
-.post-subscribe {
+.post-links {
     display: block;
     width: 100%;
     padding: 40px;
@@ -751,25 +751,25 @@
     color: var(--text-color);
 }
 
-    .post-subscribe-header {
+    .post-links-header {
         font-size: 180%;
         font-weight: 500;
         padding-bottom: 10px;
     }
 
-    .post-subscribe-sub-header {
+    .post-links-sub-header {
         font-size: 130%;
         padding-bottom: 10px;
     }
 
-    .post-subscribe-description {
+    .post-links-description {
         margin: 0 auto;
         max-width: 800px;
         padding: 20px 0;
         box-sizing: border-box;
     }
 
-    .post-subscribe-form {
+    .post-links-form {
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
@@ -783,10 +783,10 @@
         text-align: left;
     }
 
-        .post-subscribe-form-label {
+        .post-links-form-label {
         }
 
-        .post-subscribe-form-fields {
+        .post-links-form-fields {
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
@@ -798,12 +798,12 @@
         }
 
             @media only screen and (max-width : 512px) {
-                .post-subscribe-form-fields {
+                .post-links-form-fields {
                     flex-direction: column;
                 }
             }
 
-        .post-subscribe-form input[name=email] {
+        .post-links-form input[name=email] {
             padding: 7px 0 4px;
             border: solid 2px #FFF;
             border-radius: 5px;
@@ -813,7 +813,7 @@
             width: 100%;
         }
 
-        .post-subscribe-form button {
+        .post-links-form button {
             padding: 7px 10px 4px;
             line-height: 1em;
             border-radius: 5px;
@@ -822,20 +822,20 @@
             width: 190px;
         }
 
-        .post-subscribe-form-hint {
+        .post-links-form-hint {
             font-size: 80%;
             opacity: 0.4;
             padding-top: 10px;
         }
 
-    .post-subscribe-items {
+    .post-links-items {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
     }
 
-        .post-subscribe-items a {
+        .post-links-items a {
             display: inline-block;
             margin: 20px 10px 0;
         }
