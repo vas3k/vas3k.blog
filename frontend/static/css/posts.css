@@ -687,6 +687,14 @@
         font-weight: 500;
     }
 
+    .post-translation-actions {
+        flex-basis: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
     .post-translation {
         padding: 10px 25px;
     }

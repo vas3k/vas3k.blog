@@ -1,22 +1,22 @@
 {% load i18n %}
 
-{% if translations or missing_translations %}
+{% if translations or request.user.is_superuser and post %}
     <section class="block post-translations">
-        {% if translations %}
         <div class="post-translations-title">{% trans "Этот пост переведен на другие языки" %} 👉</div>
-        {% endif %}
         {% for post in translations %}
             <a href="{% if post.url %}{{ post.url }}{% else %}{% url 'change_language' post.lang %}?next={{ post.get_absolute_url|urlencode }}{% endif %}" lang="{{ post.lang }}" hreflang="{{ post.lang }}" class="button post-translation">
                 <div class="post-translation-language">{{ post.get_full_language_name }}</div>
             </a>
         {% endfor %}
-        {% if request.user.is_superuser %}
-            {% for language in missing_translations %}
-                <form method="post" action="{% url 'start_translation' translation_source.id language %}">
-                    {% csrf_token %}
-                    <button type="submit" class="button post-translation">Перевести → {{ language|upper }}</button>
-                </form>
-            {% endfor %}
+        {% if request.user.is_superuser and missing_translations %}
+            <div class="post-translation-actions">
+                {% for language in missing_translations %}
+                    <form method="post" action="{% url 'start_translation' translation_source.id language %}">
+                        {% csrf_token %}
+                        <button type="submit" class="button post-translation">Перевести → {{ language|upper }}</button>
+                    </form>
+                {% endfor %}
+            </div>
         {% endif %}
     </section>
 {% endif %}
