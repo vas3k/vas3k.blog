@@ -11,6 +11,7 @@ from inside.views import donate, subscribe, confirm, unsubscribe
 from posts.sitemaps import sitemaps
 from posts.views import index, change_language, show_post, list_posts, edit_post
 from rss.feeds import FullFeed
+from translations.views import start_translation
 from users.views import profile, robots
 from authn.views import log_in, log_out, login_club, login_patreon, club_callback, patreon_callback
 
@@ -43,6 +44,8 @@ urlpatterns = [
 
     path(r"comments/create/", create_comment, name="create_comment"),
     path(r"comments/<str:comment_id>/delete/", delete_comment, name="delete_comment"),
+
+    path("translations/<uuid:post_id>/<str:language>/", start_translation, name="start_translation"),
 
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
     path("robots.txt", robots, name="robots"),

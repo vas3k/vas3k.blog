@@ -217,10 +217,22 @@ def show_post(request, post_type, post_slug):
         lang=get_language()
     ).order_by("lang")
 
+    translation_source = None
+    missing_translations = []
+    if request.user.is_superuser:
+        translation_source = Post.objects.filter(slug=post.slug, lang="ru", is_raw_html=False).first()
+        if translation_source and not translation_source.url and translation_source.text:
+            existing_languages = set(Post.objects.filter(slug=post.slug).values_list("lang", flat=True))
+            missing_translations = [
+                language for language in settings.TRANSLATION_LANGUAGES if language not in existing_languages
+            ]
+
     return render_post(request, post, {
         "post": post,
         "comments": comments,
         "translations": translations,
+        "translation_source": translation_source,
+        "missing_translations": missing_translations,
     })
 
 
