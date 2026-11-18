@@ -1,4 +1,5 @@
-<section class="container">
+{% if block.posts %}
+<section class="container{% if block.wide %} container-width-max{% endif %}">
     {% if block.title %}
         <div class="header-1">
             {% if block.url %}
@@ -9,9 +10,10 @@
         </div>
     {% endif %}
 
-    <div class="cards-group cards-group-2x">
+    <div class="cards-group cards-group-{{ block.columns }}x">
         {% for post in block.posts %}
-            {% include "posts/cards/horizontal.html" %}
+            {% include block.card_template %}
         {% endfor %}
     </div>
 </section>
+{% endif %}

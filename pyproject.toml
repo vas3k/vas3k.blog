@@ -27,6 +27,7 @@ Authlib = "^1.2.0"
 urllib3 = "<2.0.0"
 tzdata = "^2024.1"
 standard-imghdr = "^3.13.0"
+openai = "^3.55.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.2"

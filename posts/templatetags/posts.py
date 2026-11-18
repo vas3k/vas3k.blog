@@ -6,6 +6,7 @@ from django.template import loader
 from django.utils.safestring import mark_safe
 
 from common.markdown.markdown import markdown_text
+from posts.models import Post
 
 register = template.Library()
 clicker_template = loader.get_template("clickers/clicker.html")
@@ -22,7 +23,7 @@ def show_post(context, post):
             if new_html != post.html_cache:
                 # to not flood into history
                 post.html_cache = new_html
-                post.save(flush_cache=False)
+                Post.objects.filter(pk=post.pk, text=post.text).update(html_cache=new_html)
         html = post.html_cache or ""
 
     html = re.sub(r"\[commentable (.+?)\]", lambda match: commentable(context, match.group(1)), html)

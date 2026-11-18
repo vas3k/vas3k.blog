@@ -1,5 +1,5 @@
 {% load static %}{% load i18n %}<!DOCTYPE html>
-<html lang="ru">
+<html lang="{{ request.LANGUAGE_CODE }}">
     <head>
         <title>{% block title %}{{ strings.TITLE | safe }}{% endblock %}</title>
         <meta charset="UTF-8">
@@ -74,10 +74,14 @@
                     {% trans "Вы можете использовать цитаты из статей, картинки и скриншоты в своих блогах и презентациях, если поставите ссылку на оригинальный пост. Присылайте ссылки на них мне в личку, мне будет приятно посмотреть как моё странное творчество идет в народ. В коммерческих целях ничего использовать нельзя." %}
                 </div>
 
+                {% include "common/post_translations.html" %}
+
                 <div class="footer-buttons">
-                    {% for lang, text, domain in settings.DOMAIN_LANGUAGE_SELECTOR %}
-                        {% if lang != request.LANGUAGE_CODE %}
-                            <a href="{{ domain }}" class="button button-inverted button-round header-menu-item header-menu-round">{{ text }}</a>
+                    {% for lang in settings.BLOG_EDITIONS %}
+                        {% if lang == request.LANGUAGE_CODE %}
+                            <span lang="{{ lang }}" aria-current="true" class="button button-inverted">{{ lang|upper }}</span>
+                        {% else %}
+                            <a href="{% url 'change_language' lang %}" lang="{{ lang }}" hreflang="{{ lang }}" class="button button-inverted">{{ lang|upper }}</a>
                         {% endif %}
                     {% endfor %}
 

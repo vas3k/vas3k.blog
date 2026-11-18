@@ -67,6 +67,10 @@ class Post(models.Model):
         ).order_by("-published_at")
 
     def save(self, flush_cache=True, *args, **kwargs):
+        update_fields = kwargs.get("update_fields")
+        if update_fields is not None and not update_fields:
+            return
+
         if not self.slug:
             self.slug = generate_unique_slug(Post, self.title)
 
@@ -78,6 +82,12 @@ class Post(models.Model):
             self.word_count = strip_tags(self.text).count(" ") if self.text else 0
 
         self.updated_at = datetime.utcnow()
+
+        if update_fields is not None:
+            kwargs["update_fields"] = set(update_fields) | {"updated_at"}
+            if flush_cache:
+                kwargs["update_fields"].update({"html_cache", "word_count"})
+
         return super().save(*args, **kwargs)
 
     def is_published(self):

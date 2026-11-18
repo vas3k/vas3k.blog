@@ -1,11 +1,13 @@
 from dataclasses import dataclass
 
+from django.utils.translation import gettext_lazy as _
+
 DEFAULT_LIST_ITEMS_PER_PAGE = 30
 
 
 @dataclass
 class PostTypeConfig:
-    name: str = "Посты"
+    name: str = _("Посты")
     list_items_per_page: int = DEFAULT_LIST_ITEMS_PER_PAGE
     card_template: str = "posts/cards/horizontal.html",
     list_template: str = "posts/lists/layout.html",
@@ -14,42 +16,42 @@ class PostTypeConfig:
 
 POST_TYPES: dict[str, PostTypeConfig] = {
     "blog": PostTypeConfig(
-        name="Блог",
+        name=_("Блог"),
         list_items_per_page=30,
         card_template="posts/cards/horizontal.html",
         list_template="posts/lists/blog.html",
         show_template="posts/full/blog.html",
     ),
     "notes": PostTypeConfig(
-        name="Заметки",
+        name=_("Заметки"),
         list_items_per_page=50,
         card_template="posts/cards/vertical.html",
         list_template="posts/lists/notes.html",
         show_template="posts/full/notes.html",
     ),
     "world": PostTypeConfig(
-        name="Путешествия",
+        name=_("Путешествия"),
         list_items_per_page=30,
         card_template="posts/cards/horizontal.html",
         list_template="posts/lists/blog.html",
         show_template="posts/full/blog.html",
     ),
     "gallery": PostTypeConfig(
-        name="Галлерея",
+        name=_("Галлерея"),
         list_items_per_page=30,
         card_template="posts/cards/vertical.html",
         list_template="posts/lists/blog.html",
         show_template="posts/full/legacy/gallery.html",
     ),
     "inside": PostTypeConfig(
-        name="Вастрик.Инсайд",
+        name=_("Вастрик.Инсайд"),
         list_items_per_page=30,
         card_template="posts/cards/vertical.html",
         list_template="posts/lists/notes.html",
         show_template="posts/full/notes.html",
     ),
     "365": PostTypeConfig(
-        name="Заметки",
+        name=_("Заметки"),
         list_items_per_page=50,
         card_template="posts/cards/vertical.html",
         list_template="posts/lists/notes.html",

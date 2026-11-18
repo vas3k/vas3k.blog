@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "inside.apps.InsideConfig",
     "clickers.apps.ClickersConfig",
     "notifications.apps.NotificationsConfig",
+    "translations.apps.TranslationsConfig",
 ]
 
 MIDDLEWARE = [
@@ -147,13 +148,14 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGES = [
-    ("en", "English"),
-    ("ru", "Russian"),
-    ("es", "Español"),
-    ("zh", "Chinese"),
-    ("hi", "Hindi"),
-]
+BLOG_EDITIONS = {
+    "ru": {"name": "Русский", "domain": "vas3k.blog"},
+    "en": {"name": "English", "domain": "vas3k.com"},
+    "es": {"name": "Español", "domain": "es.vas3k.blog"},
+    "zh": {"name": "简体中文", "domain": "zh.vas3k.blog"},
+    "hi": {"name": "हिन्दी", "domain": "hi.vas3k.blog"},
+}
+LANGUAGES = [(code, edition["name"]) for code, edition in BLOG_EDITIONS.items()]
 
 LANGUAGE_CODE = "ru"
 TIME_ZONE = "UTC"
@@ -167,24 +169,18 @@ LOCALE_PATHS = [
 
 # Domain to language mapping
 DOMAIN_LANGUAGES = {
-    "vas3k.blog": "ru",
-    "vas3k.com": "en",
-    "es.vas3k.blog": "es",
-    "zh.vas3k.blog": "zh",
-    "hi.vas3k.blog": "hi",
+    edition["domain"]: code for code, edition in BLOG_EDITIONS.items()
 }
 
 if DEBUG:
+    ALLOWED_HOSTS += ["localhost", "[::1]"]
     DOMAIN_LANGUAGES = {
         "vas3k.ru": "ru",
         "vas3k.en": "en",
         **DOMAIN_LANGUAGES,
     }
 
-DOMAIN_LANGUAGE_SELECTOR = [
-    ("ru", "RU", "https://vas3k.blog"),
-    ("en", "EN", "https://vas3k.com"),
-]
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -271,3 +267,18 @@ if SENTRY_DSN and not DEBUG:
 if DEBUG:
     INSTALLED_APPS += ["debug_toolbar"]
     MIDDLEWARE = ["debug_toolbar.middleware.DebugToolbarMiddleware"] + MIDDLEWARE
+
+
+TRANSLATION_LANGUAGES = {
+    "en": "English",
+    "es": "Spanish (consistent, broadly understandable vocabulary)",
+    "zh": "Simplified Chinese (Mandarin, mainland Chinese vocabulary)",
+    "hi": "Hindi (natural conversational Hindi in Devanagari)",
+}
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-6.2-astra")
+OPENAI_TIMEOUT = int(os.getenv("OPENAI_TIMEOUT", "1200"))
+OPENAI_MAX_OUTPUT_TOKENS = int(os.getenv("OPENAI_MAX_OUTPUT_TOKENS", "65536"))
+OPENAI_TRANSLATION_MODEL = os.getenv("OPENAI_TRANSLATION_MODEL", OPENAI_MODEL)
+OPENAI_TRANSLATION_TIMEOUT = int(os.getenv("OPENAI_TRANSLATION_TIMEOUT", str(OPENAI_TIMEOUT)))
+OPENAI_TRANSLATION_MAX_OUTPUT_TOKENS = int(os.getenv("OPENAI_TRANSLATION_MAX_OUTPUT_TOKENS", str(OPENAI_MAX_OUTPUT_TOKENS)))

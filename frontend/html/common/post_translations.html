@@ -1,12 +1,10 @@
-{% load static %}
 {% load i18n %}
-
 
 {% if translations %}
     <section class="block post-translations">
         <div class="post-translations-title">{% trans "Этот пост переведен на другие языки" %} 👉</div>
         {% for post in translations %}
-            <a href="https://{{ post.get_host }}{{ post.get_absolute_url }}" class="button post-translation">
+            <a href="{% if post.url %}{{ post.url }}{% else %}{% url 'change_language' post.lang %}?next={{ post.get_absolute_url|urlencode }}{% endif %}" lang="{{ post.lang }}" hreflang="{{ post.lang }}" class="button post-translation">
                 <div class="post-translation-language">{{ post.get_full_language_name }}</div>
             </a>
         {% endfor %}

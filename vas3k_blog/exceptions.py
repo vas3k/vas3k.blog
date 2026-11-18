@@ -81,3 +81,10 @@ class ApiAccessDenied(ApiException):
     default_code = "api-access-denied"
     default_title = "Access Denied"
 
+
+class TranslationError(Exception):
+    pass
+
+
+class AIError(Exception):
+    pass

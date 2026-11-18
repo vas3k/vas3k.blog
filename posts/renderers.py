@@ -37,7 +37,7 @@ def render_list_all(request, posts, context=None):
         posts = paginator.page(paginator.num_pages)
 
     context = context or {}
-    current_post_template = post_config_by_type(posts[0].type).card_template
+    current_post_template = post_config_by_type(posts[0].type).card_template if posts else None
     stack = []
     result = []
 

@@ -1,3 +1,4 @@
+{% if block.post %}
 <section class="container">
     <div class="cards-group cards-group-1x">
         {% with post=block.post %}
@@ -5,3 +6,4 @@
         {% endwith %}
     </div>
 </section>
+{% endif %}

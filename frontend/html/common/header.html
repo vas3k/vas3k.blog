@@ -19,12 +19,10 @@
             <span>{% trans "Посты" %}</span>
         </a>
 
-        {% if request.LANGUAGE_CODE == "ru" %}
-            <a href="{% url "list_posts" "world" %}" class="button button-inverted header-menu-item">
-                <span>🌍</span>
-                <span>{% trans "Путешествия" %}</span>
-            </a>
-        {% endif %}
+        <a href="{% url "list_posts" "world" %}" class="button button-inverted header-menu-item">
+            <span>🌍</span>
+            <span>{% trans "Путешествия" %}</span>
+        </a>
 
         <a href="{% url "subscribe" %}" class="button button-inverted header-menu-item">
             <span>✅</span>

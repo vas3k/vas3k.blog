@@ -9,13 +9,14 @@ from clickers.views import click_comment, click_block
 from comments.views import delete_comment, create_comment
 from inside.views import donate, subscribe, confirm, unsubscribe
 from posts.sitemaps import sitemaps
-from posts.views import index, show_post, list_posts, edit_post
+from posts.views import index, change_language, show_post, list_posts, edit_post
 from rss.feeds import FullFeed
 from users.views import profile, robots
 from authn.views import log_in, log_out, login_club, login_patreon, club_callback, patreon_callback
 
 urlpatterns = [
     path("", index, name="index"),
+    path("language/<str:language>/", change_language, name="change_language"),
 
     path(r"godmode/", admin.site.urls),
 

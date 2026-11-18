@@ -1,0 +1,22 @@
+- Keep changes small, explicit and easy to read. Reuse existing code and dependencies.
+- Inspect Git status and affected callers; preserve unrelated work.
+- Use ordinary Django views, ModelForms, ORM queries and server-rendered templates. No new architecture for local features.
+- Use descriptive names without leading underscores. Match nearby formatting; separate logical steps with blank lines.
+- Extract utility helpers only for three or more callers and five or more meaningful lines, unless explicitly requested.
+- Use field-specific form cleaners; reserve form-wide validation for dependent fields.
+- Reuse existing CSS, components, theme variables and responsive patterns. No new UI framework.
+- Reuse shared Mistune parsing and rendering. Never write another Markdown parser; avoid regex business logic.
+- Keep exceptions in the shared project exception module. Never define app-specific exceptions.
+- Keep package initializer files empty. No imports or logic.
+- Never add comments, narrative explanations or boilerplate docstrings to code.
+- Never create tests or test infrastructure. Use focused manual review and Django system checks.
+- Keep this file a short rule list. No narratives, version numbers, directory maps or duplicated configuration.
+- Change README.md, AGENTS.md and TRANSLATIONS.md only with explicit user consent.
+- Read versions, paths and environment settings from project configuration. Update dependency manifests and locks together.
+- Filter articles by language and publication state. Share layouts; preserve Russian subscriber and community differences.
+- Translate UI copy with gettext; review and compile catalogs together. Preserve placeholders and links.
+- Follow the translation guide: faithful meaning, personal voice, jokes and uncensored profanity. Preserve Markdown structure.
+- Use the shared OpenAI SDK wrapper with plain JSON Schema and dictionaries. No direct Pydantic usage.
+- Reject failed, refused or incomplete AI output. Validate before saving; never overwrite another translation or send announcements implicitly.
+- Preserve permissions, CSRF, stable URLs, existing content and cache behavior.
+- Never access production, publish, send messages or run paid AI calls for validation. Commit, push and deploy only when explicitly requested.

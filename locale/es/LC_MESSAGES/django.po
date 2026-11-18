@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-24 10:46+0000\n"
+"POT-Creation-Date: 2026-11-18 22:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -63,13 +63,13 @@ msgstr "Canal de Telegram"
 
 #: frontend/html/common/contacts.html:11
 #: frontend/html/common/post_subscribe.html:37
-#: frontend/html/emails/layout.html:130 frontend/html/layout.html:66
+#: frontend/html/emails/layout.html:130 frontend/html/layout.html:67
 msgid "https://twitter.com/vas3k"
 msgstr "https://x.com/vas3kcom"
 
 #: frontend/html/common/contacts.html:13
 #: frontend/html/common/post_subscribe.html:37
-#: frontend/html/emails/layout.html:130 frontend/html/layout.html:68
+#: frontend/html/emails/layout.html:130 frontend/html/layout.html:69
 msgid "Твиттер"
 msgstr "Twitter"
 
@@ -114,7 +114,7 @@ msgid "Гитхаб"
 msgstr "Github"
 
 #: frontend/html/common/contacts.html:36 frontend/html/common/contacts.html:38
-#: frontend/html/layout.html:60
+#: frontend/html/layout.html:61
 msgid "me@vas3k.ru"
 msgstr "me@vas3k.com"
 
@@ -126,11 +126,11 @@ msgstr "RSS"
 msgid "Вастрик"
 msgstr "Vastrik"
 
-#: frontend/html/common/header.html:19
+#: frontend/html/common/header.html:19 vas3k_blog/posts.py:10
 msgid "Посты"
 msgstr "Blog"
 
-#: frontend/html/common/header.html:25
+#: frontend/html/common/header.html:25 vas3k_blog/posts.py:33
 msgid "Путешествия"
 msgstr "Viajes"
 
@@ -188,19 +188,16 @@ msgstr "Apoyar al autor"
 #: frontend/html/donate.html:31
 msgid ""
 "Независимые авторы в интернете — вымирающая редкость. Они существуют только "
-"благодаря людям, которые их поддерживают. Если вам нравится то, что я делаю, "
-"занести мне донат — это лучший способ сказать «спасибо»."
+"благодаря людям, которые их поддерживают. Если вам нравится то, что я делаю,"
+" занести мне донат — это лучший способ сказать «спасибо»."
 msgstr ""
-"Los blogs independientes y libres de tonterías de IA en Internet son una "
-"especie en extinción. Solo existen gracias a las personas que aún los "
-"apoyan. Si te gustan mis artículos, hacerme una donación es la mejor manera "
-"de decir 'gracias' y una motivación para continuar."
+"Los autores independientes en internet son una especie en peligro de "
+"extinción. Siguen aquí gracias a quienes los apoyan. Si te gusta lo que "
+"hago, hacerme una donación es la mejor manera de decir «gracias»."
 
 #: frontend/html/donate.html:41
-#, fuzzy
-#| msgid "На Тиньков (карты РФ)"
 msgid "СБП / Тиньков (карты РФ)"
-msgstr "Tinkoff (tarjetas RU)"
+msgstr "SBP / Tinkoff (tarjetas rusas)"
 
 #: frontend/html/donate.html:42
 msgid ""
@@ -226,8 +223,8 @@ msgstr "Stripe"
 
 #: frontend/html/donate.html:82 frontend/html/donate.html:170
 msgid ""
-"Позволяет задонатить мне в Евро с любых зарубежных карт. Поддерживает Google "
-"и Apple Pay."
+"Позволяет задонатить мне в Евро с любых зарубежных карт. Поддерживает Google"
+" и Apple Pay."
 msgstr "Compatible con tarjetas, Google Pay y Apple Pay."
 
 #: frontend/html/donate.html:98 frontend/html/donate.html:141
@@ -375,32 +372,33 @@ msgstr "Hola"
 msgid "Я Вастрик!"
 msgstr "¡Soy Vastrik!"
 
-#: frontend/html/layout.html:57
+#: frontend/html/layout.html:58
 msgid "Для связи"
 msgstr "Contáctame"
 
-#: frontend/html/layout.html:58
+#: frontend/html/layout.html:59
 msgid "mailto:me@vas3k.ru"
 msgstr "mailto:me@vas3k.com"
 
-#: frontend/html/layout.html:62
+#: frontend/html/layout.html:63
 msgid "https://t.me/to_vas3k_bot"
 msgstr "https://t.me/vas3k"
 
-#: frontend/html/layout.html:64
+#: frontend/html/layout.html:65
 msgid "Телеграм-бот"
 msgstr "Telegram"
 
-#: frontend/html/layout.html:74
+#: frontend/html/layout.html:75
 msgid ""
-"Вы можете использовать цитаты из статей, картинки и скриншоты в своих блогах "
-"и презентациях, если поставите ссылку на оригинальный пост. Присылайте "
+"Вы можете использовать цитаты из статей, картинки и скриншоты в своих блогах"
+" и презентациях, если поставите ссылку на оригинальный пост. Присылайте "
 "ссылки на них мне в личку, мне будет приятно посмотреть как моё странное "
 "творчество идет в народ. В коммерческих целях ничего использовать нельзя."
 msgstr ""
-"Puedes usar citas, imágenes y capturas de pantalla de mis publicaciones en "
-"tus artículos o presentaciones si incluyes un enlace a la publicación "
-"original. Nada puede ser utilizado con fines comerciales."
+"Puedes usar citas de mis artículos, imágenes y capturas de pantalla en tus "
+"blogs y presentaciones si enlazas la publicación original. Pásame los "
+"enlaces por privado: me hará ilusión ver cómo mis creaciones raras van "
+"llegando a más gente. No se permite ningún uso comercial."
 
 #: frontend/html/posts/edit.html:33 frontend/html/users/profile.html:54
 msgid "Сохранить"
@@ -424,9 +422,9 @@ msgid ""
 "идиотизма и спама, поэтому теперь комментирование доступно только для "
 "патронов и членов Вастрик Клуба."
 msgstr ""
-"Antes los comentarios estaban abiertos a todos, pero luego había muchas "
-"tonterías y spam en ellos, así que ahora los comentarios solo están "
-"disponibles para los patrones."
+"Antes cualquiera podía comentar, pero aquello se llenó de estupideces y "
+"spam. Así que ahora solo pueden comentar quienes me apoyan en Patreon y los "
+"miembros de Vastrik Club."
 
 #: frontend/html/users/login.html:18
 msgid "Войти через Патреон"
@@ -499,11 +497,11 @@ msgstr "Necesitas confirmar tu email"
 #: inside/views.py:55
 msgid ""
 "Письмо с подтверждением улетело вам на почту. Откройте его и нажмите на "
-"кнопку, чтобы подписаться. Это обязательно, иначе ничего приходить не будет. "
-"Если никаких писем нет — проверьте «спам» или попробуйте другой адрес."
+"кнопку, чтобы подписаться. Это обязательно, иначе ничего приходить не будет."
+" Если никаких писем нет — проверьте «спам» или попробуйте другой адрес."
 msgstr ""
-"Te he enviado un correo de confirmación. Ábrelo y haz clic en el enlace para "
-"suscribirte. Esto es obligatorio, de lo contrario no recibirás nada. Si no "
+"Te he enviado un correo de confirmación. Ábrelo y haz clic en el enlace para"
+" suscribirte. Esto es obligatorio, de lo contrario no recibirás nada. Si no "
 "hay correos, verifica la carpeta de 'spam' o prueba con otra dirección."
 
 #: inside/views.py:62
@@ -540,68 +538,66 @@ msgstr ""
 "He eliminado tu correo electrónico de la base de datos y no te enviaré nada "
 "más"
 
-#: posts/views.py:65
+#: posts/views.py:70
 msgid "Обо мне"
 msgstr "Sobre mí"
 
-#: posts/views.py:70
+#: posts/views.py:75 vas3k_blog/posts.py:26 vas3k_blog/posts.py:54
 msgid "Заметки"
 msgstr "Notas"
 
-#: posts/views.py:76
+#: posts/views.py:84
 msgid "Отвратительные путешествия"
 msgstr "Viajes"
 
-#: posts/views.py:82
+#: posts/views.py:93
 msgid "Нетленки"
 msgstr "Clásicos atemporales"
 
-#: posts/views.py:87
+#: posts/views.py:100
 msgid "Проекты"
 msgstr "Proyectos"
 
-#: posts/views.py:95
-#, fuzzy
-#| msgid "Вастрик.ру"
+#: posts/views.py:108
 msgid "Вастрик.Клуб"
 msgstr "Vastrik Club"
 
-#: posts/views.py:96
+#: posts/views.py:109
 msgid "Наше уютное закрытое коммьюнити на краю большого интернета"
 msgstr "Nuestra acogedora comunidad privada en el borde del gran internet"
 
-#: posts/views.py:104
+#: posts/views.py:117
 msgid "TaxHacker"
 msgstr "TaxHacker"
 
-#: posts/views.py:105
+#: posts/views.py:118
 msgid "Self-hosted трекер инвойсов и расходов с AI"
-msgstr "Tracker de facturas y gastos con IA, autoalojado"
+msgstr "Gestor de facturas y gastos con IA que puedes alojar tú mismo"
 
-#: posts/views.py:110
+#: posts/views.py:123
 msgid "How to Berlin"
 msgstr "How to Berlin"
 
-#: posts/views.py:111
+#: posts/views.py:124
 msgid "Помогаем переехать в Берлин и не сойти с ума"
 msgstr "Ayudamos a mudarse a Berlín sin perder la cabeza"
 
-#: posts/views.py:118
+#: posts/views.py:131
 msgid "Infomate"
 msgstr "Infomate"
 
-#: posts/views.py:119
+#: posts/views.py:132
 msgid ""
 "Чтобы оставаться в курсе событий и получать информацию из разных источников"
 msgstr ""
 "Para estar al tanto de los acontecimientos y recibir información de "
 "distintas fuentes"
 
-#: posts/views.py:127
+#: posts/views.py:140
 msgid "Планы на год"
 msgstr "Planes para el año"
 
-#: posts/views.py:128
+#: posts/views.py:141
 msgid "Мой личный подход к ежегодному планированию"
 msgstr "Mi enfoque personal para la planificación anual"
 
@@ -613,53 +609,56 @@ msgstr "Vastrik: Feed secreto"
 msgid "Вастрик.ру: Только публичные посты"
 msgstr "Vastrik: Solo publicaciones públicas"
 
-#: vas3k_blog/settings.py:235
+#: vas3k_blog/posts.py:19
+msgid "Блог"
+msgstr "Blog"
+
+#: vas3k_blog/posts.py:40
+msgid "Галлерея"
+msgstr "Galería"
+
+#: vas3k_blog/posts.py:47
+msgid "Вастрик.Инсайд"
+msgstr "Vastrik Inside"
+
+#: vas3k_blog/settings.py:237
 msgid "Вастрик <inside@inside.vas3k.ru>"
 msgstr "Vastrik <inside@inside.vas3k.ru>"
 
 #: vas3k_blog/strings.py:5
 msgid ""
-"Авторский блог о выживании в мире технологий и происходящем вокруг киберпанке"
+"Авторский блог о выживании в мире технологий и происходящем вокруг "
+"киберпанке"
 msgstr ""
 "Mi blog sobre cómo sobrevivir en el mundo de la tecnología y el ciberpunk "
 "que ocurre a nuestro alrededor"
 
 #: vas3k_blog/strings.py:7
 msgid ""
-"В этом блоге я пишу о технологиях, всратом айти и выживании в творящемся "
-"вокруг киберпанке. Делаю это уже больше 10 лет.\n"
+"В этом блоге я пишу о технологиях, всратом айти и выживании в творящемся вокруг киберпанке. Делаю это уже больше 10 лет.\n"
 "\n"
-"Я [программист](https://www.linkedin.com/in/vas3k/), техлид. Живу в [Берлине]"
-"(https://vas3k.blog/blog/go_to_berlin/) 🇩🇪 и нежно люблю его. До этого жил в "
-"[Литве](https://vas3k.blog/world/what_is_lithuania/) 🇱🇹, а [рос](https://"
-"vas3k.blog/world/nskflat/) и учился в Новосибирске 🥶\n"
+"Я [программист](https://www.linkedin.com/in/vas3k/), техлид. Живу в [Берлине](https://vas3k.blog/blog/go_to_berlin/) 🇩🇪 и нежно люблю его. До этого жил в [Литве](https://vas3k.blog/world/what_is_lithuania/) 🇱🇹, а [рос](https://vas3k.blog/world/nskflat/) и учился в Новосибирске 🥶\n"
 "\n"
-"У меня есть пёс, [Бус](https://vas3k.blog/blog/bus_2022/) и [Клуб](https://"
-"vas3k.club). Ну и еще мелкие [пет-проджекты](https://github.com/vas3k)."
+"У меня есть пёс, [Бус](https://vas3k.blog/blog/bus_2022/) и [Клуб](https://vas3k.club). Ну и еще мелкие [пет-проджекты](https://github.com/vas3k)."
 msgstr ""
-"Escribo sobre tecnología, cosas locas de TI y cómo sobrevivir al ciberpunk "
-"que está ocurriendo a nuestro alrededor. Y llevo haciéndolo más de 10 años.\n"
+"En este blog escribo sobre tecnología, la mierda del mundo informático y cómo sobrevivir al ciberpunk que nos rodea. Llevo más de diez años haciéndolo.\n"
 "\n"
-"Soy [ingeniero de software](https://www.linkedin.com/in/vas3k/) de Siberia, "
-"ex team-lead e indie-hacker viviendo en Berlín 🇩🇪\n"
+"Soy [programador](https://www.linkedin.com/in/vas3k/) y líder técnico. Vivo en [Berlín](https://vas3k.blog/blog/go_to_berlin/) 🇩🇪, una ciudad a la que le tengo muchísimo cariño. Antes vivía en [Lituania](https://vas3k.blog/world/what_is_lithuania/) 🇱🇹, y [crecí](https://vas3k.blog/world/nskflat/) y estudié en Novosibirsk 🥶\n"
 "\n"
-"Tengo un perro, una [furgoneta camper](https://es.vas3k.blog/blog/bus_2022/) "
-"y dirijo una comunidad online. También hago algunos [proyectos personales]"
-"(https://github.com/vas3k).\n"
-"\n"
-"Esta es la versión en español de mi blog, donde a veces traduzco artículos "
-"de la [versión principal](https://vas3k.blog)."
+"Tengo un perro, un [Bus](https://vas3k.blog/blog/bus_2022/) y un [Club](https://vas3k.club). Y unos cuantos [proyectos personales](https://github.com/vas3k)."
 
 #: vas3k_blog/strings.py:13
 msgid ""
-"🚨 Роскомнадзор банит одну соцсеть за другой, поэтому я рекомендую "
-"подписаться \n"
+"🚨 Роскомнадзор банит одну соцсеть за другой, поэтому я рекомендую подписаться \n"
 "как по почте (её сложнее заблокировать), так и на вашей любимой площадке. \n"
 "Тогда у нас будет хотя бы два канала для связи."
 msgstr ""
 "Suscríbete a cualquiera de mis canales para no perderte nuevas "
-"publicaciones. El correo electrónico es generalmente la forma más confiable, "
-"pero la Generación Z lo odia, así que también tengo redes sociales."
+"publicaciones. El correo electrónico es generalmente la forma más confiable,"
+" pero la Generación Z lo odia, así que también tengo redes sociales."
 
 #~ msgid "Либо по номеру карты:"
 #~ msgstr "Número de tarjeta:"
+
+msgid "Каталог рекомендаций и объявлений для всех в комьюнити"
+msgstr "Un directorio de recomendaciones y anuncios para toda la comunidad"

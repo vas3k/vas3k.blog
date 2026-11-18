@@ -28,6 +28,7 @@ jobs:
       - name: Make envfile
         run: export | grep "secret_" | sed "s/declare -x secret_//" > .env
         env:
+          secret_OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           secret_SECRET_KEY: ${{ secrets.SECRET_KEY }}
           secret_TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           secret_TELEGRAM_MAIN_CHAT_ID: ${{ secrets.TELEGRAM_MAIN_CHAT_ID }}
