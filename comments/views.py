@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 from django.conf import settings
 from django.http import HttpResponseForbidden, HttpResponseNotAllowed, HttpResponse, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, render
-from django.utils.translation import get_language
+from django.utils.translation import get_language, gettext as _
 
 from comments.forms import CommentForm
 from comments.models import Comment
@@ -23,7 +23,7 @@ def create_comment(request):
     if not post.is_commentable:
         return render(
             request, "error.html", {
-                "message": "Нельзя комментировать этот пост"
+                "message": _("Нельзя комментировать этот пост")
             }
         )
 
@@ -34,7 +34,7 @@ def create_comment(request):
     ).count()
     if same_ip_comments_24h >= settings.MAX_COMMENTS_PER_24H:
         return HttpResponseBadRequest(
-            "Вы оставили слишком много комментариев, остановитесь"
+            _("Вы оставили слишком много комментариев, остановитесь")
         )
 
     comment = Comment.objects.create(
@@ -72,4 +72,4 @@ def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
     comment.delete()
 
-    return HttpResponse("☠️ Комментарий удален")
+    return HttpResponse(_("☠️ Комментарий удален"))

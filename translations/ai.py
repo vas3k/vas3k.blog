@@ -17,8 +17,12 @@ voice and terminology. A chunk may be the whole article or just changed lines.
 Return only those chunks, with their original IDs. Context is read-only.
 
 Keep line breaks and paragraph boundaries exactly where they are. Do not wrap
-lines. Preserve images verbatim, including their alt text, titles and URLs.
-Preserve links and their destinations, code, HTML, custom markers and attributes.
+lines. Translate ALL human-readable text, including image captions, image alt
+text, image titles, link labels, table cells and prose inside HTML. Image captions
+in this blog often appear inside ![caption](URL) or in an image's quoted title.
+Preserve image and link URLs exactly. Do not alter the images themselves.
+Preserve code, HTML tags, custom markers and structural attributes; translate
+human-readable alt and title attributes. Preserve Markdown delimiters.
 Keep bold, italic, strikethrough, headings, lists and table formatting in place;
 translate the prose inside them. Never extract, rearrange or rebuild the markup.
 Keep names, numbers and technical identifiers accurate. Do not add commentary

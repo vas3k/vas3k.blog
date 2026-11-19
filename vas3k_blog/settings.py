@@ -22,7 +22,6 @@ ALLOWED_HOSTS = [
     "vas3k.en",
     "es.vas3k.blog",
     "zh.vas3k.blog",
-    "hi.vas3k.blog",
 ]
 INTERNAL_IPS = ["127.0.0.1"]
 
@@ -153,7 +152,6 @@ BLOG_EDITIONS = {
     "en": {"name": "English", "domain": "vas3k.com"},
     "es": {"name": "Español", "domain": "es.vas3k.blog"},
     "zh": {"name": "简体中文", "domain": "zh.vas3k.blog"},
-    "hi": {"name": "हिन्दी", "domain": "hi.vas3k.blog"},
 }
 LANGUAGES = [(code, edition["name"]) for code, edition in BLOG_EDITIONS.items()]
 
@@ -273,7 +271,6 @@ TRANSLATION_LANGUAGES = {
     "en": "English",
     "es": "Spanish (consistent, broadly understandable vocabulary)",
     "zh": "Simplified Chinese (Mandarin, mainland Chinese vocabulary)",
-    "hi": "Hindi (natural conversational Hindi in Devanagari)",
 }
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-6.2-astra")

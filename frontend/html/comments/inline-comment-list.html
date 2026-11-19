@@ -1,13 +1,18 @@
 {% load comments %}
+{% load i18n %}
 {% load text_filters %}
 
 {% if post.is_commentable or block_comments %}
     <div class="inline-comments" id="block-{{ block }}">
         <div class="inline-comments-header" onclick="return toggle(event, '.inline-comments-content', 'inline-comments-content-hidden');">
             {% if block_comments|length > 0 %}
-                {{ block_comments|length }}&nbsp;{{ block_comments|length|rupluralize:"комментарий,комментария,комментариев" }}
+                {% if request.LANGUAGE_CODE == "ru" %}
+                    {{ block_comments|length }}&nbsp;{{ block_comments|length|rupluralize:"комментарий,комментария,комментариев" }}
+                {% else %}
+                    {% blocktranslate count count=block_comments|length %}{{ count }} комментарий{% plural %}{{ count }} комментариев{% endblocktranslate %}
+                {% endif %}
             {% else %}
-                Комментировать
+                {% trans "Комментировать" %}
             {% endif %}
         </div>
 
@@ -25,7 +30,7 @@
                     {% include "comments/inline-comment-form.html" %}
                 {% else %}
                     <div class="inline-comments-login">
-                        <a href="{% url "login" %}" class="button">Войти и написать</a>
+                        <a href="{% url "login" %}" class="button">{% trans "Войти и написать" %}</a>
                     </div>
                 {% endif %}
             {% endif %}

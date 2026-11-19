@@ -35,7 +35,7 @@
                   hx-post="{% url "delete_comment" comment.id %}"
                   hx-target="#comment-{{ comment.id }}"
                   hx-swap="innerHTML"
-                  hx-confirm="Удаляем?"
+                  hx-confirm="{% trans 'Удаляем?' %}"
               >
                 {% trans "Удалить" %}
               </button>

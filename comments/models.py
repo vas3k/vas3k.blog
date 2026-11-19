@@ -80,7 +80,7 @@ class Comment(models.Model):
     def natural_created_at(self):
         if self.created_at > datetime.utcnow() - timedelta(days=7):
             return naturaltime(self.created_at)
-        return django_date(self.created_at, "d E Y в H:i")
+        return django_date(self.created_at, "DATETIME_FORMAT")
 
     def get_avatar(self):
         if self.author:

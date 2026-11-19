@@ -17,7 +17,7 @@
     <div class="block profile">
         <div class="block-description-center">
             {% if request.user.is_superuser %}
-                <a href="/godmode/" class="button button-blue">Админка</a>
+                <a href="/godmode/" class="button button-blue">{% trans "Админка" %}</a>
             {% endif %}
 
             <a href="{% url "logout" %}" class="button button-red">{% trans "Выйти" %}</a>

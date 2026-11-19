@@ -6,6 +6,7 @@ from django.conf import settings
 from django.http import Http404, HttpResponseForbidden
 from django.shortcuts import get_object_or_404, render
 from django.views.decorators.http import require_POST
+from django.utils.translation import gettext as _
 
 from posts.models import Post
 
@@ -27,14 +28,14 @@ def start_translation(request, post_id, language):
 
     if Post.objects.filter(slug=source.slug, lang=language).exists():
         return render(request, "message.html", {
-            "title": "Перевод уже существует",
-            "message": "Для этого языка уже есть перевод, возможно, он пока не опубликован.",
+            "title": _("Перевод уже существует"),
+            "message": _("Для этого языка уже есть перевод, возможно, он пока не опубликован."),
         })
 
     if not settings.OPENAI_API_KEY:
         return render(request, "message.html", {
-            "title": "Перевод не запущен",
-            "message": "На сервере не настроен ключ OpenAI.",
+            "title": _("Перевод не запущен"),
+            "message": _("На сервере не настроен ключ OpenAI."),
         }, status=503)
 
     try:
@@ -47,11 +48,11 @@ def start_translation(request, post_id, language):
     except OSError:
         logger.exception("Could not start translation for %s into %s", source.pk, language)
         return render(request, "message.html", {
-            "title": "Перевод не запущен",
-            "message": "Не удалось запустить процесс перевода. Попробуйте позже.",
+            "title": _("Перевод не запущен"),
+            "message": _("Не удалось запустить процесс перевода. Попробуйте позже."),
         }, status=503)
 
     return render(request, "message.html", {
-        "title": "Перевод запущен",
-        "message": f"Перевод на {language.upper()} работает в фоне. Можно закрыть эту страницу: перевод появится в посте, когда будет готов.",
+        "title": _("Перевод запущен"),
+        "message": _("Перевод на %(language)s работает в фоне. Можно закрыть эту страницу: перевод появится в посте, когда будет готов.") % {"language": language.upper()},
     })

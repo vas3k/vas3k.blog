@@ -13,7 +13,7 @@
                 {% for language in missing_translations %}
                     <form method="post" action="{% url 'start_translation' translation_source.id language %}">
                         {% csrf_token %}
-                        <button type="submit" class="button post-translation">Перевести → {{ language|upper }}</button>
+                        <button type="submit" class="button post-translation">{% trans "Перевести" %} → {{ language|upper }}</button>
                     </form>
                 {% endfor %}
             </div>
