@@ -20,7 +20,15 @@ Keep line breaks and paragraph boundaries exactly where they are. Do not wrap
 lines. Translate ALL human-readable text, including image captions, image alt
 text, image titles, link labels, table cells and prose inside HTML. Image captions
 in this blog often appear inside ![caption](URL) or in an image's quoted title.
-Preserve image and link URLs exactly. Do not alter the images themselves.
+Preserve image URLs exactly. Do not alter the images themselves.
+For article cross-links, prefer the verified published version in the target
+language, including articles originally linked on vas3k.club. Use only verified
+URL mappings supplied in context; never guess a translated URL or change a host
+without confirming that the target article exists. If no verified translation
+exists, keep the original link. Preserve explicit links to the Russian original,
+Club profiles, discussions, events, achievements and comments. Keep query strings
+and fragments only when they retain their meaning at the verified destination;
+otherwise keep the original link. Preserve every other link URL exactly.
 Preserve code, HTML tags, custom markers and structural attributes; translate
 human-readable alt and title attributes. Preserve Markdown delimiters.
 Keep bold, italic, strikethrough, headings, lists and table formatting in place;

@@ -63,6 +63,11 @@ def index(request):
         ])\
         .order_by("-view_count")[:5]
     world_posts = list(latest_world_posts) + list(top_world_posts)
+    if len(world_posts) < 8:
+        world_posts += list(visible_posts
+            .filter(type="world", is_visible_on_home_page=True)
+            .exclude(id__in=[post.id for post in world_posts])
+            .order_by("-published_at")[:8 - len(world_posts)])
 
     # featured posts
     best_posts = visible_posts\

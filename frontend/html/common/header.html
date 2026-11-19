@@ -38,11 +38,9 @@
             🔍
         </div>
 
-        {% if request.LANGUAGE_CODE == "ru" %}
-            <a href="{% url "profile" %}" class="button button-inverted avatar header-menu-item header-menu-round" {% if request.user.is_authenticated %}style="background-image: url('{{ request.user.avatar }}');" {% endif %}>
-                {% if not request.user.is_authenticated or not request.user.avatar %}👤{% endif %}
-            </a>
-        {% endif %}
+        <a href="{% url "profile" %}" class="button button-inverted avatar header-menu-item header-menu-round" {% if request.user.is_authenticated %}style="background-image: url('{{ request.user.avatar }}');" {% endif %}>
+            {% if not request.user.is_authenticated or not request.user.avatar %}👤{% endif %}
+        </a>
     </div>
 </div>
 
